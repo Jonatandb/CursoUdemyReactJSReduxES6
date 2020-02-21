@@ -1,5 +1,16 @@
 import React from 'react'
 import WeatherIcons from 'react-weathericons'
+import {
+    SUN,
+    HOT,
+    CLOUD,
+    CLOUDY,
+    RAIN,
+    SNOW,
+    FOG,
+    WINDY,
+    TORNADO,
+} from '../constans/weathers'
 
 // Weather Icons:
 // --------------
@@ -18,13 +29,15 @@ import WeatherIcons from 'react-weathericons'
 
 const icons = {
     // http://erikflowers.github.io/weather-icons/
-    sunny: 'day-sunny',
-    hot: 'hot',
-    cloud: 'cloud',
-    rain: 'rain',
-    fog: 'fog',
-    snow: 'snow',
-    tornado: 'tornado',
+    [SUN]: 'day-sunny',
+    [HOT]: 'hot',
+    [CLOUD]: 'cloud',
+    [CLOUDY]: 'cloudy',
+    [RAIN]: 'rain',
+    [SNOW]: 'snow',
+    [FOG]: 'fog',
+    [WINDY]: 'windy',
+    [TORNADO]: 'tornado'
 }
 
 const getWeatherIcon = weatherStae => {

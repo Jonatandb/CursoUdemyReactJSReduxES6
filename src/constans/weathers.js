@@ -1,0 +1,9 @@
+export const SUN = 'sun';
+export const HOT = 'hot';
+export const CLOUD = 'cloud';
+export const CLOUDY = 'cloudy';
+export const RAIN = 'rain';
+export const SNOW = 'snow';
+export const FOG = 'fog';
+export const WINDY = 'windy';
+export const TORNADO = 'tornado';
