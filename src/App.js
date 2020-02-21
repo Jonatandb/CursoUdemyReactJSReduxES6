@@ -5,7 +5,6 @@ import WeatherLocation from './components/WeatherLocation';
 function App() {
   return (
     <div className="App">
-      Weather App
       <WeatherLocation />
     </div>
   );
