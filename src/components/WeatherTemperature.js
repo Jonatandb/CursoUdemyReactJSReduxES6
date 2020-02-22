@@ -11,6 +11,8 @@ import {
     WINDY,
     TORNADO,
 } from '../constans/weathers'
+import PropTypes from 'prop-types'
+
 
 // Weather Icons:
 // --------------
@@ -40,8 +42,8 @@ const icons = {
     [TORNADO]: 'tornado'
 }
 
-const getWeatherIcon = weatherStae => {
-    const icon = icons[weatherStae]
+const getWeatherIcon = weatherState => {
+    const icon = icons[weatherState]
     if (icon)
         return <WeatherIcons name={icon} size="2x" />
     else
@@ -55,6 +57,11 @@ const WeatherTemperature = ({ temperature, weatherState }) => {
             <span>{` - ${temperature} ºC`}</span>
         </div>
     )
+}
+
+WeatherTemperature.propTypes = {
+    temperature: PropTypes.number.isRequired,
+    weatherState: PropTypes.string.isRequired
 }
 
 export default WeatherTemperature
