@@ -1,3 +1,30 @@
+/* Recursos varios:
+
+    Fuente Roboto de Google:
+        https://fonts.google.com/specimen/Roboto?selection.family=Roboto
+
+    https://www.cssmatic.com/
+        Generador online de gradientes, bordes, sombreados que permite
+            copiarse el css necesario para éstos y más efectos y diseños
+            manipulables desde la página.
+
+    https://css-tricks.com/
+        Tutoriales sobre flexbox, grid, etc:
+
+        https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+        https://css-tricks.com/snippets/css/complete-guide-grid/
+        https://css-tricks.com/complete-guide-table-element/
+        https://css-tricks.com/centering-css-complete-guide/
+        https://css-tricks.com/a-complete-guide-to-svg-fallbacks/
+        https://css-tricks.com/nerds-guide-color-web/
+        https://css-tricks.com/a-complete-guide-to-data-attributes/
+        https://css-tricks.com/a-complete-guide-to-links-and-buttons/
+        https://css-tricks.com/guides/web-components/
+        https://css-tricks.com/guides/how-to-think-like-a-front-end-developer/
+        https://css-tricks.com/guides/beginner/
+        https://css-tricks.com/guides/react/
+*/
+
 .locationContainer {
     width: 100%;
     text-align: left;
@@ -8,8 +35,6 @@
 .locationContainer h1 {
     margin: 0
 }
-
-/* https://fonts.google.com/specimen/Roboto?selection.family=Roboto */
 
 .weatherLocationContainer {
     width: 400px;
