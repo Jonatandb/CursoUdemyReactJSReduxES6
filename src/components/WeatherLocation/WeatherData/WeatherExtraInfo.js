@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './styles.css'
 
 const WeatherExtraInfo = ({ humidity, wind }) => {
     return (
-        <div>
+        <div className="weatherExtraInfoContainer">
             <span>{`Humedad: ${humidity}%`}</span>
             <span>{` - `}</span>
             <span>{`Viento: ${wind}`}</span>

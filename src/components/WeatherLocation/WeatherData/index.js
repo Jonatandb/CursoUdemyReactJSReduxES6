@@ -4,10 +4,11 @@ import WeatherExtraInfo from './WeatherExtraInfo'
 import {
     SUN,
 } from './../../../constans/weathers'
+import './styles.css'
 
 const WeatherData = () => {
     return (
-        <div>
+        <div className="weatherDataContainer">
             <WeatherTemperature
                 temperature={20}
                 weatherState={SUN}

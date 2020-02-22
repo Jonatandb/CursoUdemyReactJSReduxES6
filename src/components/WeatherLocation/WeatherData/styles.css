@@ -1,0 +1,11 @@
+.weatherDataContainer {
+    background-color: red
+}
+
+.weatherTemperatureContainer {
+    background-color: blue;
+}
+
+.weatherExtraInfoContainer {
+    background-color: green;
+}

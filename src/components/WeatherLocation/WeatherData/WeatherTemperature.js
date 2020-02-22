@@ -12,6 +12,7 @@ import {
     TORNADO,
 } from '../../../constans/weathers'
 import PropTypes from 'prop-types'
+import './styles.css'
 
 
 // Weather Icons:
@@ -52,7 +53,7 @@ const getWeatherIcon = weatherState => {
 
 const WeatherTemperature = ({ temperature, weatherState }) => {
     return (
-        <div>
+        <div className="weatherTemperatureContainer">
             {getWeatherIcon(weatherState)}
             <span>{` - ${temperature} ºC`}</span>
         </div>
