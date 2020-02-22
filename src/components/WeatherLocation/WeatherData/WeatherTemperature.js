@@ -10,7 +10,7 @@ import {
     FOG,
     WINDY,
     TORNADO,
-} from '../constans/weathers'
+} from '../../../constans/weathers'
 import PropTypes from 'prop-types'
 
 
