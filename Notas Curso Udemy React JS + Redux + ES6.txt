@@ -1,0 +1,45 @@
+
+
+	https://www.udemy.com/course/react-js-redux-es6-completo-de-0-a-experto-espanol/
+
+	CodePen de pruebas:
+		https://codepen.io/Jonatandb/pen/ExjydmO
+
+	* Cuando quise ejecutar npx create-react-app me pasaba lo mismo que cuando ejecutaba
+		create-react-app weather-app, que me apareceía un mensaje que decía que estaba usando una versión vieja
+		de create-react-app.
+		Descubrí que estaba instalado create-react-app no solo en la carpeta node_modules de npm, sino que
+		tambien en la carpeta de instalación de nodeJS.
+		Al eliminarlo de todos lados pude ejecutar sin problemas:
+			npx create-react-app weather-app y se creó correctamente una nueva aplicación de React.
+
+Weather Icons:
+--------------
+
+	Weather Icons sitio oficial:
+		http://erikflowers.github.io/weather-icons/
+
+	React Weather Icons:
+		https://www.npmjs.com/package/react-weathericons
+
+	Weather Icons CDN:
+		https://cdnjs.com/libraries/weather-icons
+
+		Agregar a index.html:
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" />
+		
+		
+OpenWeather:		Servicio gratuito que provee datos del clima
+------------
+
+	Página principal:
+					https://openweathermap.org/
+				
+	Documentación de la API:
+					https://openweathermap.org/api
+					
+	Guía de uso - How to start:
+					https://openweathermap.org/appid
+	
+	"Ciudad Autónoma de Buenos Aires", "id": 3433955,
+	
