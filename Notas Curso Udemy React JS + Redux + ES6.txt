@@ -1,45 +1,724 @@
+Curso:
+		https://www.udemy.com/course/react-js-redux-es6-completo-de-0-a-experto-espanol/
+
+Repositorio:
+
+		https://github.com/Jonatandb/CursoUdemyReactJSReduxES6
 
 
-	https://www.udemy.com/course/react-js-redux-es6-completo-de-0-a-experto-espanol/
+3. Node.js, Npm y Yarn
 
-	CodePen de pruebas:
-		https://codepen.io/Jonatandb/pen/ExjydmO
+	https://nodejs.org/es/
 
-	* Cuando quise ejecutar npx create-react-app me pasaba lo mismo que cuando ejecutaba
-		create-react-app weather-app, que me apareceía un mensaje que decía que estaba usando una versión vieja
-		de create-react-app.
-		Descubrí que estaba instalado create-react-app no solo en la carpeta node_modules de npm, sino que
-		tambien en la carpeta de instalación de nodeJS.
-		Al eliminarlo de todos lados pude ejecutar sin problemas:
-			npx create-react-app weather-app y se creó correctamente una nueva aplicación de React.
+	https://classic.yarnpkg.com/en/docs/install#windows-stable
 
-Weather Icons:
---------------
+	NodeJs permite escribir aplicaciones del lado del servidor sin bloqueo de entradas/salidas, lo que lo hace muy eficiente.
 
-	Weather Icons sitio oficial:
+
+4. Gestor de Paquetes NPM y Yarn
+
+	https://www.npmjs.com/
+
+	https://yarnpkg.com/
+
+
+5. VSCode
+
+	https://code.visualstudio.com/download
+
+
+6. Puntos fuertes de React JS
+
+	https://reactjs.org/
+
+
+	Posee un gran ecosistema (hay muchas entensiones y recursos relacionados disponibles que extienden sus características)
+
+	Estabilidad y alta retrocompatibilidad
+		La forma en que los creadores de React manejan las versiones y la manera en que van haciendo evloucionar la librería permite que
+			no existan quiebres de compatibilidad entre versiones y que se logre mayor estabilidad general de la plataforma.
+
+	Performance
+		Se logra mediante una librería muy liviana que provee tiempos de carga muy buenos y también posee una buena velocidad de
+			actualización de pantalla, obtenida por renderizaciones parciales inteligentes mediante su virtual dom y el proceso
+			denominado reconciliation.
+
+	A nivel de arquitectura React representa la V de vista del modelo MVC, y suele utilizarse dentro de SPA's (single page applications)
+
+
+7. ¡Hola Mundo! Babel, ES6, CodePen
+
+	¿Que es JSX?
+		https://facebook.github.io/jsx/
+		https://medium.com/@Thoughtworks_es/qu%C3%A9-demonios-es-jsx-txt-f5841e51f664
+
+		Fundamentalmente, solo es azúcar sintáctico para la función de React:
+		React.createElement(component, props, ...children)
+		(por eso necesitamos tener a React dentro del scope del proyecto)
+
+		Fue creado con la intención de que los preprocesadores (ej. Babel.js) lo transformen en ECMAScript estándar.
+		Es decir, el gran propósito de JSX es el de proveer una sintaxis –familiar y concisa (tipo HTML/XML)– para
+			definir estructuras de nodos con propiedades y atributos.
+		Existen un par de “reglas” para utilizar JSX:
+			Escribir nuestros propios componentes con capitalización. <App />
+			Escribir los componentes built-in (HTML) con minúsculas. <img />
+		JSX no es ni HTML, ni XML; solo se asemeja para ayudar a la legibilidad –para parecer más familiar.
+			Es un simple patrón de composición de funciones pero con una sintaxis similar al HTML/XML.
+		En realidad, la mayor diferencia –visual– entre JSX y HTML, es el tener que usar className para agregar una clase,
+			ya que class es una palabra reservada en JS.
+
+	Babel
+		https://babeljs.io/
+
+		Babel es un preprocesador de Javascript que entiende versiones de Javascript modernas (como ES6) y las convierte a
+			una versión compatible con la mayoría de los navegadores.
+
+	Herramienta que ejecuta Babel online:
+		http://traductor-babel.surge.sh/
+		Permite que se ingrese JSX y muestra el javascript necesario para crearlo utilizando javascript clásico.
+		Ej:	<Dropdown sarasa="Jony"><Menu><MenuItem>lala</MenuItem></Menu></Dropdown>
+
+	CodePen "Hola mundo" en React:
+		https://codepen.io/correooke/pen/vzwPqX
+
+		Un CodePen es un proyecto online, editable, que permite realizar pruebas de concepto (o incluso proyectos completos) y
+			compartirlos muy fácilmente con quien se desee.
+
+		Configuración básica para utilizar con React:
+			Desde las opciones de configuración del CodePen elegir:
+				JavaScript Preprocessor:	Babel
+				Add External Scripts/Pens:
+						https://cdnjs.cloudflare.com/ajax/libs/react/16.4.2/umd/react.production.min.js
+						https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.2/umd/react-dom.production.min.js
+
+
+8. Creación de app react
+
+	Instalación de paquetes de NPM de manera "global":
+		https://docs.npmjs.com/getting-started/installing-npm-packages-globally
+
+	Instalación de Yarn:
+		https://yarnpkg.com/en/docs/install
+
+	Utilización de npx para crear una nueva aplicación: Weather App
+		npx create-react-app weather-app
+			* Cuando quise ejecutar npx create-react-app me pasaba lo mismo que cuando ejecutaba
+				create-react-app weather-app, que me apareceía un mensaje que decía que estaba usando una versión vieja	de create-react-app.
+				Descubrí que estaba instalado create-react-app no solo en la carpeta node_modules global de npm, sino que también en la
+				carpeta de instalación de nodeJS.
+				Al eliminarlo de todos lados pude ejecutar sin problemas:	npx create-react-app weather-app y se creó correctamente una
+				nueva aplicación de React.
+
+	Create React App
+		Es una herramienta que facilita crear de una forma fácil una SPA (Single page application) con todas las mejores recomendaciones
+			de Facebook, sponsor principal de React.
+		Esta app tendrá las mejores prácticas incluídas, la configuración correcta de Babel, y la configuración correcta de WebPack
+			(herramienta que toma los distintos archivos de nuestra app y genera lo que se llama un bundle, un paquete con la aplicación
+			listo para ejecutarse.)
+			También viene configurado algo llamado "Hot reload", que es una funcionalidad que recarga nuestra página automáticamente cuando
+				detecta que el código fuente de la misma es modificado. Esto permite ver casi en tiempo real el resultado de las modificaciones
+				que hagamos a nuestra aplicación.
+
+	Primera ejecución de nuestra aplicación:
+		Entrar a la carpeta que se acaba de crear:
+			cd weather-app
+			yarn start 					// Se puede ejecutar también npm start.
+		Con esto se abrirá una ventana del navegador con la aplicación funcionando.
+
+	Estructura de carpetas:
+		Create-react-app dentro de la carpeta de la aplicación creó las siguientes carpetas:
+		- public
+			Carpeta que posee nuestro archivo princial, index.html, el cual posee un nodo con id "root", que es donde se inyectará nuestra
+				aplicación creada con React.
+		- src
+			Carpeta que contiene todos nuestros componentes, incluído el archivo principal index.js que importa y utiliza el primer componente
+				generado de ejemplo llamado App.
+
+
+9. Planificación con Wireframes
+
+	Presentación de la aplicación a desarrollar durante el curso y sus distintas partes y funcionalidades.
+
+	Herramienta para creación de Wireframes (Bosquejos):
+		https://balsamiq.com/
+
+
+10. Creación de functional component
+
+	Análisis del archivo "src/App.js", el punto de entrada de la aplicación, el primer componente que "index.js" renderiza.
+
+	Creación de una carpeta para almacenar los componentes: "src/components"
+
+	Simpre que se utiliza JSX para crear un componente, primero se debe importar React (que es quien permite su utilización):
+		import React from 'react'
+
+	Creación del primer componente funcional: "components/WeatherLocation.js"
+		const WeatherLocation = () => {
+			<div>Weather Location</div>
+		}
+
+	Para que el componente creado pueda ser consumido desde otras partes de la aplicación, el mismo debe ser exportado desde el archivo donde
+		está definido, esto se hace con:
+		export default WeatherLocation
+
+	Importación y uso del componente WeatherLocation desde "src/App.js":
+		import WeatherLocation from './components/WeatherLocation'
+			// ES6 asume que el archivo importado tiene la extensión ".js" por eso
+			// se puede omitir la misma (no es necesario poner "WeatherLocation.js")
+		function App() {
+			return (
+				<div className="App">
+				<WeatherLocation />			// Uso del componente creado.
+				</div>
+			);
+		}
+		export default App;
+
+
+11. VSCode Plugins y extensiones
+
+	Plugins que hacen VSCode más interesante y útil:
+		vscode-icons
+		Reactjs code snippets
+
+
+12. ES6 Arrow Functions
+
+	Explicación y ejemplos de funciones flecha.
+
+	-	Son el nuevo standard que provee ECMAScript (la especificación de Javascript)
+	-	Son anónimas:	() => { }
+			En caso de necesitar referenciarlas se deben guardar su referencia en una variable:
+				const miFuncion = () => {}
+	-	No pueden ser utilizadas como constructores.
+	-	Cuando posee una sola línea no es necesario que tengan la palabra return.
+	-	Si tiene un solo parámetro, el mismo no necesita ser envuelto en paréntesis
+			Si tiene cero más de un parámentro, entonces si deben ir los paréntesis.
+
+
+13. Ejercicio: Creación de componentes e importación
+
+	Creación de componentes:
+		"/components/Location.js"
+		"/components/WeatherData.js"
+
+
+14. Componentes WeatherExtraInfo y WeatherTemperature
+
+
+15. Uso de parámetros / Herramientas de debugging
+
+	Para pasarle parámetros a un componente, se deben agregar al mismo, en la invocación, atributos con valores.
+		Éstos atributos, serán pasados por React al componente y dentro de los mimsos estará el valor asígnado a cada uno en la invocación
+		al componente.
+	Métodos de debugging:
+		Pablabra clave: debugger;
+			Cuando esta sentencia se deja en el código la misma funciona como un breakpoint, por lo tanto la ejecución de este programa se
+				pausará al llegar a esta línea, pero para que eso suceda se debe debuggear la aplicación.
+
+	Uso de Chrome para debugging:
+		En nuestro sitio web presionamos F12 y se abrirá el panel de herramientas de desarrollador de Chrome, en este panel ir a la solapa
+			denominada "Sources" y recargar la página. Al recargarse la página se vuelve a ejecutar nuestro programa y al llegar la
+			ejecución a la línea con la sentencia "debugger" la misma se detendrá en ese punto, permitiendonos inspeccionar el estado y
+			contenido de las distintas variables y objetos de nuestra aplicación en ese momento.
+			En caso de necesitar puntos de interrupción adicionales, no es necesario modificar el código, sino que se pueden establecer
+				haciendo click en cualquier número de línea de la banda numerada a la izquierda del código en el panel de código de la
+				solapa "Sources", una vez creado un punto cada vez que la ejecución pase por ahí se pausará como con la instrucción
+				"debugger".
+
+
+16. Parámetro con Object Destructuring
+
+	Destructuring es una técnica que es parte de ECMAScript 6 que establece que cuando tenemos una propiedad con un nombre que luego
+		queremos asignar a una variable/constante con el mismo nombre que lo propiedad, la podemos asignar de forma directa con esta
+		técnica:
+
+		Sin Destructuring:
+			const MiComponente = (props) => {
+				const city = props.city;
+
+		Con Destructuring:
+			const MiComponente = (props) => {
+				const { city } = props;
+
+		Si el objeto props tuviera más propiedades que quisiera asignar a constantes, se pueden obtener así:
+			const MiComponente = (props) => {
+				const { city, address } = props;
+
+		Simplificando más el código utilizando Destructuring:
+			const MiComponente = ({ city }) => {
+				const city = city;
+
+
+17. ES6: Object Destructuring
+
+	const obj = { name: 'Jonatandb', nick: 'Jony' };
+	const { name: myName, nick: myNick } = obj;			// Extraigo de obj los valores de name y nick pero lo asigno a nuevas constantes de nombre myName y myNick
+	console.log(myName);								// Jonatandb
+	console.log(myNick);								// Jony
+
+	Otro caso:
+		const { name, nick } = obj;		// Cuando extraigo los valores de las propiedades de un objeto y las asigno a variables del mismo nombre, puedo omitir
+										//	la declaración de las variables con el mismo nombre.
+										// Sintaxis no resumida:
+										// const name = obj.name;
+										// const nick = obj.nick;
+
+	Destructuring de arrays:
+		const [x, y] = [1,2];
+		console.log(x);		//-> 1
+
+	Destructuring con valores por defecto:
+		const { x, y = 1 } = {}
+		console.log(x);		// undefined
+		console.log(y);		// -> 1
+
+	Destructuring de arrays con "elision" (lo que permite omitir una o más posiciones de un array):
+		const [ , , x, y] = ['a', 'b', 'c', 'd']
+		console.log(x);  	// -> 'c'
+		console.log(y);  	// -> 'd'
+
+	Destructuring en conjunto con uso del rest operator (...):
+		Se utiliza para meter en un objeto el resto de valores que queden luego de extraer los deseados.
+		El rest operator se identifica con tres puntos igual que el spread operator, pero su función es diferente.
+		const [x, ...y] = ['a', 'b', 'c', 'd'];
+		console.log(x);		// -> 'a'
+		console.log(y);		// -> ['b', 'c', 'd']
+
+
+18. Parámetros y uso de template string
+
+	Template string:
+		Se tratan de cadenas de texto especiales, porque van entre tildes invertidos `texto de la cadena` y tiene la particularidad de que pueden
+			contenter variables, pero para que se muestre como parte del string el contenido de la variable, a la misma se la debe encerrar entre
+			el signo de pesos y llaves: ${variable}
+		Ej:
+			const nombre = "Jonatandb";
+			console.log(`Este texto fue mostrado por ${nombre}.`); // -> Este texto fue mostrado por Jonatandb.
+
+
+19. ES6: Template Strings
+
+	También se conocen como template literals.
+
+
+20. Instalación de libreria con npm install o yarn add
+
+	Instalación de componente para mostrar íconos del clima:		React-WeatherIcons
+
+	Weather Icons:
+	--------------
+
+		Weather Icons sitio oficial:
+			http://erikflowers.github.io/weather-icons/
+
+		React Weather Icons:
+			https://www.npmjs.com/package/react-weathericons
+
+			Instalación:
+				npm install react-weathericons
+
+				Requiere que se agrege también a "index.html" una referencia a un archivo de estilos específico:
+					Weather Icons CDN:
+						https://cdnjs.com/libraries/weather-icons
+
+						Agregar a index.html:
+							<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" />
+
+	Uso de Yarn para instalar paquetes:
+		yarn add react-weathericons
+		** Instala como npm el paquete indicado y actualiza el package.json, solo que funciona mejor que npm al obtener los datos de forma más optimizada.
+
+	Explicación general de la página de NPM.
+
+	Explicación de características generales de GitHub.
+
+
+21. Recomendaciones sobre uso de packages externos y ubicación del index.html
+
+	React Weather Icons requiere que se agrege también a "index.html" una referencia a un archivo de estilos específico:
+		Agregado a "public/index.html":
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" />
+
+	Weather Icons sitio oficial, para consultar el total de íconos disponibles:
 		http://erikflowers.github.io/weather-icons/
 
-	React Weather Icons:
-		https://www.npmjs.com/package/react-weathericons
+	CDN:
+		Content delivery network, serie de servidores con recursos comunmente muy utilizados por muchos sitios webs, que pueden ser consumidos directamente
+			permitiendo que no necesitemos tener tales recursos en nuestro servidor o en la pc del cliente sino que se descargan en el momento.
 
-	Weather Icons CDN:
-		https://cdnjs.com/libraries/weather-icons
 
-		Agregar a index.html:
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" />
-		
-		
-OpenWeather:		Servicio gratuito que provee datos del clima
-------------
+22. Agregar Icono y uso de función en functional component
 
-	Página principal:
-					https://openweathermap.org/
-				
-	Documentación de la API:
-					https://openweathermap.org/api
-					
-	Guía de uso - How to start:
-					https://openweathermap.org/appid
-	
-	"Ciudad Autónoma de Buenos Aires", "id": 3433955,
-	
+
+23. Utilización de constantes
+
+
+24. PropTypes
+
+	Ayuda a validar las propiedades que se le pasan a un componente componente.
+
+	Instalación:
+		yarn add prop-types
+
+	Uso:
+		import PropTypes from 'prop-types'
+
+		Antes de la linea export defual nombreComponente, se escribe la validación por ej. asi:
+			nombreComponente.propTypes = {
+				propiedad1: PropTypes.number,
+				propiedad2: PropTypes.string,
+			}
+		A partir de este momento, si cuando se utiliza este componente, se le pasa un tipo de dato diferente al especficado en sus propiedades,
+		aparecerá una advertencia en consola indicando tal diferencia.
+
+		Lo mismo sucede si a alguna propiedad además de configurarsele su tipo de dato, se le especifica que es requerida, por ej. asi:
+			nombreComponente.propTypes = {
+				propiedad1: PropTypes.number.isRequired,
+				propiedad2: PropTypes.string,
+			}
+		En este caso, si se intenta utilizar el componente sin pasarle un valor a su propiedad "propiedad1", también aparecerá una advertencia
+		en la consola indicado la falta de un valor para esa propiedad.
+
+
+25. Validación con PropTypes
+
+	Instalación de extensión "React code snippets" que posee abreviaciones útiles para trabajar con React.
+	Por ej, al escribir ptsr y presionar TAB, se auto-escribe: propTypes.string.isRequired
+	Con esto se pueden especificar los tipos de las propiedades de los componentes de una forma más rápida.
+	También se puede utilizar:
+		pta			propTypes.Array
+		ptnr		propTypes.number.isRequired
+		y muchas abreviaciones más... (leer documentación de la extensión).
+
+	Agregado de validaciones con PropTypes a todos los componentes del proyecto.
+
+
+26. Repaso sobre validaciones de PropTypes
+
+	Validaciones disponibles:		(A todas se les puede agregar al final ".isRequired")
+
+		PropTypes.array
+		PropTypes.bool
+		PropTypes.func
+		PropTypes.number
+		PropTypes.object
+		PropTypes.string
+		PropTypes.symbol
+		PropTypes.element	Un elemento React
+		PropTypes.node 		Cualquier cosa que pueda ser renderizada: numeros, strings, elementos o fragmentos de éstos tipos.
+							Es como una categoría más que PropTypes.element
+		PropTypes.instanceOf(Message)	Permite validar que se está pasando una instancia de un objeto específico.
+		PropTypes.oneOf(['News', 'Message', etc.])	Permite validar que el tipo sea de alguno de la lista especificada.
+		PropTypes.oneOfType([ PropTypes.array, PropTypes.number, PropTypes.instanceOf(Message)]		Similar al anterior.
+		PropTypes.arrayOf(PropTypes.number)		Similar al anterior, pero se aclara que se recibirá un array de un tipo especificado.
+		PropTypes.shape({
+			color: PropTypes.string,
+			fontSize: PropTypes.number
+		})								Permite validar que el valor recibido sea un objeto que tenga las propiedades especificadas.
+		PropTypes.any		Permite cualquier tipo de valor.
+
+
+27. Truco para refactorizar sin problemas: Uso de carpetas e Index.js
+
+	Reorganización de carpetas y renombrado de archivos.
+
+	Aprovechando que cuando se hace import sin especificar la extensión del archivo importado, se busca por defecto tanto un archivo
+		con el nombre especificado (y extensión .js) como una carpeta con dicho nombre (que dentro tenga un archivo index.js), se
+		renombran los archivos para dejar por cada componente una carpeta con el nombre del mismo y dentro un archivo index.js con el
+		componente.
+		Con este refactor se puede pasar de tener una estructura así:
+			/components
+				- Location.js
+				- WeatherData.js
+				- WeatherExtraInfo.js
+				- WeatherLocation.js
+				- WeatherTemperature.js
+		a esta estructura:
+			/components
+				/WeatherLocation
+					- index.js						Ex WeatherLocation.js
+					- Location.js
+					/WeatherData
+						- index.js					Ex WeatherData.js
+						- WeatherExtraInfo.js
+						- WeatherTemperature.js
+
+
+28. Cómo incluir CSS en React
+
+	Agregado de un archivo "styles.css" dentro de cada carpeta de cada componente para especificar sus estilos.
+
+	Agregado de clases a los divs contendores de los componentes.
+
+	Para agregar clases a los componentes, en los divs contendores se debe utilizar "className" en lugar de "class".
+
+
+29. Opciones para estilo: CSS, Preprocesadores CSS y CSSModules
+
+	CSS describe cómo se va a ver cada elemento de la página.
+
+	SASS, LESS, son preprocesadores de CSS que extienden las capacidades de CSS agregando variables, reglas anidadas, mixing, importación
+		de archivos y mucho más. Ayudan a mantener grandes hojas de estilo bien organizadas.
+
+	"CSS Modules" es un módulo utilizado dentro del mundo de React que tiene una diferencia con respecto al uso de un archivo "styles.css"
+		ya que utiliza un alias para el mismo.
+
+
+30. CSS en React "Under the hood"
+
+	WebPack cuando comprime el contenido de nuestra aplicación, mete tanto el javascript como el css, todo junto, en un archivo llamado "bundle.js"
+		Este archivo en desarrollo es legible, pero en productivo está minificado para reducir el tamaño al máximo para que descargue enseguida
+			del servidor y la aplicación esté disponible lo más rápido posible en el navegador del usuario.
+
+
+31. Aplicación de estilos CSS
+
+
+32. Estilos componente WeatherTemperature
+
+
+33. Estilos componente WeatherExtraInfo
+
+
+34. External Font y otros detalles
+
+	Agregado de una fuente externa desde la página de fuentes de Google: fonts.google.com
+		Desde la página de la fuente "Roboto":
+			https://fonts.google.com/specimen/Roboto
+			hacer click en "SELECT THIS FONT" para que aparezca el código HTML necesario para utilizar esta fuente
+			en nuestra aplicación.
+		Ir al archivo "index.html" y en el Head pegar el código obtenido:
+			<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+		Luego, desde cualquier archivo css, se puede hacer uso de la fuente mediante:
+			font-family: 'Roboto', sans-serif;
+
+
+35. Herramientas de debugging para estilo y CSSMatic
+
+	Uso de las herramientas de desarrollador de Chrome para inspeccionar los elementos HTML y sus estilos aplicados y manipularlos para revisar ajustes.
+
+	CSSMatic.com
+		Está pagina contiene herramientas online que podemos utilizar en nuestras hojas de estilo.
+		Posee un generador de gradientes, el cual manipulamos en linea y luego copiamos el código generado para utilizarlo en nuestra aplicación.
+		Posee también un generador de sombras, otro de bordes, otro de texturas...
+
+	CSS-Tricks.com
+		Tutoriales de calidad para aprender a trabajar con Flexbox, CSS Grid, entre otros.
+
+
+36. Doble Destructuring
+
+	Se utiliza cuando se desea extraer de un objeto con varios niveles de propiedades, algunos de sus valores.
+	Por ej, teniendo el siguiente obtejo:
+		const miObjeto = {
+			propiedad1: 123,
+			data: {
+				propiedada: 'a',
+				propiedadb: 'b'
+			}
+		}
+	Se puede hacer doble destructuring y extraer solo los valores de las propiedades de la propiedad data:
+	const { data: { propiedada, propiedadb } } = miObjeto;
+		A partir de este momento, tengo disponibles mediante las constantes propiedada y propiedadb, los valores 'a' y 'b' respectivamente.
+
+
+37. Utilización de PropType.Shape
+
+	Se utiliza para especificar que una propiedad de un componente va a recibir un objeto con una forma específica y con propiedades con valores
+		de los tipos especificados:
+			WeatherData.propTypes = {
+				data: PropTypes.shape({
+					temperature: PropTypes.number.isRequired,
+					weatherState: PropTypes.string.isRequired,
+					humidity: PropTypes.number.isRequired,
+					wind: PropTypes.string.isRequired,
+				}),
+			}
+			En este caso se utilza para declarar que el componente WeatherData tiene una propiedad llamada 'data' que recibe como valor un objeto
+				el cual tiene las propiedades 'temperature', 'weatherState', 'humidity' y 'wind', con los tipos de datos específicados.
+
+
+38. Cómo transformar un functional en un class Component
+	Se debe modificar el componente funcional, por ej:
+		const MiComponente = () => {
+			return (
+				<div>
+					<span>Este es mi componente</span>
+				</div>
+			)
+		}
+	De la siguiente manera:
+		import React, { Component } from 'react';
+		class MiComponente extends Component {
+			render() {
+				return (
+					<div>
+						<span>Este es mi componente</span>
+					</div>
+				);
+			}
+		}
+
+
+39. Evento OnClick y manejo de State
+	Para poder tener estado en un componente, el mismo debe ser un componente de clase.
+	Además, el componente de clase, debe tener definido el método constructor(), y el mismo por dentro debe llamar al constructor de su clase padre:
+		constructor() {
+			super()
+		}
+	Una vez hecho esto, se puede establecer el estado inicial del componente, ej:
+		class MiComponente extensión Component {
+			constructor() {
+				super();
+				this.state = {
+					mensaje: 'Estado inicial del componente',
+				}
+			}
+		}
+	Luego, mediante interacciones del usuario con el componente, por ejemplo haciendo click, se puede alterar este estado,
+	lo que hará que el componente se renderice, dibujandose de nuevo y por ende mostrando el nuevo estado:
+			class MiComponente extensión Component {
+				constructor() {
+					super();
+					this.state = {
+						mensaje: 'Estado inicial del componente',
+					}
+				}
+				handleClick = () => {
+					console.log('Se clickeó el div');
+					this.setState({
+						mensaje: 'Este mensaje aparece como resultado de modificar el state'
+					})
+				}
+				render() {
+					const mensaje = this.state;
+					return (
+						<div onClick={this.handleClick}>
+							<span>Mensaje a mostrar: {mensaje}</span>
+						</div>
+					);
+				}
+			}
+	Es muy importante tener en cuenta que para modificar el state de un componente, no se puede llamar a this.state y asignarle un nuevo valor, como
+		se hace durante la inicialización en el constructor, ya que arrojará un error por la consola y no surtirá efecto. Lo que se debe hacer en su
+		lugar es utilizar la funcionalidad this.setState(), la cual recibe como valor un objeto con la propiedad que se desea agregar o actualizar al
+		state del componente.
+
+
+40. SetState (updater)
+
+	Explicación de lo que sucede al setear el estado inicial y al actualizarlo utilizando mediante el uso de this.setState({})
+
+
+41. React Developer Tools para Chrome
+
+	Instalación de extensión para Chrome que facilita el debugging de aplicaciones React:
+
+		React Developer Tools
+		https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=es
+
+	Esta extensión agregar a las herramientas de desarrollador de Chrome, un par de solapas que permite inspeccionar los componentes que
+		componen nuestra aplicación.
+	Permite buscar componentes por nombre, clickear los componentes de la página para mostrar sus propiedades y los valores de la misma.
+	Permite que sean modificadas las propiedades para ver en tiempo real los resultados.
+	Permite activar la opción "Highlight Updates", lo que muestra un borde resaltado en los componentes cuando los mismos se actualizan.
+	Permite también revelar dentro de que componente se encuentra un elemento HTML al que le hicimos click luego de seleccionar "Inspeccionar
+		elemento".
+
+
+42. Api Rest OpenWeatherMap
+
+	Explicación de funcionamiento del servicio de OpenWeatherMap.
+
+	OpenWeatherMap:		Servicio gratuito que provee datos del clima
+	---------------
+
+		Página principal:
+						https://openweathermap.org/
+
+		Documentación de la API:
+						https://openweathermap.org/api
+
+		Guía de uso - How to start:
+						https://openweathermap.org/appid
+
+		"Ciudad Autónoma de Buenos Aires", "id": 3433955,
+
+
+43. Fetch y solapa de debugging Network de Chrome
+
+	fetch es una función incluída en el core de JavaScript que realiza peticiones http.
+
+	fetch al ser relativamente nueva, no es totalmente compatible con navegadores antiguos, por lo que se recomienda en todo caso utilizar: Axios.
+
+	Explicación y uso de la solapa Network de las herramientas de desarrollador de Chrome.
+
+
+44. Promises
+
+	Una promise se utiliza para procesamientos asincronicos
+	Su resultado puede ser obtenido ahora, en un futuro o nunca.
+	Estados:
+		Pendiente
+		Cumplida
+		Rechazada
+
+	Ciclo de vida de una promise:
+		Inicialmente se encuentra en estado Pending
+		Cuando se ejecuta puede pasar al estado Fulfill (Cumplida) o al estado Rejected (Rechazada).
+		Si termina en estado Fulfill se ejecuta entonces la funcionalidad dentro de la llamada a ".then()", then() recibe como parámetro el resultado
+			de la ejecución de la promise y se puede hacer en ese momento lo que se necesite, incluso hacer una nueva llamada a otra Promise por ejemplo.
+		En caso de terminar Rejected, se va a ejecutar la funcionalidad dentro de ".catch()", si hubiera uno.
+	Las promises se pueden encadenar.
+
+	Ej:
+		let promesa = new Promise( (resolve, rejected) => {
+			setTimeout( () => {
+				resolve("Éxito");		// Esta promesa al ser ejecutada se resolverá exitosamente devolviendo el string "Éxito".
+			}, 2000);					// La promesa tardará 2 segundos en resolverse exitosamente.
+		})
+		console.log("Ejecución de la promise...");
+		promesa.then( msg => {
+			console.log("Mensaje devuelto por la promesa: ", msg);
+		})
+		console.log("Fin de la ejecución de la promise.");
+
+		El resultado por consola de esta ejecución es el siguiente:
+			Ejecución de la promise...
+			Fin de la ejecución de la promise.
+			Mensaje devuelto por la promesa: Éxito
+		* Esto es así porque la promise se demoró un tiempo en ejecutarse.
+			Si se desea que la ejecución resulte en órden, se debería incluír el último console.log() dentro de la función pasada a .then(), de esta manera
+				solo se verá el mensaje de fin cuando la promesa se ejecute correctamente, ej:
+				let promesa = new Promise( (resolve, rejected) => {
+					setTimeout( () => {
+						resolve("Éxito");		// Esta promesa al ser ejecutada se resolverá exitosamente devolviendo el string "Éxito".
+					}, 2000);					// La promesa tardará 2 segundos en resolverse.
+				})
+				console.log("Ejecución de la promise...");
+				promesa.then( msg => {
+					console.log("Mensaje devuelto por la promesa: ", msg);
+					console.log("Fin de la ejecución de la promise.");
+				})
+
+		En caso de querer contemplar el caso en el que la promesa por alguna razón falla durante su ejecución, se debe agregar la llamada a .cacth() y
+			pasarle la funcionalidad a ejecutarse en tal caso, ej:
+
+			let promesa = new Promise( (resolve, rejected) => {
+				setTimeout( () => {
+					rejected("La promesa falló!");		// Esta promesa al ser ejecutada se resolverá como Rechazada.
+				}, 2000);								// La promesa tardará 2 segundos en resolverse.
+			})
+			console.log("Ejecución de la promise...");
+			promesa.then( msg => {
+				console.log("Mensaje devuelto por la promesa: ", msg);
+			}).catch( err => {
+				conosole.log("Este mensaje se mostrará cuando la ejecución falle:", err);
+			})
+			console.log("Fin de la ejecución de la promise.");
+		El resultado por consola de esta ejecución es el siguiente:
+			Ejecución de la promise...
+			Este mensaje se mostrará cuando la ejecución falle: La promesa falló!
+			Fin de la ejecución de la promise.
+
