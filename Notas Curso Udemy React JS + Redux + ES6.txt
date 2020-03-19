@@ -714,11 +714,24 @@ Repositorio:
 			promesa.then( msg => {
 				console.log("Mensaje devuelto por la promesa: ", msg);
 			}).catch( err => {
-				conosole.log("Este mensaje se mostrará cuando la ejecución falle:", err);
+				console.log("Este mensaje se mostrará cuando la ejecución falle:", err);
 			})
 			console.log("Fin de la ejecución de la promise.");
 		El resultado por consola de esta ejecución es el siguiente:
 			Ejecución de la promise...
-			Este mensaje se mostrará cuando la ejecución falle: La promesa falló!
 			Fin de la ejecución de la promise.
+			Este mensaje se mostrará cuando la ejecución falle: La promesa falló!
 
+
+45. Utilización de valores retorno de Fetch
+
+	https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Utilizando_Fetch
+	https://developer.mozilla.org/es/docs/Web/API/Body
+
+	fetch es un método global de Javascript que devuelve una Promise, pero esa promise todavía no tiene el resultado que se espera.
+	fetch toma como parámetro la url a la que se desea hacer la solicitud, este parámetro es obligatorio.
+	fetch devuelve entonces una Promise que finalmente se resuelve a un objeto Response, de ese response de puede consultar su objeto
+		body (https://developer.mozilla.org/es/docs/Web/API/Body) y ejecutar métodos que él mismo provee para convertir la respuesta
+		obtenida en algo que nos resulte útil, por ejemplo ".json()".
+		.json() es un método que se ejecuta sobre el objeto Response y luego de leerlo hasta el final devuelve una Promise que se
+		resuelve con el resultado de parsear todo el contenido del body a JSON.
