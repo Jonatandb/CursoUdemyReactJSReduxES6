@@ -735,3 +735,10 @@ Repositorio:
 		obtenida en algo que nos resulte útil, por ejemplo ".json()".
 		.json() es un método que se ejecuta sobre el objeto Response y luego de leerlo hasta el final devuelve una Promise que se
 		resuelve con el resultado de parsear todo el contenido del body a JSON.
+
+
+46. Transformación de datos
+
+	Análisis del json obtenido desde el servidor para planificar como extraer desde el mismo la información relevante que el
+		componente necesita para funcionar correctamente.
+
