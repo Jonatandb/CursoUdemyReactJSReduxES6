@@ -5,8 +5,8 @@ import "./styles.css";
 import { SUN, WINDY } from "./../../constans/weathers";
 
 /*
-OpenWeather:	Servicio gratuito que provee datos del clima
-------------
+OpenWeatherMap:	Servicio gratuito que provee datos del clima
+---------------
 
 	Página principal:
 					https://openweathermap.org/
@@ -27,61 +27,71 @@ const url_base_weather = "http://api.openweathermap.org/data/2.5/weather";
 
 const api_weather = `${url_base_weather}?q=${location}&appid=${api_key}`;
 
-const data = {
-  temperature: 38,
-  weatherState: SUN,
-  humidity: 85,
-  wind: "10 km/h"
-};
+/* Alternativa trayendo los datos utilizando el id de ciudad como la API sugiere:
+const locationId = 3433955;
+const api_weather = `${url_base_weather}?id=${locationId}&appid=${api_key}`;
+*/
 
-const data2 = {
-  temperature: 21,
+// Fake initial data:
+const data = {
+  temperature: 99,
   weatherState: WINDY,
-  humidity: 20,
-  wind: "40 km/h"
+  humidity: 99,
+  wind: "99 km/h"
 };
 
 class WeatherLocation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      city: "Buenos Aires",
+      city: "Barcelona",
       data: data
     };
   }
 
-  handleUpdateClick = () => {
-    /* Alternativa trayendo los datos utilizando el id de ciudad
-        como la API sugiere: */
-    /*
-            const locationId = 3433955
-            fetch(`${url_base_weather}?id=${locationId}&appid=${api_key}`)
-        */
+  getData = weather_data => {
+    console.log(
+      "WeatherLocation.getData(): Respuesta JSON desde la API:\n",
+      weather_data
+    ); // Logueo en la consola la respuesta desde la API
 
+    const { temp, humidity } = weather_data.main;
+    const { speed } = weather_data.wind;
+    const weatherState = SUN;
+
+    const data = {
+      temperature: temp,
+      weatherState,
+      humidity,
+      wind: `${speed} m/s`
+    };
+
+    return data;
+  };
+
+  handleUpdateClick = () => {
     fetch(api_weather)
       .then(response => {
         return response.json();
       })
       .then(myJson => {
         if (myJson && myJson.cod && myJson.cod === 200) {
-          // Logueo en la consola la respuesta desde la API:
-          console.log("Respuesta JSON desde la API:\n", myJson);
+          this.setState({
+            data: this.getData(myJson)
+          });
         } else {
           console.log(
-            "Se produjo un error.",
+            "WeatherLocation.handleUpdateClick(): Se produjo un error al obtener datos del servidor.",
             myJson && myJson.message && myJson.message
           );
         }
       })
       .catch(function(reason) {
-        console.log("Se produjo un error en alguna de las Promises:", reason);
+        console.log(
+          "WeatherLocation.handleUpdateClick(): Se produjo un error en alguna de las Promises:",
+          reason
+        );
       });
-
-    // Update fake del state para ver como se actualiza el componente:
-    this.setState({
-      city: "Barcelona",
-      data: data2
-    });
   };
 
   render() {

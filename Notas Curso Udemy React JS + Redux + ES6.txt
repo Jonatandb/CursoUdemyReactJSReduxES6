@@ -740,5 +740,16 @@ Repositorio:
 46. Transformación de datos
 
 	Análisis del json obtenido desde el servidor para planificar como extraer desde el mismo la información relevante que el
-		componente necesita para funcionar correctamente.
+		componente que muestra los datos del clima necesita para funcionar correctamente.
+
+
+47. Arquitectura de datos: independencia de API
+
+	En este punto se desarrolla una función que obtiene como parámentro la respuesta desde el servidor y devuelve un objeto cuyo contenido
+		es precisamente lo que el componente WeatherLocation necesita para mostrarse correctamente.
+
+	Esto permite tener una interfaz de usuario independiente de la tecnología subyacente en el servidor al que se le solicitan los datos,
+		permitiendo por ejemplo que si algún día se cambia de servidor del clima, tocando solamente esa funcionalidad se pueda seguir
+		haciendo que el componente reciba los datos correctos (configurando nuevamente el mapeo hecho ahí dentro).
+
 
