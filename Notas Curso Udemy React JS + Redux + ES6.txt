@@ -786,3 +786,24 @@ Repositorio:
 				);
 
 
+50. Services Layer
+
+	SOLID:
+		->	S:	Single responsability
+
+			Quiere decir que cada una de las clases tienen que tener una única responsabilidad para poder tener el menor nivel de acoplamiento,
+				lo que permite que luego se modifique lo más rápido posible cuando se necesite hacerlo, sin que esto afecte a otras clases.
+
+			Teniendo en cuenta esto, se hace incapié en que la clase WeatherLocation posee métodos que hacen transfomaciones de los datos (getData,
+				getTemp, getWeatherState...) y esto está mal porque se está acoplando la vista con tales funciones de transformación.
+				Esto es mejor sacarlo de esta clase y hacer lo que se llama una "capa de servicios" que exponga estas funcionalidades, para de paso
+					reutilizarlas desde otro lado si fuese necesario.
+				Para esto, se crea una carpeta en el raíz llamada "services" con el archivo "transformWeather.js"
+					Este archivo contendrá una constante con cada uno de los métodos de la clase (se quitán por lo tanto de la clase) y se cambia
+					el nombre del método getWeatherState a transformWeather y se lo exporta con export default transformWeather;
+					En la clase, importa este archivo y se en el click del botón ahora se llama a esta función en lugar de a this.getWeatherState().
+
+			También se transladan las constantes utilizadas para formar la url del servicio del clima al archivo "constants/api_url.js" y se importa
+				la constante api_weather que es la única que utilizará el WeatherLocation.
+
+

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Location from "./Location";
 import WeatherData from "./WeatherData";
-import convert from "convert-units";
 import "./styles.css";
-import { SUN, WINDY } from "./../../constans/weathers";
+import transformWeather from "../../services/transformWeather";
+import { WINDY } from "../../constans/weathers";
+import { api_weather } from "../../constans/api_url";
 
 /*
 OpenWeatherMap:	Servicio gratuito que provee datos del clima
@@ -20,18 +21,6 @@ OpenWeatherMap:	Servicio gratuito que provee datos del clima
 
 	Ciudad Autónoma de Buenos Aires -> id: 3433955
 
-*/
-
-const location = "Buenos Aires,ar";
-const api_key = "f99bbd9e4959b513e9bd0d7f7356b38d";
-const url_base_weather = "http://api.openweathermap.org/data/2.5/weather";
-
-const api_weather = `${url_base_weather}?q=${location}&appid=${api_key}`;
-// const api_weather = `${url_base_weather}?q=${location}&appid=${api_key}&units=metric`; // Especificando en la llamada medidas devueltas en ºC.
-
-/* Alternativa trayendo los datos utilizando el id de ciudad como la API sugiere:
-const locationId = 3433955;
-const api_weather = `${url_base_weather}?id=${locationId}&appid=${api_key}`;
 */
 
 // Fake initial data:
@@ -51,49 +40,26 @@ class WeatherLocation extends Component {
     };
   }
 
-  getCelsius = kelvin =>
-    Number(
-      convert(kelvin)
-        .from("K")
-        .to("C")
-        .toFixed(2)
-    );
-
-  getData = weather_data => {
-    console.log(
-      "WeatherLocation.getData(): Respuesta JSON desde la API:\n",
-      weather_data
-    ); // Logueo en la consola la respuesta desde la API
-
-    const { temp, humidity } = weather_data.main;
-    const temperature = this.getCelsius(temp);
-    const weatherState = SUN;
-    const { speed } = weather_data.wind;
-
-    const data = {
-      temperature,
-      weatherState,
-      humidity,
-      wind: `${speed} m/s`
-    };
-
-    return data;
-  };
-
   handleUpdateClick = () => {
     fetch(api_weather)
       .then(response => {
         return response.json();
       })
-      .then(myJson => {
-        if (myJson && myJson.cod && myJson.cod === 200) {
+      .then(weatherJSONResponse => {
+        if (
+          weatherJSONResponse &&
+          weatherJSONResponse.cod &&
+          weatherJSONResponse.cod === 200
+        ) {
           this.setState({
-            data: this.getData(myJson)
+            data: transformWeather(weatherJSONResponse)
           });
         } else {
           console.log(
             "WeatherLocation.handleUpdateClick(): Se produjo un error al obtener datos del servidor.",
-            myJson && myJson.message && myJson.message
+            weatherJSONResponse &&
+              weatherJSONResponse.message &&
+              weatherJSONResponse.message
           );
         }
       })
