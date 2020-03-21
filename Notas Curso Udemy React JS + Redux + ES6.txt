@@ -760,3 +760,29 @@ Repositorio:
 	https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Object_initializer
 
 
+49. Convert-Units
+
+	Una opción de hacer que la temperatura se vea en grados centígrados, es agregar a la url del servidor al que se piden los datos, el siguiente
+		parámetro:
+			&units=metric
+		por lo que quedaría así:
+			const api_weather = `${url_base_weather}?q=${location}&appid=${api_key}&units=metric`;
+		y todos los valores se obtendrán en grados centígrados.
+
+	Otra opción es usar por ejemplo la librería 'convert-units', lo que permite desarrollar una funcionalidad que le permita al usuario elegir en
+	todo momento en que notación desea ver los valores de las temperaturas.
+
+		Instalación:
+			npm install convert-units
+
+		Uso:
+			import convert from 'convert-units';
+			getCelsius = kelvin =>		// Creo un método que recibe un valor en kelvin
+				Number(					// y lo devuelve convertido en Celsius, con sólo dos decimales.
+				convert(kelvin)
+					.from("K")
+					.to("C")
+					.toFixed(2)
+				);
+
+
