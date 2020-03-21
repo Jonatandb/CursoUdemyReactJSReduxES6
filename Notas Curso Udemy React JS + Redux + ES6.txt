@@ -229,6 +229,8 @@ Repositorio:
 
 16. Parámetro con Object Destructuring
 
+	https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/Destructuring_assignment
+
 	Destructuring es una técnica que es parte de ECMAScript 6 que establece que cuando tenemos una propiedad con un nombre que luego
 		queremos asignar a una variable/constante con el mismo nombre que lo propiedad, la podemos asignar de forma directa con esta
 		técnica:
@@ -751,5 +753,10 @@ Repositorio:
 	Esto permite tener una interfaz de usuario independiente de la tecnología subyacente en el servidor al que se le solicitan los datos,
 		permitiendo por ejemplo que si algún día se cambia de servidor del clima, tocando solamente esa funcionalidad se pueda seguir
 		haciendo que el componente reciba los datos correctos (configurando nuevamente el mapeo hecho ahí dentro).
+
+
+48. Object Literal Property Value Shorthand
+
+	https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Object_initializer
 
 
