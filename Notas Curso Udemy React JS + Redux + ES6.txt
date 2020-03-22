@@ -807,3 +807,27 @@ Repositorio:
 				la constante api_weather que es la única que utilizará el WeatherLocation.
 
 
+51. React Class Component LifeCycle
+
+	Eventos del ciclo de vida de los componentes de clase de React
+
+	Los eventos que se ejecutan son los siguientes:
+		constructor
+		componentWillMount
+		componentDidMount
+		componentWillUpdate
+		componentDidUpdate
+		render
+
+	El orden en el que se ejecutan, la primera vez que se carga el componente, es el siguiente:
+
+		constructor
+		componentWillMount			UNSAFE		Se va a descontinuar, se debería usar componentDidMount	**
+		render
+		componentDidMount			** Este es el lugar correcto donde se deberían hacer solicitudes al servidor.
+
+	Cada vez que se actualiza el componente, se ejecutan los siguientes:
+		componentWillUpdate			UNSAFE		Se va a descontinuar, se debería usar componentDidUpdate **
+		render
+		componentDidUpdate
+
