@@ -849,6 +849,43 @@ Repositorio:
 
 
 54. Material Design
-	Explicación general sobre Material Design
 
-	https://material.io/
+	Explicación general sobre Material Design
+		https://material.io/
+
+
+55. Material UI
+
+	https://material-ui.com/es/
+
+	Componentes de React para un desarrollo web más rápido y sencillo.
+
+	Instalación:	https://material-ui.com/es/getting-started/installation/
+		npm install @material-ui/core
+
+	Los componentes de Material-UI funcionan sin ninguna configuración adicional,
+		y no ensucian el global scope:
+			import React from 'react';
+			import { Button } from '@material-ui/core';
+
+			function App() {
+				return <Button color="primary">Hello World</Button>;
+			}
+
+	peerDependencies	-	https://classic.yarnpkg.com/es-ES/docs/dependency-types/
+		Las dependencias en pares son un tipo especial de dependencia que solo se necesitan si estás publicando tu paquete.
+		Al tener una dependencia en par, significa que tu paquete necesita una dependencia que es exactamente la misma
+			dependencia que la persona que instala tu paquete. Esto es útil para paquetes como react que necesita tener
+			 una única copia de react-dom que también es usada por la persona que instala tu paquete.
+
+	Material-UI fue diseñado con la fuente Roboto en mente.
+		Así que asegúrate de seguir estas instrucciones:
+			https://material-ui.com/es/components/typography/#general
+			The Roboto font will not be automatically loaded by Material-UI.
+			The developer is responsible for loading all fonts used in their application.
+			Roboto Font has a few easy ways to get started. For more advanced configuration,
+				check out the theme customization section:	https://material-ui.com/es/customization/typography/
+		Puedes referenciarla, por ejemplo, a través de Google Web Fonts:
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+
+

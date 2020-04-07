@@ -3,8 +3,8 @@ import Location from "./Location";
 import WeatherData from "./WeatherData";
 import "./styles.css";
 import transformWeather from "../../services/transformWeather";
-import { WINDY } from "../../constans/weathers";
 import { api_weather } from "../../constans/api_url";
+import { Button } from "@material-ui/core";
 
 /*
 OpenWeatherMap:	Servicio gratuito que provee datos del clima
@@ -74,6 +74,9 @@ class WeatherLocation extends Component {
       <div className="weatherLocationContainer">
         <Location city={city} />
         {data ? <WeatherData data={data} /> : "Cargando..."}
+        <Button variant="contained" color="primary">
+          Botón de Material :-)
+        </Button>
       </div>
     );
   }
