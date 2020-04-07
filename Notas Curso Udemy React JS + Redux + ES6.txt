@@ -822,12 +822,23 @@ Repositorio:
 	El orden en el que se ejecutan, la primera vez que se carga el componente, es el siguiente:
 
 		constructor
-		componentWillMount			UNSAFE		Se va a descontinuar, se debería usar componentDidMount	**
+		componentWillMount			UNSAFE		Se va a discontinuar, se debería usar componentDidMount	**
 		render
 		componentDidMount			** Este es el lugar correcto donde se deberían hacer solicitudes al servidor.
 
 	Cada vez que se actualiza el componente, se ejecutan los siguientes:
-		componentWillUpdate			UNSAFE		Se va a descontinuar, se debería usar componentDidUpdate **
+
+		componentWillUpdate			UNSAFE		Se va a discontinuar, se debería usar componentDidUpdate **
 		render
 		componentDidUpdate
 
+
+52. ComponentDidMount y Network Slow 3G Chrome Tool
+
+	Teniendo en cuenta de que no se puede utilizar el método componentWillMount() porque será discontinuado, se debe tener en cuenta
+		de que siempre sucederá que la primera vez que el componente se renderice y muestre lo hará sin datos del servidor, por lo que hay
+		que preparar el componente para que muestre datos que den a entender al usuario de que el componente aún se está cargando y no
+		posee la información final.
+	Luego de prepararlo con un estado incial, se debe agregar la funcionalidad que obtiene los datos reales en el método componentDidMount()
+	Por lo que el componente se renderizará incialmente dos veces, una en la carga incial y otra en la actualización cuando se obtengan los
+		datos del servidor.

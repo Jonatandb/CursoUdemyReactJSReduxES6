@@ -25,48 +25,39 @@ OpenWeatherMap:	Servicio gratuito que provee datos del clima
 
 // Fake initial data:
 const data = {
-  temperature: 99,
+  temperature: -1,
   weatherState: WINDY,
-  humidity: 99,
-  wind: "99 km/h"
+  humidity: -1,
+  wind: "-1 km/h",
 };
 
 class WeatherLocation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      city: "Barcelona",
-      data: data
+      city: "Buenos Aires",
+      data: data,
     };
-    console.log("constructor");
   }
 
-  componentWillMount() {
-    console.log("UNSAFE componentWillMount");
-  }
   componentDidMount() {
-    console.log("componentDidMount");
-  }
-  componentWillUpdate() {
-    console.log("UNSAFE componentWillUpdate");
-  }
-  componentDidUpdate() {
-    console.log("componentDidUpdate");
+    // Lugar correcto para hacer peticiones al servidor.
+    this.handleUpdateClick();
   }
 
   handleUpdateClick = () => {
     fetch(api_weather)
-      .then(response => {
+      .then((response) => {
         return response.json();
       })
-      .then(weatherJSONResponse => {
+      .then((weatherJSONResponse) => {
         if (
           weatherJSONResponse &&
           weatherJSONResponse.cod &&
           weatherJSONResponse.cod === 200
         ) {
           this.setState({
-            data: transformWeather(weatherJSONResponse)
+            data: transformWeather(weatherJSONResponse),
           });
         } else {
           console.log(
@@ -77,7 +68,7 @@ class WeatherLocation extends Component {
           );
         }
       })
-      .catch(function(reason) {
+      .catch(function (reason) {
         console.log(
           "WeatherLocation.handleUpdateClick(): Se produjo un error en alguna de las Promises:",
           reason
@@ -86,7 +77,6 @@ class WeatherLocation extends Component {
   };
 
   render() {
-    console.log("render");
     const { city, data } = this.state;
     return (
       <div className="weatherLocationContainer">
