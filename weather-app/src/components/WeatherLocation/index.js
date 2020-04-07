@@ -23,20 +23,12 @@ OpenWeatherMap:	Servicio gratuito que provee datos del clima
 
 */
 
-// Fake initial data:
-const data = {
-  temperature: -1,
-  weatherState: WINDY,
-  humidity: -1,
-  wind: "-1 km/h",
-};
-
 class WeatherLocation extends Component {
   constructor(props) {
     super(props);
     this.state = {
       city: "Buenos Aires",
-      data: data,
+      data: null,
     };
   }
 
@@ -81,8 +73,7 @@ class WeatherLocation extends Component {
     return (
       <div className="weatherLocationContainer">
         <Location city={city} />
-        <WeatherData data={data} />
-        <button onClick={this.handleUpdateClick}>Actualizar</button>
+        {data ? <WeatherData data={data} /> : "Cargando..."}
       </div>
     );
   }

@@ -842,3 +842,9 @@ Repositorio:
 	Luego de prepararlo con un estado incial, se debe agregar la funcionalidad que obtiene los datos reales en el método componentDidMount()
 	Por lo que el componente se renderizará incialmente dos veces, una en la carga incial y otra en la actualización cuando se obtengan los
 		datos del servidor.
+
+
+53. Indicador de Carga, utilización ternario
+	Uso del operador ternario
+
+
