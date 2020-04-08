@@ -1,0 +1,4 @@
+{
+  "eslint.workingDirectories": ["./weather-app/src"],
+  "prettier.semi": false
+}

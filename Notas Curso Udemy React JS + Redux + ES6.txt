@@ -899,3 +899,37 @@ Repositorio:
 
 	Agregado del meta viewport requerido para que todo lo relacionado con Material-UI se vea bien en celulares:
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+57. Utilización y configuración de ESLint
+
+	http://eslint.org
+
+	Un Linter permite un cheque estático del código.
+	Eslint se busca e instala como extensión de VSCode, la versión actual es la 2.1.2
+	Puede facilitar la utilización normas de estilo (uso de mayúsculas, minúsculas al escribir el código, el uso de
+		espacios o tabs, comillas simples o dobles, lineas con o sin punto y coma al final, etc.)
+	Las aplicaciones creadas con Create-React-App ya posee una configuración establecida por defecto en el archivo
+		package.json, la misma se escuentra en la sección "eslintConfig":
+			"eslintConfig": {
+				"extends": "react-app"
+			},
+		"react-app" hace referencia a un conjunto de reglas preestablecidas y conocidas por Eslint y al instalar la
+		extensión para VSCode las mismas comienzan a ser verificadas a medida que escribimos código.
+
+	Como VSCode tiraba un error en la ventana de Salida que decía que no podía ejecutar Eslint,
+		lo investigué y solucioné creando el archivo ".vscode/settings.json", según indican en esta página:
+			https://github.com/vuejs/eslint-plugin-vue/issues/976#issuecomment-560294624
+		en el archivo establecí la ruta a la carpeta con mi código js:
+			{
+			"eslint.workingDirectories": ["./weather-app/src"]
+			}
+		Luego inicialicé eslint en el directorio de trabajo ejecutando lo siguiente:
+			 .\node_modules\.bin\eslint --init
+		esto me pidió que elija que configuraciones deseaba utilizar y luego de instalar paquetes extra necesarios,
+			creó el archivo ".eslintrc.json" y comenzó a marcar correctamente en la ventana de "Problemas" los errores
+			detectados en el código.
+		Como no dejaba de marcarme como error en las funciones arrow (en el signo =), lo investigué y encontré que la
+			solución era agregar esto:
+			"parser": "babel-eslint",
+			https://grantnorwood.com/eslint-parsing-error-unexpected-token-visual-studio-code/
