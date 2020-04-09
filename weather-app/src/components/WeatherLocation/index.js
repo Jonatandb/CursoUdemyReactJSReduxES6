@@ -1,10 +1,11 @@
 import React, { Component } from "react"
+import { CircularProgress } from "@material-ui/core"
+import PropTypes from "prop-types"
 import Location from "./Location"
 import WeatherData from "./WeatherData"
 import "./styles.css"
 import transformWeather from "../../services/transformWeather"
-import { api_weather } from "../../constans/api_url"
-import { CircularProgress } from "@material-ui/core"
+import getURLByCity from "../../services/getURLByCity"
 
 /*
 OpenWeatherMap:	Servicio gratuito que provee datos del clima
@@ -26,8 +27,9 @@ OpenWeatherMap:	Servicio gratuito que provee datos del clima
 class WeatherLocation extends Component {
   constructor(props) {
     super(props)
+    const { city } = props
     this.state = {
-      city: "Buenos Aires",
+      city,
       data: null,
     }
   }
@@ -38,7 +40,7 @@ class WeatherLocation extends Component {
   }
 
   handleUpdateClick = () => {
-    fetch(api_weather)
+    fetch(getURLByCity(this.state.city))
       .then((response) => {
         return response.json()
       })
@@ -77,6 +79,10 @@ class WeatherLocation extends Component {
       </div>
     )
   }
+}
+
+WeatherLocation.propTypes = {
+  city: PropTypes.string.isRequired,
 }
 
 export default WeatherLocation

@@ -933,3 +933,6 @@ Repositorio:
 			solución era agregar esto:
 			"parser": "babel-eslint",
 			https://grantnorwood.com/eslint-parsing-error-unexpected-token-visual-studio-code/
+
+
+58. Uso de propiedades en Class Component combinado con state
