@@ -936,3 +936,7 @@ Repositorio:
 
 
 58. Uso de propiedades en Class Component combinado con state
+
+
+59. LocationList
+	Creación de componente que tiene una lista de componentes WeatherLocation
