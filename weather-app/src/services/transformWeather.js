@@ -1,20 +1,35 @@
 import convert from "convert-units"
-import { SUN } from "../constans/weathers"
+import { SUN, DRIZZLE, THUNDER, RAIN, SNOW, CLOUD } from "../constans/weathers"
 
 const getCelsius = (kelvin) =>
   Number(convert(kelvin).from("K").to("C").toFixed(2))
 
-const getWeatherState = (weather_data) => SUN
+const getWeatherState = (weather) => {
+  const { id } = weather
+  if (id < 300) {
+    return THUNDER
+  } else if (id < 400) {
+    return DRIZZLE
+  } else if (id < 600) {
+    return RAIN
+  } else if (id < 700) {
+    return SNOW
+  } else if (id === 800) {
+    return SUN
+  } else {
+    return CLOUD
+  }
+}
 
 const transformWeather = (weather_data) => {
   // console.log(
   //   "transformWeather: Respuesta JSON recibida desde la API:\n",
   //   weather_data
-  // ); // Logueo en la consola la respuesta desde la API
+  // ) // Logueo en la consola la respuesta desde la API
 
   const { temp, humidity } = weather_data.main
   const temperature = getCelsius(temp)
-  const weatherState = getWeatherState(weather_data)
+  const weatherState = getWeatherState(weather_data.weather[0])
   const { speed } = weather_data.wind
 
   const data = {

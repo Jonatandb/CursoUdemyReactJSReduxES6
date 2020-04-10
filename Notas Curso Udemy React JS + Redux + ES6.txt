@@ -940,3 +940,8 @@ Repositorio:
 
 59. LocationList
 	Creación de componente que tiene una lista de componentes WeatherLocation
+
+
+60. Mapeo de estados a íconos
+	Refactor para utilizar correctamente el dato al respecto del estado del clima
+		en cada ciudad y mostrar el ícono correspondiente en consecuencia.
