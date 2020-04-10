@@ -945,3 +945,7 @@ Repositorio:
 60. Mapeo de estados a íconos
 	Refactor para utilizar correctamente el dato al respecto del estado del clima
 		en cada ciudad y mostrar el ícono correspondiente en consecuencia.
+
+
+61. Agregamos parámetros a LocationList
+	Uso de map para generar componentes WeatherLocation en base a ítems recibidos en el array de ciudades
