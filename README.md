@@ -1071,6 +1071,7 @@ Los problemas principales encontrados fueron los siguientes:
     - Toolbar:
     - Typography: Permite mostrar distintos tamaños de tipografías, ideal para el título
 
+
 74. CSS Mejoras
 
     Se hacen ajustes en las hojas de estilo para mejorar el aspecto de varios componentes.
@@ -1086,3 +1087,7 @@ Los problemas principales encontrados fueron los siguientes:
     ```html
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     ```
+
+
+76. Plan de componente ForecastExtended
+
