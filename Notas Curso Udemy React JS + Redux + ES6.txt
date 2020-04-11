@@ -1049,3 +1049,39 @@ Repositorio:
 	Utilización de las herramientas de desarrollador de Chrome para seleccionar distintos dispositivos para la representación
 		de la aplicación (desde la barra superior que hace aparecer Chrome cuando se muestran las herramientas de desarrollador)
 
+
+72. Uso de Grid, Row, Col y vh
+
+	Instalación de React Flexbox
+
+		yarn add react-flexbox-grid
+
+	Uso de componentes Grid, Row, Col
+
+	Utilizando Grid, establezco que todo el contenido se ubicará dentro de una grilla, a la cual se le incluirá el contenido
+		a mostrar utilizando los componentes Row y Col.
+		Ejemplo:
+			<Grid>
+				<Row>
+					Fila uno (por defecto usará todo el ancho de la pantalla)
+				</Row>
+				<Row>
+					<Col xs={12} md={6}>
+						Fila 2 - Columna 1 (en pantalla chica ocupará todo el ancho, en pantallas medianas o grandes ocupará
+							media pantalla nada más)
+					</Col>
+					<Col xs={12} md={6}>
+						Fila 2 - Columna 2 (en pantalla chica ocupará todo el ancho, en pantallas medianas o grandes ocupará
+							media pantalla nada más)
+					</Col>
+				</Row>
+			</Grid>
+
+	Configuración de cantidad de columnas que se desea utilizar en cada tamaño de pantalla:
+		<Col xs={12} md={6}>
+			Donde:
+				Cuando la pantalla tenga un tamaño considerado xs (small), esta columna ocupará las 12 columnas de ancho, o sea,
+					el contenido ocupará todo el ancho de la pantalla.
+					Cuando la pantalla tenga un tamaño md (medium), esta columna ocupará solo 6 columnas, o sea, la mitad de la
+						pantalla. Y si hay luego otra fila con una columna configurada igual, quedarán una al lado de la otra.
+
