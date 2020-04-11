@@ -957,3 +957,16 @@ Repositorio:
 
 63. ES6: Función de collections Map
 	Explicación de uso de Map
+
+
+64. Uso de Key en listas de componentes
+		Explicación de por qué React necesita que cada componente de una lista tenga un valor único en su atributo Key y no es
+			recomendado el uso del índice que el componente pueda tener en dicha lista (array).
+			Al utilizar el índice, puede suceder que el array se modifique, agregando o eliminando un componente del mismo, lo
+			que haría que todos pasen a tener otro índice, por lo tanto React debe volver a renderizarlos a todos para actualizar
+			dicho valor.
+			En cambio, más correcto sería utilizar un id único que cada entrada del array pudiera tener, o como en este caso en
+			que el array es de ciudades, es ma inteligente utilizar el nombre de ciudad como Key, ya que no tendría sentido que
+			haya una ciudad repetida, por lo que cada una cumpliría con tener una Key única (el nombre) y al agregar nuevas o
+			quitar alguna, React podría eficientemente notar las diferencias y eliminar las que ya no están en el array del DOM
+			y agregar las nuevas entre o al inicio o fin de las existentes.
