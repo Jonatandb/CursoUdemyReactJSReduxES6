@@ -988,3 +988,8 @@ Repositorio:
 
 	Realización de un "burbujeo" del evento click, desde el componente WeatherLocation
 		hacía el componente padre App.
+
+
+67. Repaso de los eventos creados y salida por consola
+
+
