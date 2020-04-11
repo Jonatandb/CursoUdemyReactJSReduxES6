@@ -953,3 +953,7 @@ Repositorio:
 
 62. Refactorización de LocationList
 	Uso de map para generar componentes WeatherLocation en base a ítems recibidos en el array de ciudades
+
+
+63. ES6: Función de collections Map
+	Explicación de uso de Map
