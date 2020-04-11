@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/CursoUdemyReactJSReduxES6/static/css/main.13811cac.chunk.css",
-    "main.js": "/CursoUdemyReactJSReduxES6/static/js/main.b0718bc5.chunk.js",
-    "main.js.map": "/CursoUdemyReactJSReduxES6/static/js/main.b0718bc5.chunk.js.map",
+    "main.js": "/CursoUdemyReactJSReduxES6/static/js/main.f6cc18ae.chunk.js",
+    "main.js.map": "/CursoUdemyReactJSReduxES6/static/js/main.f6cc18ae.chunk.js.map",
     "runtime-main.js": "/CursoUdemyReactJSReduxES6/static/js/runtime-main.7f79518c.js",
     "runtime-main.js.map": "/CursoUdemyReactJSReduxES6/static/js/runtime-main.7f79518c.js.map",
     "static/css/2.22d6b5ec.chunk.css": "/CursoUdemyReactJSReduxES6/static/css/2.22d6b5ec.chunk.css",
     "static/js/2.baeb9c14.chunk.js": "/CursoUdemyReactJSReduxES6/static/js/2.baeb9c14.chunk.js",
     "static/js/2.baeb9c14.chunk.js.map": "/CursoUdemyReactJSReduxES6/static/js/2.baeb9c14.chunk.js.map",
     "index.html": "/CursoUdemyReactJSReduxES6/index.html",
-    "precache-manifest.f748a93f728342d909bccfb98d306a43.js": "/CursoUdemyReactJSReduxES6/precache-manifest.f748a93f728342d909bccfb98d306a43.js",
+    "precache-manifest.472b181c8f6b766ac70c8561f0ad965c.js": "/CursoUdemyReactJSReduxES6/precache-manifest.472b181c8f6b766ac70c8561f0ad965c.js",
     "service-worker.js": "/CursoUdemyReactJSReduxES6/service-worker.js",
     "static/css/2.22d6b5ec.chunk.css.map": "/CursoUdemyReactJSReduxES6/static/css/2.22d6b5ec.chunk.css.map",
     "static/css/main.13811cac.chunk.css.map": "/CursoUdemyReactJSReduxES6/static/css/main.13811cac.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.22d6b5ec.chunk.css",
     "static/js/2.baeb9c14.chunk.js",
     "static/css/main.13811cac.chunk.css",
-    "static/js/main.b0718bc5.chunk.js"
+    "static/js/main.f6cc18ae.chunk.js"
   ]
 }
