@@ -999,3 +999,49 @@ Repositorio:
 69. MediaQueries, Flexbox, Bootstrap
 
 	Explicación general sobre MediaQueries, Flexbox, Bootstrap, ReactBootstrap y React Flexbox Grid
+
+	https://developer.mozilla.org/es/docs/CSS/Media_queries
+
+		Las media queries (en español "consultas de medios") son útiles cuando deseas modificar tu página web o aplicación
+			en función del tipo de dispositivo (como una impresora o una pantalla) o de características y parámetros
+			específicos	(como la resolución de la pantalla o el ancho del viewport del navegador).
+
+		Se utilizan para:
+			Aplicar estilos condicionales con las reglas-at @media e @import de CSS.
+			Indicar medios específicos en los elementos <link>, <source> y otros elementos HTML.
+			Testear y monitorizar los estados de los medios usando los métodos de javascript Window.matchMedia() y
+				MediaQueryList.addListener().
+
+	https://developer.mozilla.org/es/docs/Web/CSS/CSS_Flexible_Box_Layout/Conceptos_Basicos_de_Flexbox
+
+		El Módulo de Caja Flexible, comúnmente llamado flexbox, fue diseñado como un modelo unidimensional de layout,
+			y como un método que pueda ayudar a distribuir el espacio entre los ítems de una interfaz y mejorar las
+			capacidades de alineación.
+
+	https://es.wikipedia.org/wiki/Bootstrap_(framework)
+
+		Bootstrap es una biblioteca multiplataforma o conjunto de herramientas de código abierto para diseño de sitios
+			y aplicaciones web. Contiene plantillas de diseño con tipografía, formularios, botones, cuadros, menús de
+			navegación y otros elementos de diseño basado en HTML y CSS, así como extensiones de JavaScript adicionales.
+			A diferencia de muchos frameworks web, solo se ocupa del desarrollo front-end.
+
+	https://reactstrap.github.io/
+
+		This library contains React Bootstrap 4 components that favor composition and control.
+		The library does not depend on jQuery or Bootstrap javascript.
+		Ejemplo:
+			https://codesandbox.io/s/optimistic-sea-kpqdj?file=/src/App.js
+
+	http://roylee0704.github.io/react-flexbox-grid/
+	https://github.com/roylee0704/react-flexbox-grid
+
+		react-flexbox-grid is a set of React components that implement flexboxgrid.css.
+		It even has an optional support for CSS Modules with some extra configuration.
+
+
+70. React Flexbox: Autosize, Alignment, Distribution
+
+	Video que continúa explicando algo que asume que se mostró en un video anterior, aunque no es así y no queda del todo claro.
+
+
+
