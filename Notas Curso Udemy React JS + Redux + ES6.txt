@@ -1044,4 +1044,8 @@ Repositorio:
 	Video que continúa explicando algo que asume que se mostró en un video anterior, aunque no es así y no queda del todo claro.
 
 
+71. Herramienta en Chrome para testear diseño responsivo
+
+	Utilización de las herramientas de desarrollador de Chrome para seleccionar distintos dispositivos para la representación
+		de la aplicación (desde la barra superior que hace aparecer Chrome cuando se muestran las herramientas de desarrollador)
 
