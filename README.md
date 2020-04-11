@@ -1,11 +1,13 @@
 # Mis notas del curso de Udemy: React JS + Redux + ES6
 
-Curso:
-https://www.udemy.com/course/react-js-redux-es6-completo-de-0-a-experto-espanol/
+## Github pages: https://jonatandb.github.io/CursoUdemyReactJSReduxES6/
+
+Curso un Udemy: [React JS + Redux + ES6. Completo ¡De 0 a experto! (español)](https://www.udemy.com/course/react-js-redux-es6-completo-de-0-a-experto-espanol/)
 
 Repositorio:
+[https://github.com/Jonatandb/CursoUdemyReactJSReduxES6](https://github.com/Jonatandb/CursoUdemyReactJSReduxES6)
 
-    	https://github.com/Jonatandb/CursoUdemyReactJSReduxES6
+---
 
 3. Node.js, Npm y Yarn
 
@@ -1003,7 +1005,7 @@ Repositorio:
     Cuando la pantalla tenga un tamaño md (medium), esta columna ocupará solo 6 columnas, o sea, la mitad de la
     pantalla. Y si hay luego otra fila con una columna configurada igual, quedarán una al lado de la otra.
 
-GitHub Pages)
+GitHub Pages:
 
     Me propuse hacer que la app pueda ser accedida online desde GitHub Pages, para lo cual hice lo siguiente:
 
