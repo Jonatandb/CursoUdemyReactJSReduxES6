@@ -1091,3 +1091,20 @@ Los problemas principales encontrados fueron los siguientes:
 
 76. Plan de componente ForecastExtended
 
+
+77. Creación de ForecastExtended
+
+    También volví a investigar sobre Eslint, Prettier y las reglas de Airbnb, llegando a estos sitios:
+     - https://eslint.org/docs/rules/object-curly-newline
+     - https://github.com/prettier/prettier/issues/7136
+     - https://prettier.io/docs/en/integrating-with-linters.html
+     - https://blog.echobind.com/integrating-prettier-eslint-airbnb-style-guide-in-vscode-47f07b5d7d6a
+     - https://github.com/paulolramos/eslint-prettier-airbnb-react
+     - https://raw.githubusercontent.com/paulolramos/eslint-prettier-airbnb-react/master/eslint-prettier-config.sh (No ejecuté este script sino que instalé los paquetes que figuran en él y reemplacé a mano el contenido de los archivos ".eslintrc.json" y ".prettierrc.json" poniendo lo que figura en el Github de "pauloramos" al final de la página)
+
+     Esto permitió que elimine todo lo relacionado a eslint y a prettier del archivo "settings.json" y que instale como dependencias de desarrollo los siguientes paquetes:
+      - yarn add -D eslint-config-airbnb eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react babel-eslint
+      - yarn add -D eslint prettier
+      - yarn add -D eslint-config-prettier eslint-plugin-prettier
+
+     Al finalizar estas instalaciones quedó todo perfectamente configurado, ahora cuando escribo código y grabo, Prettier formatea el archivo respetando las reglas de estilo impuestas por Eslint según lo recomendado por Airbnb :-)
