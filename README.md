@@ -1085,3 +1085,31 @@ Repositorio:
 					Cuando la pantalla tenga un tamaño md (medium), esta columna ocupará solo 6 columnas, o sea, la mitad de la
 						pantalla. Y si hay luego otra fila con una columna configurada igual, quedarán una al lado de la otra.
 
+
+GitHub Pages
+
+	Me propuse hacer que la app pueda ser accedida online desde GitHub Pages, para lo cual hice lo siguiente:
+
+		Leí la documentaciónde GitHub Pages y en consecuencia actualicé el archivo package.json, agregando esta línea:
+  			"homepage": "https://jonatandb.github.io/CursoUdemyReactJSReduxES6/",
+
+		Cree la carpeta "docs" y copié adentro todos los archivos generados al ejecutar:
+			yarn build
+				Esto generó una versión optimizada para producción de la aplicación en la carpeta "build"
+
+		Fui a la sección de Settings del repositorio y en la parte de GitHub Pages, seleccioné desde el combo "Source"
+			"master branch /docs folder"
+
+		Subí el código y la página ya está disponible públicamente desde la siguiente URL:
+
+			https://jonatandb.github.io/CursoUdemyReactJSReduxES6/
+
+		A partir de ahora, cada vez que quiero subir una nueva versión debo hacer lo siguiente:
+
+			1 - Dentro de "weather-app" ejecutar:
+					yarn build
+			2 - Borrar todo el contenido de la carpeta "docs"
+			3 - Copiar el contenido de la carpeta "build" dentro de la carpeta "docs":
+					Meterme en la carpeta "docs" y ejecutar:
+						xcopy /EFHK ..\weather-app\build .			(O usar el explorador de Windows)
+			4 - Hacer commit y push
