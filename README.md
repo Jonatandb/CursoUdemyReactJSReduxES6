@@ -840,33 +840,35 @@ Repositorio:
 
     http://eslint.org
 
-    Un Linter permite un cheque estático del código.
-    Eslint se busca e instala como extensión de VSCode, la versión actual es la 2.1.2
-    Puede facilitar la utilización normas de estilo (uso de mayúsculas, minúsculas al escribir el código, el uso de
-    espacios o tabs, comillas simples o dobles, lineas con o sin punto y coma al final, etc.)
-    Las aplicaciones creadas con Create-React-App ya posee una configuración establecida por defecto en el archivo
-    package.json, la misma se escuentra en la sección "eslintConfig":
+    Un Linter permite un cheque estático del código.<br/>
+    Eslint se busca e instala como extensión de VSCode, la versión actual es la 2.1.2<br/>
+    Puede facilitar la utilización normas de estilo (uso de mayúsculas, minúsculas al escribir el código, el uso de espacios o tabs, comillas simples o dobles, lineas con o sin punto y coma al final, etc.)<br/>
+    Las aplicaciones creadas con Create-React-App ya posee una configuración establecida por defecto en el archivo package.json, la misma se escuentra en la sección "eslintConfig":
+    ```json
     "eslintConfig": {
-    "extends": "react-app"
+        "extends": "react-app"
     },
+    ```
     "react-app" hace referencia a un conjunto de reglas preestablecidas y conocidas por Eslint y al instalar la
     extensión para VSCode las mismas comienzan a ser verificadas a medida que escribimos código.
 
-    Como VSCode tiraba un error en la ventana de Salida que decía que no podía ejecutar Eslint,
-    lo investigué y solucioné creando el archivo ".vscode/settings.json", según indican en esta página:
-    https://github.com/vuejs/eslint-plugin-vue/issues/976#issuecomment-560294624
+    Como VSCode tiraba un error en la ventana de Salida que decía que no podía ejecutar Eslint, lo investigué y solucioné creando el archivo ".vscode/settings.json", según indican en esta página:<br/>
+        https://github.com/vuejs/eslint-plugin-vue/issues/976#issuecomment-560294624<br/>
     en el archivo establecí la ruta a la carpeta con mi código js:
+    ```json
     {
-    "eslint.workingDirectories": ["./weather-app/src"]
+        "eslint.workingDirectories": ["./weather-app/src"]
     }
-    Luego inicialicé eslint en el directorio de trabajo ejecutando lo siguiente:
+    ```
+    Luego inicialicé eslint en el directorio de trabajo ejecutando lo siguiente:<br/>
+    ```
     .\node_modules\.bin\eslint --init
-    esto me pidió que elija que configuraciones deseaba utilizar y luego de instalar paquetes extra necesarios,
-    creó el archivo ".eslintrc.json" y comenzó a marcar correctamente en la ventana de "Problemas" los errores
-    detectados en el código.
-    Como no dejaba de marcarme como error en las funciones arrow (en el signo =), lo investigué y encontré que la
-    solución era agregar esto:
+    ```
+    Esto me pidió que elija que configuraciones deseaba utilizar y luego de instalar paquetes extra necesarios, creó el archivo ".eslintrc.json" y comenzó a marcar correctamente en la ventana de "Problemas" los errores detectados en el código.<br/>
+    Como no dejaba de marcarme como error en las funciones arrow (en el signo =), lo investigué y encontré que la solución era agregar esto:
+    ```json
     "parser": "babel-eslint",
+    ```
     https://grantnorwood.com/eslint-parsing-error-unexpected-token-visual-studio-code/
 
 58) Uso de propiedades en Class Component combinado con state
@@ -894,16 +896,10 @@ Repositorio:
 
 64) Uso de Key en listas de componentes
 
-    Explicación de por qué React necesita que cada componente de una lista tenga un valor único en su atributo Key y no es
-    recomendado el uso del índice que el componente pueda tener en dicha lista (array).
-    Al utilizar el índice, puede suceder que el array se modifique, agregando o eliminando un componente del mismo, lo
-    que haría que todos pasen a tener otro índice, por lo tanto React debe volver a renderizarlos a todos para actualizar
-    dicho valor.
-    En cambio, más correcto sería utilizar un id único que cada entrada del array pudiera tener, o como en este caso en
-    que el array es de ciudades, es ma inteligente utilizar el nombre de ciudad como Key, ya que no tendría sentido que
-    haya una ciudad repetida, por lo que cada una cumpliría con tener una Key única (el nombre) y al agregar nuevas o
-    quitar alguna, React podría eficientemente notar las diferencias y eliminar las que ya no están en el array del DOM
-    y agregar las nuevas entre o al inicio o fin de las existentes.
+    Explicación de por qué React necesita que cada componente de una lista tenga un valor único en su atributo Key y no es recomendado el uso del índice que el componente pueda tener en dicha lista (array).<br/>
+    Al utilizar el índice, puede suceder que el array se modifique, agregando o eliminando un componente del mismo, lo que haría que todos pasen a tener otro índice, por lo tanto React debe volver a renderizarlos a todos para actualizar
+    dicho valor.<br/>
+    En cambio, más correcto sería utilizar un id único que cada entrada del array pudiera tener, o como en este caso en que el array es de ciudades, es mas inteligente utilizar el nombre de ciudad como Key, ya que no tendría sentido que haya una ciudad repetida, por lo que cada una cumpliría con tener una Key única (el nombre) y al agregar nuevas o quitar alguna, React podría eficientemente notar las diferencias y eliminar las que ya no están en el array del DOM y agregar las nuevas entre o al inicio o fin de las existentes.
 
 65. Estilos de comunicación de componentes: Eventos, Routing y Estado global
 
@@ -924,32 +920,25 @@ Repositorio:
 
     https://developer.mozilla.org/es/docs/CSS/Media_queries
 
-        Las media queries (en español "consultas de medios") son útiles cuando deseas modificar tu página web o aplicación
-        	en función del tipo de dispositivo (como una impresora o una pantalla) o de características y parámetros
-        	específicos	(como la resolución de la pantalla o el ancho del viewport del navegador).
+    Las media queries (en español "consultas de medios") son útiles cuando deseas modificar tu página web o aplicación en función del tipo de dispositivo (como una impresora o una pantalla) o de características y parámetros específicos (como la resolución de la pantalla o el ancho del viewport del navegador).
 
-        Se utilizan para:
-        	Aplicar estilos condicionales con las reglas-at @media e @import de CSS.
-        	Indicar medios específicos en los elementos <link>, <source> y otros elementos HTML.
-        	Testear y monitorizar los estados de los medios usando los métodos de javascript Window.matchMedia() y
-        		MediaQueryList.addListener().
+    Se utilizan para:
+    - Aplicar estilos condicionales con las reglas-at @media e @import de CSS.
+    - Indicar medios específicos en los elementos <link>, <source> y otros elementos HTML.
+    - Testear y monitorizar los estados de los medios usando los métodos de javascript Window.matchMedia() y MediaQueryList.addListener().
 
     https://developer.mozilla.org/es/docs/Web/CSS/CSS_Flexible_Box_Layout/Conceptos_Basicos_de_Flexbox
 
-        El Módulo de Caja Flexible, comúnmente llamado flexbox, fue diseñado como un modelo unidimensional de layout,
-        	y como un método que pueda ayudar a distribuir el espacio entre los ítems de una interfaz y mejorar las
-        	capacidades de alineación.
+    El Módulo de Caja Flexible, comúnmente llamado flexbox, fue diseñado como un modelo unidimensional de layout, y como un método que pueda ayudar a distribuir el espacio entre los ítems de una interfaz y mejorar las capacidades de alineación.
 
     https://es.wikipedia.org/wiki/Bootstrap_(framework)
 
-        Bootstrap es una biblioteca multiplataforma o conjunto de herramientas de código abierto para diseño de sitios
-        	y aplicaciones web. Contiene plantillas de diseño con tipografía, formularios, botones, cuadros, menús de
-        	navegación y otros elementos de diseño basado en HTML y CSS, así como extensiones de JavaScript adicionales.
-        	A diferencia de muchos frameworks web, solo se ocupa del desarrollo front-end.
+    Bootstrap es una biblioteca multiplataforma o conjunto de herramientas de código abierto para diseño de sitios y aplicaciones web. Contiene plantillas de diseño con tipografía, formularios, botones, cuadros, menús de navegación y otros elementos de diseño basado en HTML y CSS, así como extensiones de JavaScript adicionales.
+        A diferencia de muchos frameworks web, solo se ocupa del desarrollo front-end.
 
     https://reactstrap.github.io/
 
-        This library contains React Bootstrap 4 components that favor composition and control.
+    This library contains React Bootstrap 4 components that favor composition and control.
         The library does not depend on jQuery or Bootstrap javascript.
         Ejemplo:
         	https://codesandbox.io/s/optimistic-sea-kpqdj?file=/src/App.js
@@ -957,8 +946,8 @@ Repositorio:
     http://roylee0704.github.io/react-flexbox-grid/
     https://github.com/roylee0704/react-flexbox-grid
 
-        react-flexbox-grid is a set of React components that implement flexboxgrid.css.
-        It even has an optional support for CSS Modules with some extra configuration.
+    react-flexbox-grid is a set of React components that implement flexboxgrid.css.<br/>
+    It even has an optional support for CSS Modules with some extra configuration.
 
 70) React Flexbox: Autosize, Alignment, Distribution
 
@@ -981,21 +970,20 @@ Repositorio:
     a mostrar utilizando los componentes Row y Col.
     Ejemplo:
 
-```
-	<Grid>
-		<Row>
-			Fila uno (por defecto usará todo el ancho de la pantalla)
-		</Row>
-		<Row>
-			<Col xs={12} md={6}>
-				Fila 2 - Columna 1 (en pantalla chica ocupará todo el ancho, en pantallas medianas o grandes ocupará media pantalla nada más)
-			</Col>
-			<Col xs={12} md={6}>
-				Fila 2 - Columna 2 (en pantalla chica ocupará todo el ancho, en pantallas medianas o grandes ocupará media pantalla nada más)
-			</Col>
-		</Row>
-	</Grid>
-```
+    ```jsx
+    <Grid>
+        <Row>Fila 1 (por defecto usará todo el ancho de la pantalla)</Row>
+        <Row>
+            <Col xs={12} md={6}>
+                Fila 2 - Columna 1 (en pantalla chica ocupará todo el ancho, en pantallas medianas o grandes ocupará media pantalla nada más)
+            </Col>
+            <Col xs={12} md={6}>
+                Fila 2 - Columna 2 (en pantalla chica ocupará todo el ancho, en pantallas medianas o grandes ocupará media
+                pantalla nada más)
+            </Col>
+        </Row>
+    </Grid>
+    ```
 
     Configuración de cantidad de columnas que se desea utilizar en cada tamaño de pantalla:
     <Col xs={12} md={6}>
@@ -1007,63 +995,78 @@ Repositorio:
 
 GitHub Pages:
 
-    Me propuse hacer que la app pueda ser accedida online desde GitHub Pages, para lo cual hice lo siguiente:
+Me propuse hacer que la app pueda ser accedida online desde GitHub Pages, para lo cual hice lo siguiente:
 
-    	Leí la documentaciónde GitHub Pages y en consecuencia actualicé el archivo package.json, agregando esta línea:
+- Leí la documentaciónde GitHub Pages y en consecuencia actualicé el archivo package.json, agregando esta línea:
+```json
+        "homepage": "https://jonatandb.github.io/CursoUdemyReactJSReduxES6/",
+```
+- Creé la carpeta "docs" y copié adentro todos los archivos generados al ejecutar:
+    ```
+            yarn build
+    ```
+  - Esto generó una versión optimizada para producción de la aplicación en la carpeta "build"
 
-    		"homepage": "https://jonatandb.github.io/CursoUdemyReactJSReduxES6/",
+- Fui a la sección de Settings del repositorio y en la parte de GitHub Pages, seleccioné desde el combo "Source"
+        "master branch /docs folder"
 
-    	Creé la carpeta "docs" y copié adentro todos los archivos generados al ejecutar:
-    		yarn build
-    			Esto generó una versión optimizada para producción de la aplicación en la carpeta "build"
+- Subí el código y la página ya está disponible públicamente desde la siguiente URL:
 
-    	Fui a la sección de Settings del repositorio y en la parte de GitHub Pages, seleccioné desde el combo "Source"
-    		"master branch /docs folder"
+        https://jonatandb.github.io/CursoUdemyReactJSReduxES6/
 
-    	Subí el código y la página ya está disponible públicamente desde la siguiente URL:
+- A partir de ahora, cada vez que quiero subir una nueva versión debo hacer lo siguiente:
 
-    		https://jonatandb.github.io/CursoUdemyReactJSReduxES6/
-
-    	A partir de ahora, cada vez que quiero subir una nueva versión debo hacer lo siguiente:
-
-    		1 - Dentro de "weather-app" ejecutar:
-    				yarn build
-    		2 - Borrar todo el contenido de la carpeta "docs"
-    		3 - Copiar el contenido de la carpeta "build" dentro de la carpeta "docs":
-    				Meterme en la carpeta "docs" y ejecutar:
-    					xcopy /EFHK ..\weather-app\build .			(O usar el explorador de Windows)
-    		4 - Hacer commit y push
+        1 - Dentro de "weather-app" ejecutar:
+                yarn build
+        2 - Borrar todo el contenido de la carpeta "docs"
+        3 - Copiar el contenido de la carpeta "build" dentro de la carpeta "docs":
+                Meterme en la carpeta "docs" y ejecutar:
+                    xcopy /EFHK ..\weather-app\build .			(O usar el explorador de Windows)
+        4 - Hacer commit y push
 
 Eslint:
 
-    Leyendo la documentación de VSCode, volví a revisar el tema de Eslint que no me estaba sugiriendo un estilo de escritura
-     de código, y noté que faltaba especificar, al incializar Eslint (mediante la ejecución de: eslint --init), seleccionar
-     la opción "To check syntax, find problems, and enforce code style", que permite definir el estilo de escritura de código
-     para el proyecto.
-     Por lo que elegí "Airbnb" e instalé los paquetes extra que me sugirió que instalara:
-        eslint-plugin-react@^7.19.0
-        eslint-config-airbnb@latest
-        eslint@^5.16.0 || ^6.8.0
-        eslint-plugin-import@^2.20.1
-        eslint-plugin-jsx-a11y@^6.2.3
-        eslint-plugin-react-hooks@^2.5.0 || ^1.7.0
-    Apenas terminó de instalar esos paquetes, VSCode empezó a indicar con color rojo los archivos con cosas a revisar y en la
-     ventana de "PROBLEMAS" apareció el número 146 :-)
-     Los problemas principales encontrados fueron los siguientes:
-        string envueltos en comillas dobles
-         Como estoy usando Prettier, lo configuré para que haga esto cuando se graba el archivo, agregando lo siguiente
-            al archivo ".vscode/settings.json":
-            "prettier.singleQuote": true
-        lineas terminando en CRLF
-         Como no quiero usar finales de lína de Unix (LF), configuré Eslint para que ignore esto agregando lo siguiente
-          al archivo ".eslintrc.json":
-           "linebreak-style":"off"
-        funciones flecha con saltos de línea
-         Configuré Prettier para especificarle que las línes tienen un ancho máximo de 120 caracteres para que no agregue
-          saltos de línea automáticos cortando en dos o más las líneas anchas con funciones flecha. Agregué lo siguiente
-           al archivo ".vscode/settings.json":
-            "prettier.printWidth": 120
-        sentencias console.log
-         Configuré Eslint para que marque solo como advertencias las ocurrencias que encuentre de llamadas a console.log
-          en el código agregando lo siguiente al archivo ".eslintrc.json":
-           "no-console":"warn"
+Leyendo la documentación de VSCode, volví a revisar el tema de Eslint que no me estaba sugiriendo un estilo de escritura de código, y noté que faltaba especificar, al incializar Eslint (mediante la ejecución de: eslint --init), seleccionar la opción "To check syntax, find problems, and enforce code style", que permite definir el estilo de escritura de código para el proyecto.
+
+Por lo que elegí "Airbnb" e instalé los paquetes extra que me sugirió que instalara:
+- eslint-plugin-react@^7.19.0
+- eslint-config-airbnb@latest
+- eslint@^5.16.0 || ^6.8.0
+- eslint-plugin-import@^2.20.1
+- eslint-plugin-jsx-a11y@^6.2.3
+- eslint-plugin-react-hooks@^2.5.0 || ^1.7.0
+
+Apenas terminó de instalar esos paquetes, VSCode empezó a indicar con color rojo los archivos con cosas a revisar y en la ventana de "PROBLEMAS" apareció el número 146 :-)
+
+Los problemas principales encontrados fueron los siguientes:
+- string envueltos en comillas dobles
+  - Como estoy usando Prettier, lo configuré para que haga esto cuando se graba el archivo, agregando lo siguiente al archivo ".vscode/settings.json":
+    ```json
+    "prettier.singleQuote": true
+    ```
+- lineas terminando en CRLF
+  - Como no quiero usar finales de lína de Unix (LF), configuré Eslint para que ignore esto agregando lo siguiente al archivo ".eslintrc.json":
+    ```json
+    "linebreak-style":"off"
+    ```
+- funciones flecha con saltos de línea
+  - Configuré Prettier para especificarle que las línes tienen un ancho máximo de 120 caracteres para que no agregue saltos de línea automáticos cortando en dos o más las líneas anchas con funciones flecha. Agregué lo siguiente al archivo ".vscode/settings.json":
+    ```json
+    "prettier.printWidth": 120
+    ```
+- sentencias console.log
+  - Configuré Eslint para que marque solo como advertencias las ocurrencias que encuentre de llamadas a console.log en el código agregando lo siguiente al archivo ".eslintrc.json":
+  ```json
+    "no-console":"warn"
+  ```
+
+
+73. MaterialUI AppBar
+
+    Agregado de una barra de navegación de Material:
+
+    - Paper: Contenedor que puede tener un realce para que tenga sombra
+    - AppBar: Barra de navegación
+      - Position="sticky", hace que permanezca arriba de la página.
+    - Toolbar:
+    - Typography: Permite mostrar distintos tamaños de tipografías, ideal para el título

@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import { AppBar, Typography, Toolbar, Paper } from '@material-ui/core';
 import LocationList from './components/LocationList';
 
 const cities = [
@@ -20,11 +21,13 @@ function App() {
   return (
     <Grid>
       <Row>
-        <Col xs={3} md={6} lg={12}>
-          <div className="titulo">
-            Tíitulo (xs={3} md={6} lg={12})
-          </div>
-        </Col>
+        <AppBar position="sticky">
+          <Toolbar>
+            <Typography variant="title" color="inherit">
+              Weather App
+            </Typography>
+          </Toolbar>
+        </AppBar>
       </Row>
       <Row>
         <Col xs={12} md={6}>
