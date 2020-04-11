@@ -1070,3 +1070,9 @@ Los problemas principales encontrados fueron los siguientes:
       - Position="sticky", hace que permanezca arriba de la página.
     - Toolbar:
     - Typography: Permite mostrar distintos tamaños de tipografías, ideal para el título
+
+74. CSS Mejoras
+
+    Se hacen ajustes en las hojas de estilo para mejorar el aspecto de varios componentes.
+
+    Se establece un valor de 4 a la propiedad "elevation" del componente Paper para que el mismo aparezca realzado mediane una sombra que da la impresión de estar elevado, despegado del fondo.
