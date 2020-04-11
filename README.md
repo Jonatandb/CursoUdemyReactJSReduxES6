@@ -1076,3 +1076,13 @@ Los problemas principales encontrados fueron los siguientes:
     Se hacen ajustes en las hojas de estilo para mejorar el aspecto de varios componentes.
 
     Se establece un valor de 4 a la propiedad "elevation" del componente Paper para que el mismo aparezca realzado mediane una sombra que da la impresión de estar elevado, despegado del fondo.
+
+
+75. Diseño Responsivo avanzado: Media Query
+
+    En base a MediaQuery se detecta el tamaño de la pantalla y se aplican estilos CSS en consecuencia.
+
+    Para que MediaQuery pueda actuar, debe estar configurado, en "index.html", el meta tag "viewport" con el valor "width=device-width" en su atributo "content":
+    ```html
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    ```
