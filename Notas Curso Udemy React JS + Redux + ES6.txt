@@ -984,4 +984,7 @@ Repositorio:
 	Explicación de las formas en que un componente puede comunicar a otros componentes acciones o sucesos producidos.
 
 
+66. "Burbujeo" de eventos
 
+	Realización de un "burbujeo" del evento click, desde el componente WeatherLocation
+		hacía el componente padre App.

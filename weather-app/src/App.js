@@ -13,10 +13,16 @@ const cities = [
   "Lima,pe",
 ]
 
+const handleSelectedLocation = (city) =>
+  console.log("App.js -> handleSelectedLocation() -> city:", city)
+
 function App() {
   return (
     <div className="App">
-      <LocationList cities={cities} />
+      <LocationList
+        cities={cities}
+        onSelectedLocation={handleSelectedLocation}
+      />
     </div>
   )
 }
