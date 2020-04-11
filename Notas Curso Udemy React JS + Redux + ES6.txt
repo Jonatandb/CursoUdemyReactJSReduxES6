@@ -993,3 +993,9 @@ Repositorio:
 67. Repaso de los eventos creados y salida por consola
 
 
+68. NOTA SOBRE ACTUALIZACIÓN
+
+
+69. MediaQueries, Flexbox, Bootstrap
+
+	Explicación general sobre MediaQueries, Flexbox, Bootstrap, ReactBootstrap y React Flexbox Grid
