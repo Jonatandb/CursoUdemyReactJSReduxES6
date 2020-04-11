@@ -1033,3 +1033,37 @@ GitHub Pages:
     				Meterme en la carpeta "docs" y ejecutar:
     					xcopy /EFHK ..\weather-app\build .			(O usar el explorador de Windows)
     		4 - Hacer commit y push
+
+Eslint:
+
+    Leyendo la documentación de VSCode, volví a revisar el tema de Eslint que no me estaba sugiriendo un estilo de escritura
+     de código, y noté que faltaba especificar, al incializar Eslint (mediante la ejecución de: eslint --init), seleccionar
+     la opción "To check syntax, find problems, and enforce code style", que permite definir el estilo de escritura de código
+     para el proyecto.
+     Por lo que elegí "Airbnb" e instalé los paquetes extra que me sugirió que instalara:
+        eslint-plugin-react@^7.19.0
+        eslint-config-airbnb@latest
+        eslint@^5.16.0 || ^6.8.0
+        eslint-plugin-import@^2.20.1
+        eslint-plugin-jsx-a11y@^6.2.3
+        eslint-plugin-react-hooks@^2.5.0 || ^1.7.0
+    Apenas terminó de instalar esos paquetes, VSCode empezó a indicar con color rojo los archivos con cosas a revisar y en la
+     ventana de "PROBLEMAS" apareció el número 146 :-)
+     Los problemas principales encontrados fueron los siguientes:
+        string envueltos en comillas dobles
+         Como estoy usando Prettier, lo configuré para que haga esto cuando se graba el archivo, agregando lo siguiente
+            al archivo ".vscode/settings.json":
+            "prettier.singleQuote": true
+        lineas terminando en CRLF
+         Como no quiero usar finales de lína de Unix (LF), configuré Eslint para que ignore esto agregando lo siguiente
+          al archivo ".eslintrc.json":
+           "linebreak-style":"off"
+        funciones flecha con saltos de línea
+         Configuré Prettier para especificarle que las línes tienen un ancho máximo de 120 caracteres para que no agregue
+          saltos de línea automáticos cortando en dos o más las líneas anchas con funciones flecha. Agregué lo siguiente
+           al archivo ".vscode/settings.json":
+            "prettier.printWidth": 120
+        sentencias console.log
+         Configuré Eslint para que marque solo como advertencias las ocurrencias que encuentre de llamadas a console.log
+          en el código agregando lo siguiente al archivo ".eslintrc.json":
+           "no-console":"warn"
