@@ -1150,3 +1150,5 @@ Los problemas principales encontrados fueron los siguientes:
 
 85. Estilo ForecastExtended: Utilización de ClassName
 
+
+86. Presentación del componente ForecastItem
