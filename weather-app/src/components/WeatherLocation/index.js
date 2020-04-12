@@ -7,23 +7,6 @@ import './styles.css';
 import transformWeather from '../../services/transformWeather';
 import getURLByCity from '../../services/getURLByCity';
 
-/*
-OpenWeatherMap:	Servicio gratuito que provee datos del clima
----------------
-
-	Página principal:
-					https://openweathermap.org/
-
-	Documentación de la API:
-					https://openweathermap.org/api
-
-	Guía de uso - How to start:
-					https://openweathermap.org/appid
-
-	Ciudad Autónoma de Buenos Aires -> id: 3433955
-
-*/
-
 class WeatherLocation extends Component {
   constructor(props) {
     super(props);
@@ -35,10 +18,10 @@ class WeatherLocation extends Component {
   }
 
   componentDidMount() {
-    this.handleUpdateClick();
+    this.getData();
   }
 
-  handleUpdateClick = () => {
+  getData = () => {
     const { city } = this.state;
     fetch(getURLByCity(city))
       .then((response) => response.json())
@@ -49,14 +32,12 @@ class WeatherLocation extends Component {
           });
         } else {
           console.log(
-            'WeatherLocation.handleUpdateClick(): Se produjo un error al obtener datos del servidor.',
+            'WeatherLocation: Se produjo un error al obtener datos del servidor.',
             weatherJSONResponse && weatherJSONResponse.message && weatherJSONResponse.message,
           );
         }
       })
-      .catch((reason) =>
-        console.log('WeatherLocation.handleUpdateClick(): Se produjo un error en alguna de las Promises:', reason),
-      );
+      .catch((reason) => console.log('WeatherLocation: Se produjo un error en alguna de las Promises:', reason));
   };
 
   render() {

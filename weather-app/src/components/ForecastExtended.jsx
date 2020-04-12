@@ -3,17 +3,8 @@ import PropTypes from 'prop-types';
 import './styles.css';
 import ForecastItem from './FerecastItem';
 import { CircularProgress } from '@material-ui/core';
-import { api_key } from './../constants/api_url';
-// const days = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'];
-
-// const data = {
-//   temperature: 99,
-//   weatherState: 'sun',
-//   humidity: 99,
-//   wind: '99 m/s',
-// };
-
-const url_api = 'https://api.openweathermap.org/data/2.5/forecast';
+import transformForecast from './../services/transformForecast';
+import getForecastURLByCity from './../services/getForecastURLByCity';
 
 class ForecastExtended extends Component {
   constructor(props) {
@@ -23,17 +14,33 @@ class ForecastExtended extends Component {
     };
   }
 
+  getData = () => {
+    const { city } = this.props;
+    fetch(getForecastURLByCity(city))
+      .then((response) => response.json())
+      .then((forecastJSONResponse) => {
+        if (forecastJSONResponse && forecastJSONResponse.cod && forecastJSONResponse.cod === '200') {
+          this.setState({
+            forecastData: transformForecast(forecastJSONResponse),
+          });
+        } else {
+          console.log(
+            'ForecastExtended: Se produjo un error al obtener datos del servidor.',
+            forecastJSONResponse && forecastJSONResponse.message && forecastJSONResponse.message,
+          );
+        }
+      })
+      .catch((reason) => console.log('ForecastExtended: Se produjo un error en alguna de las Promises:', reason));
+  };
+
   componentDidMount() {
-    const url = `${url_api}?q=${this.props.city}&appid=${api_key}`;
-    console.log('url:', url);
-    fetch(url)
-      .then((data) => data.json())
-      .then((weatherData) => console.log(weatherData));
+    this.getData();
   }
 
   renderForecastItemDays() {
-    return <CircularProgress />;
-    //return days.map((day) => <ForecastItem key={day} weekDay={day} hour={10} data={data} />);
+    return this.state.forecastData.map((day) => (
+      <ForecastItem key={day.dt} weekDay={day.dt_txt.split(' ')[0]} hour={day.dt_txt.split(' ')[1]} data={day.main} />
+    ));
   }
 
   render() {

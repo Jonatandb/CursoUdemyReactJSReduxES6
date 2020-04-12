@@ -1179,3 +1179,6 @@ Los problemas principales encontrados fueron los siguientes:
 93. Ejecución de Fetch Forecast
 
     Se utiliza fetch aunque se explica que también se podría utilizar axios, ya que tiene soporte para navegadores antiguos.
+
+
+94. Creación de servicio de transformación
