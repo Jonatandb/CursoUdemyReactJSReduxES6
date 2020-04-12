@@ -29,29 +29,31 @@ class App extends Component {
   render() {
     const { city } = this.state;
     return (
-      <Grid>
-        <Row>
-          <AppBar position="sticky">
-            <Toolbar>
-              <Typography variant="title" color="inherit">
-                Weather App
-              </Typography>
-            </Toolbar>
-          </AppBar>
-        </Row>
-        <Row>
-          <Col xs={12} md={6}>
-            <LocationList cities={cities} onSelectedLocation={this.handleSelectedLocation} />
-          </Col>
-          <Col xs={12} md={6}>
-            <Paper elevation={4}>
-              <div className="details">
-                <ForecastExtended city={city} />
-              </div>
-            </Paper>
-          </Col>
-        </Row>
-      </Grid>
+      <>
+        <Grid>
+          <Row>
+            <AppBar position="sticky">
+              <Toolbar>
+                <Typography variant="title" color="inherit">
+                  Weather App
+                </Typography>
+              </Toolbar>
+            </AppBar>
+          </Row>
+          <Row>
+            <Col xs={12} md={6}>
+              <LocationList cities={cities} onSelectedLocation={this.handleSelectedLocation} />
+            </Col>
+            <Col xs={12} md={6}>
+              <Paper elevation={4}>
+                <div className="details">
+                  <ForecastExtended city={city} />
+                </div>
+              </Paper>
+            </Col>
+          </Row>
+        </Grid>
+      </>
     );
   }
 }

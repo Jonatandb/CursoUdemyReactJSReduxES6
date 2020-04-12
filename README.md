@@ -1115,3 +1115,6 @@ Los problemas principales encontrados fueron los siguientes:
 
 79. Utilización de state en App.js
 
+
+80. Actualización de state
+
