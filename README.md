@@ -1169,3 +1169,10 @@ Los problemas principales encontrados fueron los siguientes:
 
 
 91. Primer paso de refactorización de ForecastExtended: Indicador carga inicial
+
+
+92. Api OpenWeatherMap para pronostico extendido: Forecast
+
+    Explicación de uso de la api de OpenWeatherMap para obtener datos del pronóstico de los próximos 5 días.
+
+

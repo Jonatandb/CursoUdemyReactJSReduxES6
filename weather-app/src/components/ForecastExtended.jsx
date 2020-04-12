@@ -13,12 +13,18 @@ import { CircularProgress } from '@material-ui/core';
 //   wind: '99 m/s',
 // };
 
+const url = 'http://api.openweathermap.org/data/2.5/forecast';
+
 class ForecastExtended extends Component {
   constructor(props) {
     super(props);
     this.state = {
       forecastData: null,
     };
+  }
+
+  componentDidMount() {
+    // Realizar fetch para obtener el pronóstico extendido
   }
 
   renderForecastItemDays() {
