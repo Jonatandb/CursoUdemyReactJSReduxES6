@@ -1123,3 +1123,7 @@ Los problemas principales encontrados fueron los siguientes:
 
     Repaso del ciclo de vida de los componentes de React y cuando se re-renderizan y cuando no.
 
+
+82. Manejo de estado inicial
+
+    Utilización del operador ternario para realizar un renderizado condicional cuando aún no se ha seleccionado ninguna ciudad.

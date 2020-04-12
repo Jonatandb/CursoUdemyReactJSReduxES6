@@ -20,7 +20,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      city: cities[0],
+      city: null,
     };
   }
 
@@ -47,7 +47,11 @@ class App extends Component {
             <Col xs={12} md={6}>
               <Paper elevation={4}>
                 <div className="details">
-                  <ForecastExtended city={city} />
+                  {city ? (
+                    <ForecastExtended city={city} />
+                  ) : (
+                    <h3>Seleccione una ciudad para acceder al pronóstico extendido</h3>
+                  )}
                 </div>
               </Paper>
             </Col>
