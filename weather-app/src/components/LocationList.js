@@ -4,25 +4,23 @@ import WeatherLocation from './WeatherLocation';
 import './styles.css';
 
 const LocationList = ({ cities, onSelectedLocation }) => {
-	// console.log(cities)
+  const onWeatherLocationSelected = (city) => {
+    console.log('LocationList.js -> onWeatherLocationSelected() -> city:', city);
+    onSelectedLocation(city);
+  };
 
-	const onWeatherLocationSelected = (city) => {
-		console.log('LocationList.js -> onWeatherLocationSelected() -> city:', city);
-		onSelectedLocation(city);
-	};
-
-	return (
-		<div className="locationList">
-			{cities.map((c, idx) => (
-				<WeatherLocation key={idx} city={c} onWeatherLocationClick={() => onWeatherLocationSelected(c)} />
-			))}
-		</div>
-	);
+  return (
+    <div className="locationList">
+      {cities.map((c, idx) => (
+        <WeatherLocation key={idx} city={c} onWeatherLocationClick={() => onWeatherLocationSelected(c)} />
+      ))}
+    </div>
+  );
 };
 
 LocationList.propTypes = {
-	cities: PropTypes.array.isRequired,
-	onSelectedLocation: PropTypes.func,
+  cities: PropTypes.array.isRequired,
+  onSelectedLocation: PropTypes.func,
 };
 
 export default LocationList;

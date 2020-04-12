@@ -1118,3 +1118,8 @@ Los problemas principales encontrados fueron los siguientes:
 
 80. Actualización de state
 
+
+81. Ciclo de actualización de state / render
+
+    Repaso del ciclo de vida de los componentes de React y cuando se re-renderizan y cuando no.
+
