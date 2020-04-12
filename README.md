@@ -1185,3 +1185,10 @@ Los problemas principales encontrados fueron los siguientes:
 
 
 95. Plan de transformación de datos
+
+
+96. Moment.Js
+
+    Explicación general de la librería Moment.JS
+
+    https://momentjs.com/
