@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './styles.css';
 
 class ForecastExtended extends Component {
   render() {
     const { city } = this.props;
-    return <div>Pronóstico extendido: {city}</div>;
+    return <h2 className="forecastExtendedTitle">Pronóstico extendido: {city}</h2>;
   }
 }
 

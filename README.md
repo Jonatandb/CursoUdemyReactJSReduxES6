@@ -1146,3 +1146,7 @@ Los problemas principales encontrados fueron los siguientes:
 
     Juego de Tabla de Igualdad de JavaScript<br/>
     https://eqeq.js.org/#es
+
+
+85. Estilo ForecastExtended: Utilización de ClassName
+
