@@ -1108,3 +1108,7 @@ Los problemas principales encontrados fueron los siguientes:
       - yarn add -D eslint-config-prettier eslint-plugin-prettier
 
      Al finalizar estas instalaciones quedó todo perfectamente configurado, ahora cuando escribo código y grabo, Prettier formatea el archivo respetando las reglas de estilo impuestas por Eslint según lo recomendado por Airbnb :-)
+
+
+78. Creación de parámetro para ForecastExtended
+

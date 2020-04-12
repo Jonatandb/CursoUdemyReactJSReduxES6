@@ -37,7 +37,7 @@ function App() {
         <Col xs={12} md={6}>
           <Paper elevation={4}>
             <div className="details">
-              <ForecastExtended />
+              <ForecastExtended city={'Buenos Aires,ar'} />
             </div>
           </Paper>
         </Col>
