@@ -1166,3 +1166,6 @@ Los problemas principales encontrados fueron los siguientes:
 90. Planificación de Fetch contra servidor
 
     Explicación de por qué se utilizará el componentDidMount y no componentWillMount
+
+
+91. Primer paso de refactorización de ForecastExtended: Indicador carga inicial
