@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/CursoUdemyReactJSReduxES6/static/css/main.13811cac.chunk.css",
-    "main.js": "/CursoUdemyReactJSReduxES6/static/js/main.f6cc18ae.chunk.js",
-    "main.js.map": "/CursoUdemyReactJSReduxES6/static/js/main.f6cc18ae.chunk.js.map",
-    "runtime-main.js": "/CursoUdemyReactJSReduxES6/static/js/runtime-main.7f79518c.js",
-    "runtime-main.js.map": "/CursoUdemyReactJSReduxES6/static/js/runtime-main.7f79518c.js.map",
+    "main.css": "/CursoUdemyReactJSReduxES6/static/css/main.7277bff9.chunk.css",
+    "main.js": "/CursoUdemyReactJSReduxES6/static/js/main.5e91fb16.chunk.js",
+    "main.js.map": "/CursoUdemyReactJSReduxES6/static/js/main.5e91fb16.chunk.js.map",
+    "runtime-main.js": "/CursoUdemyReactJSReduxES6/static/js/runtime-main.32c681cc.js",
+    "runtime-main.js.map": "/CursoUdemyReactJSReduxES6/static/js/runtime-main.32c681cc.js.map",
     "static/css/2.22d6b5ec.chunk.css": "/CursoUdemyReactJSReduxES6/static/css/2.22d6b5ec.chunk.css",
-    "static/js/2.baeb9c14.chunk.js": "/CursoUdemyReactJSReduxES6/static/js/2.baeb9c14.chunk.js",
-    "static/js/2.baeb9c14.chunk.js.map": "/CursoUdemyReactJSReduxES6/static/js/2.baeb9c14.chunk.js.map",
+    "static/js/2.19a8e195.chunk.js": "/CursoUdemyReactJSReduxES6/static/js/2.19a8e195.chunk.js",
+    "static/js/2.19a8e195.chunk.js.map": "/CursoUdemyReactJSReduxES6/static/js/2.19a8e195.chunk.js.map",
     "index.html": "/CursoUdemyReactJSReduxES6/index.html",
-    "precache-manifest.472b181c8f6b766ac70c8561f0ad965c.js": "/CursoUdemyReactJSReduxES6/precache-manifest.472b181c8f6b766ac70c8561f0ad965c.js",
+    "precache-manifest.892560612fca2d40299d433ce2b9810f.js": "/CursoUdemyReactJSReduxES6/precache-manifest.892560612fca2d40299d433ce2b9810f.js",
     "service-worker.js": "/CursoUdemyReactJSReduxES6/service-worker.js",
     "static/css/2.22d6b5ec.chunk.css.map": "/CursoUdemyReactJSReduxES6/static/css/2.22d6b5ec.chunk.css.map",
-    "static/css/main.13811cac.chunk.css.map": "/CursoUdemyReactJSReduxES6/static/css/main.13811cac.chunk.css.map",
-    "static/js/2.baeb9c14.chunk.js.LICENSE.txt": "/CursoUdemyReactJSReduxES6/static/js/2.baeb9c14.chunk.js.LICENSE.txt"
+    "static/css/main.7277bff9.chunk.css.map": "/CursoUdemyReactJSReduxES6/static/css/main.7277bff9.chunk.css.map",
+    "static/js/2.19a8e195.chunk.js.LICENSE.txt": "/CursoUdemyReactJSReduxES6/static/js/2.19a8e195.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.7f79518c.js",
+    "static/js/runtime-main.32c681cc.js",
     "static/css/2.22d6b5ec.chunk.css",
-    "static/js/2.baeb9c14.chunk.js",
-    "static/css/main.13811cac.chunk.css",
-    "static/js/main.f6cc18ae.chunk.js"
+    "static/js/2.19a8e195.chunk.js",
+    "static/css/main.7277bff9.chunk.css",
+    "static/js/main.5e91fb16.chunk.js"
   ]
 }
