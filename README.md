@@ -1152,3 +1152,6 @@ Los problemas principales encontrados fueron los siguientes:
 
 
 86. Presentación del componente ForecastItem
+
+
+87. Creación componente ForecastItem

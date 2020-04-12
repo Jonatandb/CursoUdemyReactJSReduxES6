@@ -5,7 +5,6 @@ import './styles.css';
 
 const LocationList = ({ cities, onSelectedLocation }) => {
   const onWeatherLocationSelected = (city) => {
-    console.log('LocationList.js -> onWeatherLocationSelected() -> city:', city);
     onSelectedLocation(city);
   };
 
