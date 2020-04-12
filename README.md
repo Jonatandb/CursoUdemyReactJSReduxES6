@@ -1112,3 +1112,6 @@ Los problemas principales encontrados fueron los siguientes:
 
 78. Creación de parámetro para ForecastExtended
 
+
+79. Utilización de state en App.js
+

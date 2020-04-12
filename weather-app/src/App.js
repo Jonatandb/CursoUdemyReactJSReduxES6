@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { AppBar, Typography, Toolbar, Paper } from '@material-ui/core';
@@ -16,34 +16,44 @@ const cities = [
   'Lima,pe',
 ];
 
-const handleSelectedLocation = (city) => console.log('App.js -> handleSelectedLocation() -> city:', city);
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      city: cities[0],
+    };
+  }
 
-function App() {
-  return (
-    <Grid>
-      <Row>
-        <AppBar position="sticky">
-          <Toolbar>
-            <Typography variant="title" color="inherit">
-              Weather App
-            </Typography>
-          </Toolbar>
-        </AppBar>
-      </Row>
-      <Row>
-        <Col xs={12} md={6}>
-          <LocationList cities={cities} onSelectedLocation={handleSelectedLocation} />
-        </Col>
-        <Col xs={12} md={6}>
-          <Paper elevation={4}>
-            <div className="details">
-              <ForecastExtended city={'Buenos Aires,ar'} />
-            </div>
-          </Paper>
-        </Col>
-      </Row>
-    </Grid>
-  );
+  handleSelectedLocation = (city) => this.setState({ city });
+
+  render() {
+    const { city } = this.state;
+    return (
+      <Grid>
+        <Row>
+          <AppBar position="sticky">
+            <Toolbar>
+              <Typography variant="title" color="inherit">
+                Weather App
+              </Typography>
+            </Toolbar>
+          </AppBar>
+        </Row>
+        <Row>
+          <Col xs={12} md={6}>
+            <LocationList cities={cities} onSelectedLocation={this.handleSelectedLocation} />
+          </Col>
+          <Col xs={12} md={6}>
+            <Paper elevation={4}>
+              <div className="details">
+                <ForecastExtended city={city} />
+              </div>
+            </Paper>
+          </Col>
+        </Row>
+      </Grid>
+    );
+  }
 }
 
 export default App;
