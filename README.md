@@ -1131,5 +1131,18 @@ Los problemas principales encontrados fueron los siguientes:
 
 83. Manejo de estado inicial 2
 
-    Renderizado condicional utilizando el doble ampersand: &&
+    Renderizado condicional utilizando el operador lógico AND (doble ampersand): &&
 
+
+84. Truthy values y Falsy values
+
+    Truthy<br/>
+    https://developer.mozilla.org/es/docs/Glossary/Truthy<br/>
+    En JavaScript, un valor verdadero es un valor que se considera  true/verdadero cuando es evaluado en un contexto Booleano. Todos los valores son verdaderos a menos que se definan como falso (es decir, excepto false, 0, -0, 0n, "", null, undefined, y NaN).
+
+    Falsy<br/>
+    https://developer.mozilla.org/es/docs/Glossary/Falsy<br/>
+    Un valor falso (a veces escrito falsey) es un valor que se considera falso cuando se encuentra en un contexto booleano. JavaScript utiliza la conversión de tipos para forzar cualquier valor a un valor booleano en contextos que lo requieren, como condicionales y bucles.
+
+    Juego de Tabla de Igualdad de JavaScript<br/>
+    https://eqeq.js.org/#es
