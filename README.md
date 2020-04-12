@@ -1161,3 +1161,8 @@ Los problemas principales encontrados fueron los siguientes:
 
 
 89. Incorporación de WeatherData al ForecastItem
+
+
+90. Planificación de Fetch contra servidor
+
+    Explicación de por qué se utilizará el componentDidMount y no componentWillMount
