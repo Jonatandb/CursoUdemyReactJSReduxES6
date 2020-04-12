@@ -1176,3 +1176,6 @@ Los problemas principales encontrados fueron los siguientes:
     Explicación de uso de la api de OpenWeatherMap para obtener datos del pronóstico de los próximos 5 días.
 
 
+93. Ejecución de Fetch Forecast
+
+    Se utiliza fetch aunque se explica que también se podría utilizar axios, ya que tiene soporte para navegadores antiguos.

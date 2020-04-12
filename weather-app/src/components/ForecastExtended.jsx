@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './styles.css';
 import ForecastItem from './FerecastItem';
 import { CircularProgress } from '@material-ui/core';
-
+import { api_key } from './../constants/api_url';
 // const days = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'];
 
 // const data = {
@@ -13,7 +13,7 @@ import { CircularProgress } from '@material-ui/core';
 //   wind: '99 m/s',
 // };
 
-const url = 'http://api.openweathermap.org/data/2.5/forecast';
+const url_api = 'https://api.openweathermap.org/data/2.5/forecast';
 
 class ForecastExtended extends Component {
   constructor(props) {
@@ -24,7 +24,11 @@ class ForecastExtended extends Component {
   }
 
   componentDidMount() {
-    // Realizar fetch para obtener el pronóstico extendido
+    const url = `${url_api}?q=${this.props.city}&appid=${api_key}`;
+    console.log('url:', url);
+    fetch(url)
+      .then((data) => data.json())
+      .then((weatherData) => console.log(weatherData));
   }
 
   renderForecastItemDays() {
