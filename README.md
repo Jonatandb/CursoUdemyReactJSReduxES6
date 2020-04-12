@@ -1127,3 +1127,9 @@ Los problemas principales encontrados fueron los siguientes:
 82. Manejo de estado inicial
 
     Utilización del operador ternario para realizar un renderizado condicional cuando aún no se ha seleccionado ninguna ciudad.
+
+
+83. Manejo de estado inicial 2
+
+    Renderizado condicional utilizando el doble ampersand: &&
+
