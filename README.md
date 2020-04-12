@@ -1182,3 +1182,6 @@ Los problemas principales encontrados fueron los siguientes:
 
 
 94. Creación de servicio de transformación
+
+
+95. Plan de transformación de datos
