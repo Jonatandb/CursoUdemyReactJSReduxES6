@@ -1156,4 +1156,8 @@ Los problemas principales encontrados fueron los siguientes:
 
 87. Creación componente ForecastItem
 
+
 88. Utilización de array de componentes
+
+
+89. Incorporación de WeatherData al ForecastItem

@@ -5,9 +5,16 @@ import ForecastItem from './FerecastItem';
 
 const days = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes'];
 
+const data = {
+  temperature: 99,
+  weatherState: 'sun',
+  humidity: 99,
+  wind: '99 m/s',
+};
+
 class ForecastExtended extends Component {
   renderForecastItemDays() {
-    return days.map((day) => <ForecastItem weekDay={day} />);
+    return days.map((day) => <ForecastItem key={day} weekDay={day} hour={10} data={data} />);
   }
 
   render() {
