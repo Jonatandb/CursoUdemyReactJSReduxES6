@@ -1,11 +1,11 @@
-const transformForecast = (forecast_data) => {
-  console.log('transformForecast -> forecast_data:', forecast_data);
+import moment from 'moment';
 
-  const filteredData = forecast_data.list.filter((d) => d.dt_txt.includes('15:00:00'));
-  console.log('transformForecast ->  filteredData:', filteredData);
-  const data = filteredData;
-
-  return data;
-};
+const transformForecast = (forecast_data) =>
+  forecast_data.list.filter(
+    (item) =>
+      moment.unix(item.dt).utc().hour() === 6 ||
+      moment.unix(item.dt).utc().hour() === 12 ||
+      moment.unix(item.dt).utc().hour() === 18,
+  );
 
 export default transformForecast;

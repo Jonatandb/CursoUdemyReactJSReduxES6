@@ -1192,3 +1192,8 @@ Los problemas principales encontrados fueron los siguientes:
     Explicación general de la librería Moment.JS
 
     https://momentjs.com/
+
+
+97. Utilización de filter
+
+    Uso de funciones unix() y utc() de momentjs para filtrar los pronósticos para los siguientes 5 días obtenidos del servidor y generar una lista con solo 3 pronósticos para cada día, para ciertas horas especificas.

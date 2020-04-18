@@ -20,17 +20,25 @@ class ForecastExtended extends Component {
       .then((response) => response.json())
       .then((forecastJSONResponse) => {
         if (forecastJSONResponse && forecastJSONResponse.cod && forecastJSONResponse.cod === '200') {
+          console.log('ForecastExtended -> getData() -> forecastJSONResponse:', forecastJSONResponse);
+          const transformedForecastData = transformForecast(forecastJSONResponse);
+          console.log(
+            'ForecastExtended -> getData() -> transformForecast(forecastJSONResponse):',
+            transformedForecastData,
+          );
           this.setState({
-            forecastData: transformForecast(forecastJSONResponse),
+            forecastData: transformedForecastData,
           });
         } else {
           console.log(
-            'ForecastExtended: Se produjo un error al obtener datos del servidor.',
+            'ForecastExtended -> getData(): Se produjo un error al obtener datos del servidor.',
             forecastJSONResponse && forecastJSONResponse.message && forecastJSONResponse.message,
           );
         }
       })
-      .catch((reason) => console.log('ForecastExtended: Se produjo un error en alguna de las Promises:', reason));
+      .catch((reason) =>
+        console.log('ForecastExtended -> getData(): Se produjo un error al obtener datos del servidor:', reason),
+      );
   };
 
   componentDidMount() {
@@ -38,9 +46,9 @@ class ForecastExtended extends Component {
   }
 
   renderForecastItemDays() {
-    return this.state.forecastData.map((day) => (
-      <ForecastItem key={day.dt} weekDay={day.dt_txt.split(' ')[0]} hour={day.dt_txt.split(' ')[1]} data={day.main} />
-    ));
+    // return this.state.forecastData.map((day) => (
+    //   <ForecastItem key={day.dt} weekDay={day.dt_txt.split(' ')[0]} hour={day.dt_txt.split(' ')[1]} data={day.main} />
+    // ));
   }
 
   render() {
