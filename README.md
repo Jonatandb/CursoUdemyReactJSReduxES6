@@ -1204,3 +1204,6 @@ Los problemas principales encontrados fueron los siguientes:
     Importación de 'moment/locale/es' para que los días de la semana en texto devueltos por moment aparezcan en español
 
     Agrego validación en el método componentDidUpdate() del componente ForecastExtended para que cuando se clickea en una nueva ciudad se haga una nueva solicitud del pronóstico extendido al servidor de OpenWeatherMap
+
+
+99. Generación de ForecastItems en base a los datos

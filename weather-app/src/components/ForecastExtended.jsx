@@ -59,8 +59,8 @@ class ForecastExtended extends Component {
     // }
   }
 
-  renderForecastItemDays() {
-    return this.state.forecastData.map(({ weekDay, hour, data }) => (
+  renderForecastItemDays(forecastData) {
+    return forecastData.map(({ weekDay, hour, data }) => (
       <ForecastItem key={weekDay + hour} weekDay={weekDay} hour={hour} data={data} />
     ));
   }
@@ -73,7 +73,7 @@ class ForecastExtended extends Component {
     return (
       <div>
         <h2 className="forecastExtendedTitle">Pronóstico extendido: {city}</h2>
-        {forecastData ? this.renderForecastItemDays() : <CircularProgress />}
+        {forecastData ? this.renderForecastItemDays(forecastData) : <CircularProgress />}
       </div>
     );
   }
