@@ -5,13 +5,14 @@ import './styles.css';
 
 const LocationList = ({ cities, onSelectedLocation }) => {
   const onWeatherLocationSelected = (city) => {
+    //console.log('LocationList -> onWeatherLocationSelected -> city:', city);
     onSelectedLocation(city);
   };
 
   return (
     <div className="locationList">
-      {cities.map((c, idx) => (
-        <WeatherLocation key={idx} city={c} onWeatherLocationClick={() => onWeatherLocationSelected(c)} />
+      {cities.map((c) => (
+        <WeatherLocation key={c} city={c} onWeatherLocationClick={() => onWeatherLocationSelected(c)} />
       ))}
     </div>
   );

@@ -1197,3 +1197,10 @@ Los problemas principales encontrados fueron los siguientes:
 97. Utilización de filter
 
     Uso de funciones unix() y utc() de momentjs para filtrar los pronósticos para los siguientes 5 días obtenidos del servidor y generar una lista con solo 3 pronósticos para cada día, para ciertas horas especificas.
+
+
+98. Uso de Map, y Culturización con Moment Locale
+
+    Importación de 'moment/locale/es' para que los días de la semana en texto devueltos por moment aparezcan en español
+
+    Agrego validación en el método componentDidUpdate() del componente ForecastExtended para que cuando se clickea en una nueva ciudad se haga una nueva solicitud del pronóstico extendido al servidor de OpenWeatherMap

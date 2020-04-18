@@ -15,17 +15,18 @@ class ForecastExtended extends Component {
   }
 
   getData = () => {
+    //console.log('ForecastExtended -> getData()');
     const { city } = this.props;
     fetch(getForecastURLByCity(city))
       .then((response) => response.json())
       .then((forecastJSONResponse) => {
         if (forecastJSONResponse && forecastJSONResponse.cod && forecastJSONResponse.cod === '200') {
-          console.log('ForecastExtended -> getData() -> forecastJSONResponse:', forecastJSONResponse);
+          //console.log('ForecastExtended -> getData() -> forecastJSONResponse:', forecastJSONResponse);
           const transformedForecastData = transformForecast(forecastJSONResponse);
-          console.log(
-            'ForecastExtended -> getData() -> transformForecast(forecastJSONResponse):',
-            transformedForecastData,
-          );
+          //console.log(
+          //   'ForecastExtended -> getData() -> transformForecast(forecastJSONResponse):',
+          //   transformedForecastData,
+          // );
           this.setState({
             forecastData: transformedForecastData,
           });
@@ -42,18 +43,33 @@ class ForecastExtended extends Component {
   };
 
   componentDidMount() {
+    //console.log('ForecastExtended -> componentDidMount()');
     this.getData();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    //console.log('ForecastExtended -> componentDidUpdate()');
+    if (prevProps.city !== this.props.city) {
+      //console.log('ForecastExtended -> componentDidUpdate(): prevProps.city != this.props.city => getData()');
+      this.getData();
+    } //  else {
+    //   console.log(
+    //    'ForecastExtended -> componentDidUpdate(): prevProps.city == this.props.city => No call to getData()',
+    //   );
+    // }
+  }
+
   renderForecastItemDays() {
-    // return this.state.forecastData.map((day) => (
-    //   <ForecastItem key={day.dt} weekDay={day.dt_txt.split(' ')[0]} hour={day.dt_txt.split(' ')[1]} data={day.main} />
-    // ));
+    return this.state.forecastData.map(({ weekDay, hour, data }) => (
+      <ForecastItem key={weekDay + hour} weekDay={weekDay} hour={hour} data={data} />
+    ));
   }
 
   render() {
     const { city } = this.props;
     const { forecastData } = this.state;
+    //console.log('ForecastExtended -> render() -> city:', city);
+    //console.log('ForecastExtended -> render() -> forecastData:', forecastData);
     return (
       <div>
         <h2 className="forecastExtendedTitle">Pronóstico extendido: {city}</h2>

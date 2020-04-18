@@ -37,7 +37,7 @@ class WeatherLocation extends Component {
           );
         }
       })
-      .catch((reason) => console.log('WeatherLocation: Se produjo un error en alguna de las Promises:', reason));
+      .catch((reason) => console.log('WeatherLocation: Se produjo un error al obtener datos del servidor:', reason));
   };
 
   render() {
