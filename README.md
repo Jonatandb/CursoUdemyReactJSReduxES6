@@ -7,6 +7,13 @@ Curso un Udemy: [React JS + Redux + ES6. Completo ¡De 0 a experto! (español)](
 Repositorio:
 [https://github.com/Jonatandb/CursoUdemyReactJSReduxES6](https://github.com/Jonatandb/CursoUdemyReactJSReduxES6)
 
+
+<p align="center">
+    <a href="https://jonatandb.github.io/CursoUdemyReactJSReduxES6/">
+        <img src="WeatherApp_Jonatandb.gif" alt="WeatherApp | Jonatandb"/>
+    </a>
+</p>
+
 ---
 
 3. Node.js, Npm y Yarn
