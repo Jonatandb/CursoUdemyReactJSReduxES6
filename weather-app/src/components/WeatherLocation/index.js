@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { CircularProgress } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import Location from './Location';
 import WeatherData from './WeatherData';
+import MyWeatherProgressIndicator from '../MyWeatherProgressIndicator';
 import './styles.css';
 import transformWeather from '../../services/transformWeather';
 import getURLByCity from '../../services/getURLByCity';
@@ -45,7 +45,7 @@ class WeatherLocation extends Component {
     return (
       <div className="weatherLocationContainer" onClick={this.props.onWeatherLocationClick}>
         <Location city={city} />
-        {data ? <WeatherData data={data} /> : <CircularProgress size={60} />}
+        {data ? <WeatherData data={data} /> : <MyWeatherProgressIndicator size="2x" />}
       </div>
     );
   }

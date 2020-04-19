@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
 import ForecastItem from './FerecastItem';
-import { CircularProgress } from '@material-ui/core';
 import transformForecast from './../services/transformForecast';
 import getForecastURLByCity from './../services/getForecastURLByCity';
+import MyWeatherProgressIndicator from './MyWeatherProgressIndicator';
 
 class ForecastExtended extends Component {
   constructor(props) {
@@ -14,9 +14,8 @@ class ForecastExtended extends Component {
     };
   }
 
-  getData = () => {
+  getDataByCity = (city) => {
     //console.log('ForecastExtended -> getData()');
-    const { city } = this.props;
     fetch(getForecastURLByCity(city))
       .then((response) => response.json())
       .then((forecastJSONResponse) => {
@@ -44,17 +43,18 @@ class ForecastExtended extends Component {
 
   componentDidMount() {
     //console.log('ForecastExtended -> componentDidMount()');
-    this.getData();
+    this.getDataByCity(this.props.city);
   }
 
   componentDidUpdate(prevProps, prevState) {
     //console.log('ForecastExtended -> componentDidUpdate()');
-    if (prevProps.city !== this.props.city) {
+    const { city } = this.props;
+    if (prevProps.city !== city) {
       //console.log('ForecastExtended -> componentDidUpdate(): prevProps.city != this.props.city => getData()');
       this.setState({
         forecastData: null,
       });
-      this.getData();
+      this.getDataByCity(city);
     } //  else {
     //   console.log(
     //    'ForecastExtended -> componentDidUpdate(): prevProps.city == this.props.city => No call to getData()',
@@ -76,7 +76,7 @@ class ForecastExtended extends Component {
     return (
       <div>
         <h2 className="forecastExtendedTitle">Pronóstico extendido: {city.split(',')[0]}</h2>
-        {forecastData ? this.renderForecastItemDays(forecastData) : <CircularProgress />}
+        {forecastData ? this.renderForecastItemDays(forecastData) : <MyWeatherProgressIndicator size="2x" />}
       </div>
     );
   }

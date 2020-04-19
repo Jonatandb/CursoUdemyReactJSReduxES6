@@ -1210,3 +1210,12 @@ Los problemas principales encontrados fueron los siguientes:
 
 
 100. Mejora visual
+
+
+Creo componente personalizado pare reemplazar el CircularProgress de MaterialUI
+
+Páginas consultadas:
+
+- <a href="https://stackoverflow.com/questions/36299174/setinterval-in-a-react-app=" target="_blank">setInterval in a React app</a>
+
+- <a href="https://www.w3schools.com/howto/howto_css_center-vertical.asp" target="_blank">How TO - Center Elements Vertically</a>
