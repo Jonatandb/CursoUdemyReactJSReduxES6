@@ -1207,3 +1207,6 @@ Los problemas principales encontrados fueron los siguientes:
 
 
 99. Generación de ForecastItems en base a los datos
+
+
+100. Mejora visual

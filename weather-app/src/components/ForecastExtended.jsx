@@ -51,6 +51,9 @@ class ForecastExtended extends Component {
     //console.log('ForecastExtended -> componentDidUpdate()');
     if (prevProps.city !== this.props.city) {
       //console.log('ForecastExtended -> componentDidUpdate(): prevProps.city != this.props.city => getData()');
+      this.setState({
+        forecastData: null,
+      });
       this.getData();
     } //  else {
     //   console.log(
@@ -72,7 +75,7 @@ class ForecastExtended extends Component {
     //console.log('ForecastExtended -> render() -> forecastData:', forecastData);
     return (
       <div>
-        <h2 className="forecastExtendedTitle">Pronóstico extendido: {city}</h2>
+        <h2 className="forecastExtendedTitle">Pronóstico extendido: {city.split(',')[0]}</h2>
         {forecastData ? this.renderForecastItemDays(forecastData) : <CircularProgress />}
       </div>
     );
