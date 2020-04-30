@@ -1521,3 +1521,24 @@ Los problemas principales encontrados fueron los siguientes:
       - FlexboxGrid
       - ReactWeatherIcons
       - Moment
+
+
+103. Ciclo de Vida React 16
+
+  - Fases del ciclo de vida
+    - Montaje
+      - Constructor
+      - Render
+      - ComponentDidMount
+    - Actualización
+      - Render
+      - ComponentDidUpdate
+    - Desmontaje
+      - ComponentWillUnmount
+    - Manejo de Error
+      - Solo se ejecutará en caso de que se produzca algún problema durante el renderizado de un componente, en algunos de los métodos del ciclo de vida o en el constructor.
+  - Métodos deprecados
+    - ComponentWillMount
+    - ComponentWillUpdate
+    - ComponentWillReceiveProps
+
