@@ -1542,3 +1542,29 @@ Los problemas principales encontrados fueron los siguientes:
     - ComponentWillUpdate
     - ComponentWillReceiveProps
 
+
+104. ¿Qué hace que un componente se actualice?
+  - Cuando se ejecuta setState() y por lo tanto se actualiza el estado del componente
+  - Cuando llegan nuevas props recibidas desde el componente padre
+  - Cuando se llama al método forceUpdate()
+
+    ¿Que elementos se pueden renderizar?
+    - React elements (Componentes nativos y componentes de usuario, extendidos de React.Component) JSX
+    - Strings, números
+
+    Ciclo de Vida React 16.4
+
+    - Fases del ciclo de vida
+        - Montaje
+            - Constructor
+            - getDerivedStateFromProps
+            - Render
+            - ComponentDidMount
+        - Actualización
+            - getDerivedStateFromProps
+            - shouldComponentUpdate
+            - Render
+            - getSnapshotBeforeUpdate
+            - ComponentDidUpdate
+        - Desmontaje
+            - ComponentWillUnmount
