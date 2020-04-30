@@ -1568,3 +1568,14 @@ Los problemas principales encontrados fueron los siguientes:
             - ComponentDidUpdate
         - Desmontaje
             - ComponentWillUnmount
+
+
+105. Virtual DOM
+  - DOM (Document Object Model)
+    - Representación visual, mantenida por el navegador, de los elementos que componen una pagina web
+        - Mantiene una jerarquia de objetos HTML que el navegador puede representar
+        - Cada vez existe alguna modificación en este DOM, se generan modificaciones visuales en la página
+        - Alterar el DOM es una tarea que lleva tiempo y no es performante, a menos que se realice de una manera muy selectiva.
+
+    - React logra el objetivo de realizar modificaciones muy selectivas de una manera muy performante gracias a la utilización del Virtual DOM:
+      - Es una representación en memoria liviana de cada elemento generado y ante una modificación en los mismos realiza una comparación para detectar los cambios que existieron y finalmente impacta solo estos cambios en el DOM real, con lo que evita actualizaciones innecesarias y hace este proceso tan eficiente como podría ser.
