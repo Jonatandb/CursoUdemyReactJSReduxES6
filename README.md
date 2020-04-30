@@ -503,69 +503,71 @@ Repositorio:
     el cual tiene las propiedades 'temperature', 'weatherState', 'humidity' y 'wind', con los tipos de datos específicados.
 
 38) Cómo transformar un functional en un class Component
-    Se debe modificar el componente funcional, por ej:
-    const MiComponente = () => {
-    return (
-    <div>
-    <span>Este es mi componente</span>
-    </div>
-    )
-    }
-    De la siguiente manera:
-    import React, { Component } from 'react';
-    class MiComponente extends Component {
-    render() {
-    return (
-    <div>
-    <span>Este es mi componente</span>
-    </div>
-    );
-    }
-    }
+    - Se debe modificar el componente funcional, por ej:
+
+            const MiComponente = () => {
+                return (
+                    <div>
+                        <span>Este es mi componente</span>
+                    </div>
+                )
+            }
+    - De la siguiente manera:
+
+            import React, { Component } from 'react';
+            class MiComponente extends Component {
+                render() {
+                    return (
+                        <div>
+                            <span>Este es mi componente</span>
+                        </div>
+                    );
+                }
+            }
 
 39. Evento OnClick y manejo de State
-    Para poder tener estado en un componente, el mismo debe ser un componente de clase.
-    Además, el componente de clase, debe tener definido el método constructor(), y el mismo por dentro debe llamar al constructor de su clase padre:
-    constructor() {
-    super()
-    }
-    Una vez hecho esto, se puede establecer el estado inicial del componente, ej:
-    class MiComponente extensión Component {
-    constructor() {
-    super();
-    this.state = {
-    mensaje: 'Estado inicial del componente',
-    }
-    }
-    }
-    Luego, mediante interacciones del usuario con el componente, por ejemplo haciendo click, se puede alterar este estado,
+    - Para poder tener estado en un componente, el mismo debe ser un componente de clase.
+    - Además, el componente de clase, debe tener definido el método constructor(), y el mismo por dentro debe llamar al constructor de su clase padre:
+
+            constructor(props) {
+                super(props)
+            }
+    - Una vez hecho esto, se puede establecer el estado inicial del componente, ej:
+
+            class MiComponente extensión Component {
+                constructor() {
+                    super();
+                    this.state = {
+                        mensaje: 'Estado inicial del componente',
+                    }
+                }
+            }
+    - Luego, mediante interacciones del usuario con el componente, por ejemplo haciendo click, se puede alterar este estado,
     lo que hará que el componente se renderice, dibujandose de nuevo y por ende mostrando el nuevo estado:
-    class MiComponente extensión Component {
-    constructor() {
-    super();
-    this.state = {
-    mensaje: 'Estado inicial del componente',
-    }
-    }
-    handleClick = () => {
-    console.log('Se clickeó el div');
-    this.setState({
-    mensaje: 'Este mensaje aparece como resultado de modificar el state'
-    })
-    }
-    render() {
-    const mensaje = this.state;
-    return (
-    <div onClick={this.handleClick}>
-    <span>Mensaje a mostrar: {mensaje}</span>
-    </div>
-    );
-    }
-    }
-    Es muy importante tener en cuenta que para modificar el state de un componente, no se puede llamar a this.state y asignarle un nuevo valor, como
-    se hace durante la inicialización en el constructor, ya que arrojará un error por la consola y no surtirá efecto. Lo que se debe hacer en su
-    lugar es utilizar la funcionalidad this.setState(), la cual recibe como valor un objeto con la propiedad que se desea agregar o actualizar al
-    state del componente.
+
+            class MiComponente extensión Component {
+                constructor() {
+                    super();
+                    this.state = {
+                        mensaje: 'Estado inicial del componente',
+                    }
+                }
+                handleClick = () => {
+                    console.log('Se clickeó el div');
+                    this.setState({
+                        mensaje: 'Este mensaje aparece como resultado de modificar el state'
+                    })
+                }
+                render() {
+                    const mensaje = this.state;
+                    return (
+                        <div onClick={this.handleClick}>
+                            <span>Mensaje a mostrar: {mensaje}</span>
+                        </div>
+                    );
+                }
+            }
+    - Es muy importante tener en cuenta que para modificar el state de un componente, no se puede llamar a this.state y asignarle un nuevo valor, como se hace durante la inicialización en el constructor, ya que arrojará un error por la consola y no surtirá efecto. Lo que se debe hacer en su lugar es utilizar la funcionalidad this.setState(), la cual recibe como valor un objeto con la propiedad que se desea agregar o actualizar al state del componente.
 
 40) SetState (updater)
 
@@ -1218,11 +1220,273 @@ Los problemas principales encontrados fueron los siguientes:
 
 100. Mejora visual
 
+        Creo componente personalizado pare reemplazar el CircularProgress de MaterialUI
 
-Creo componente personalizado pare reemplazar el CircularProgress de MaterialUI
+        Páginas consultadas:
 
-Páginas consultadas:
+        - <a href="https://stackoverflow.com/questions/36299174/setinterval-in-a-react-app=" target="_blank">setInterval in a React app</a>
 
-- <a href="https://stackoverflow.com/questions/36299174/setinterval-in-a-react-app=" target="_blank">setInterval in a React app</a>
+        - <a href="https://www.w3schools.com/howto/howto_css_center-vertical.asp" target="_blank">How TO - Center Elements Vertically</a>
 
-- <a href="https://www.w3schools.com/howto/howto_css_center-vertical.asp" target="_blank">How TO - Center Elements Vertically</a>
+
+101. Ciclo de vida de React: ComponentWillReceiveProps
+
+        Refactor a componente ForecastExtended para que recargue el pronóstico extendido cuando se actualiza la propiedad city mediante el uso del método de ciclo de vida de React "ComponentWillReceiveProps".
+
+        Al utilizar el método ComponentWillReceiveProps obtuve una alerta en la consola debido a que React desaconseja su uso debido a que será discontinuado:
+
+            Warning: componentWillReceiveProps has been renamed, and is not recommended for use. See https://fb.me/react-unsafe-component-lifecycles for details.
+
+            * Move data fetching code or side effects to componentDidUpdate.
+            * If you're updating state whenever props change, refactor your code to use memoization techniques or move it to static getDerivedStateFromProps. Learn more at: https://fb.me/react-derived-state
+            * Rename componentWillReceiveProps to UNSAFE_componentWillReceiveProps to suppress this warning in non-strict mode. In React 17.x, only the UNSAFE_ name will work. To rename all deprecated lifecycles to their new names, you can run `npx react-codemod rename-unsafe-lifecycles` in your project source folder.
+
+        Investigando al respecto dí con esta página que explica como solucionar problemas asociados al uso de éste método y al hecho mismo de necesitar utilizarlo, cosa que se da en raros casos:
+        - https://es.reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops
+
+                Nota:
+
+                El uso de este método de ciclo de vida a menudo conduce a errores e inconsistencias
+
+                Si necesitas realizar un efecto secundario (por ejemplo, obtención de datos o animaciones) en una respuesta debido a un cambio en los props, utiliza componentDidUpdate.
+
+                Si usaste componentWillReceiveProps para re-calcular algunos datos cuando un prop cambie, utiliza memoization.
+
+                Si quieres restablecer algún state cuando un prop cambie considera hacer un completamente controlado o un componente no controlado con una key/clave.
+
+                Para otros casos de uso, sigue las recomendaciones en este blog sobre estado derivado:
+                - https://es.reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
+
+        En el nuevo ciclo de vida de componentes de React se agregó el método estático: getDerivedStateFromProps:
+        - https://es.reactjs.org/docs/react-component.html#static-getderivedstatefromprops
+
+                Se invoca justo antes de llamar al método de render, tanto en la montura inicial como en las actualizaciones posteriores. Debes devolver un objeto para actualizar el estado, o nulo para actualizar nada.
+
+                Este método existe para casos de uso raros donde el estado depende de los cambios en props con el tiempo.
+
+                Together with componentDidUpdate, this new lifecycle should cover all use cases for the legacy componentWillReceiveProps."
+
+        - https://es.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#new-lifecycle-getderivedstatefromprops
+
+        Updating state based on props:
+
+            "As of version 16.3, the recommended way to update state in response to props changes is with the new static getDerivedStateFromProps lifecycle.
+            It is called when a component is created and each time it re-renders due to changes to props or state"
+
+        - https://es.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+
+        "React ensures that any setState calls that happen during componentDidMount and componentDidUpdate are flushed before the user sees the updated UI."
+
+        React 16.12
+
+            React will _not_ call the deprecated lifecycle methods:
+                componentWillMount
+                componentWillUpdate
+                componentWillReceiveProps
+            if any of the new lifecycle methods are present:
+                getDerivedStateFromProps    static
+                getDerivedStateFromError    static
+                getSnapshotBeforeUpdate
+
+        Gráfico interactivo del ciclo de vida de los componentes:
+        -
+        - http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+        Fases del ciclo de vida de un componente:
+        -
+        - https://es.reactjs.org/docs/react-component.html#the-component-lifecycle
+
+            Montaje:
+            - Se ejecuta siempre y solo lo hace una vez
+            - Contruye el componente con su estado inicial
+            - Obtiene las props
+            - Primera ejecución del método render
+            - Termina con el componente montado en el DOM
+            - Orden de los métodos que se ejecutan durante el montaje:
+                - constructor(props)
+                    - https://es.reactjs.org/docs/react-component.html#constructor
+                      - Si no inicializas el estado y no enlazas los métodos, no necesitas implementar un constructor para tu componente React.
+                      - El constructor para un componente React es llamado antes de ser montado. Al implementar el constructor para una subclase React.Component, deberías llamar a super(props) antes que cualquier otra instrucción. De otra forma, this.props no estará definido en el constructor, lo que puede ocasionar a errores.
+                      - Normalmente, los constructores de React sólo se utilizan para dos propósitos:
+                        - Para inicializar un estado local asignando un objeto al this.state.
+                        - Para enlazar manejadores de eventos a una instancia.
+                      - No debes llamar setState() en el constructor(). En su lugar, si su componente necesita usar el estado local, asigna directamente el estado inicial al this.state directamente en el constructor:
+
+                                constructor(props) {
+                                    super(props);
+                                    // No llames this.setState() aquí!
+                                    this.state = { counter: 0 };
+                                    this.handleClick = this.handleClick.bind(this);
+                                }
+                        - El constructor es el único lugar donde debes asignar this.state directamente.
+                            - En todos los demás métodos, debes usar this.setState() en su lugar.
+                        - Evita introducir cualquier efecto secundario o suscripciones en el constructor.
+                            - Para estos casos de uso, use componentDidMount() en su lugar.
+                        - Nota
+                            -   ¡Evita copiar los props en el estado! Es un error muy común
+                            -   Lee nuestro post en el blog sobre como evitar estados derivados para aprender qué hacer si crees que necesitas algún estado que dependa de los props:
+                                - https://es.reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
+                - static getDerivedStateFromProps(props, state)
+                    - https://es.reactjs.org/docs/react-component.html#static-getderivedstatefromprops
+                    - https://es.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#new-lifecycle-getderivedstatefromprops
+                        - Se invoca justo antes de llamar al método de render, tanto en la montura inicial como en las actualizaciones posteriores. Debes devolver un objeto para actualizar el estado, o nulo para no actualizar nada
+                        - Ten en cuenta que este método se activa en cada renderizado, independientemente de la causa.
+                        - Junto con componentDidUpdate(), este nuevo ciclo de vida debería cubrir todos los casos de uso del ciclo de vida heredado (deprecado) WillReceiveProps().
+                        - Este método existe para casos de uso raros donde el estado depende de los cambios en props con el tiempo.
+                        - Derivar el estado conduce al código verboso y hace que tus componentes sean difíciles de pensar. Asegúrate de que estás familiarizado con alternativas más simples
+                            - Si necesitas realizar un efecto secundario (por ejemplo, obtención de datos o animaciones) en una respuesta debido a un cambio en los props, utiliza componentDidUpdate().
+                            - Si quieres recalcular algunos datos solo cuando un prop cambie, usa memoization:
+                                - https://es.reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization
+                            - Si quieres restablecer algún estado cuando un prop cambie considera hacer:
+                                - Un completamente controlado:
+                                    - https://es.reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component
+                                - o un componente no controlado con una key:
+                                    - https://es.reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key
+
+                - componentWillMount() (DEPRECADO), se podría utilizar su variante: UNSAFE_componentWillMount() (AUN NO DEPRECADO)
+                    - https://es.reactjs.org/docs/react-component.html#unsafe_componentwillmount
+                        - Los métodos "componentWill...()" son considerados legacy (deprecados) y debes evitarse en código nuevo.
+                - render()
+                    - https://es.reactjs.org/docs/react-component.html#render
+                        - El único método que obligatoriamente debe existir en nuestro componente para que este pueda funcionar
+                        - Retorna los elementos que queremos mostrar en la página, también puede devolver arrays, string, números... también puede devolver null, lo que significa que no debe renderizarse nada.
+                        - Este método debe ser siempre puro, esto es, que NO modifique el state del componente y que no interactúe con nada del navegador, ya que provocaría un loop infinito. Para esas cosas hay otros métodos disponibles.
+                        - Por lo tanto se debe encargar solo y simplemente de, utilizando las props y el state, generar una representación visual en la aplicación.
+                        - Evitar operaciones y transformaciones en este método, ya que penalizará a la performance de la aplicación.
+
+                - componentDidMount()
+                    - https://es.reactjs.org/docs/react-component.html#componentdidmount
+                        - Se ejecuta tras renderizar el componente
+                        - Se ejecuta una sola vez y justo después del primer render()
+                        - Ya tendremos una representación en el DOM del mismo
+                        - Se puede utilizar setState()
+                        - Es el lugar correcto para hacer llamadas a servicios externos (por ej. usando fetch()), obtener datos y actualizar el state con ellos
+                        - También podemos suscribirnos a eventos del navegador como por ejemplo el scroll que se hace en la página y si lo hacemos tenemos que borrar esta suscripción en el método componentWillUnmount(), que se ejecutará antes de desmontar el componente.
+
+            Actualización:
+            - El ciclo de actualización estará activo desde que se monta el componente hasta que se desmonta
+            - En este ciclo además de actualizar lo que nuestro componente ha renderizado también podremos indicar si el renderizado es necesario
+            - Una actualización puede ser causada por cambios en los props o el estado.
+            - Estos métodos se llaman en el siguiente orden cuando un componente se vuelve a renderizar:
+                - getDerivedStateFromProps(props, state)
+                    - https://es.reactjs.org/docs/react-component.html#static-getderivedstatefromprops
+                    - https://es.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#new-lifecycle-getderivedstatefromprops
+                        - Se invoca justo antes de llamar al método de render, tanto en la montura inicial como en las actualizaciones posteriores. Debes devolver un objeto para actualizar el estado, o nulo para no actualizar nada
+                        - Ten en cuenta que este método se activa en cada renderizado, independientemente de la causa.
+                        - Junto con componentDidUpdate(), este nuevo ciclo de vida debería cubrir todos los casos de uso del ciclo de vida heredado (deprecado) WillReceiveProps().
+                        - Este método existe para casos de uso raros donde el estado depende de los cambios en props con el tiempo.
+                        - Derivar el estado conduce al código verboso y hace que tus componentes sean difíciles de pensar. Asegúrate de que estás familiarizado con alternativas más simples
+                            - Si necesitas realizar un efecto secundario (por ejemplo, obtención de datos o animaciones) en una respuesta debido a un cambio en los props, utiliza componentDidUpdate().
+                            - Si quieres recalcular algunos datos solo cuando un prop cambie, usa memoization:
+                                - https://es.reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization
+                            - Si quieres restablecer algún estado cuando un prop cambie considera hacer:
+                                - Un completamente controlado:
+                                    - https://es.reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component
+                                - o un componente no controlado con una key:
+                                    - https://es.reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-uncontrolled-component-with-a-key
+
+                - componentWillReceiveProps() ** DEPRECADO **
+                    - https://es.reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops
+                        - SOLO se va a ejecutar si el componente ha recibido nuevas props, NO cuando su state haya cambiado!
+                        - Las props que llegan y lo disparan, no necesariamente tienen un valor diferente, pueden tener el mismo que en la vez anterior que se recibieron.
+
+                - shouldComponentUpdate(nextProps, nextState)
+                    - https://es.reactjs.org/docs/react-component.html#shouldcomponentupdate
+                        - Permite evitar renderizaciones (hay que devolver false si no se debe re-renderizar), por defecto devuelve true, lo que permite el re-renderizado -> se ejecuta render()
+                        - Se ejecuta siempre que el componente actualiza su state o le llegan nuevas props
+                        - No confíes en él para “prevenir” un renderizado, ya que esto puede conducir a errores. Considere usar el componente integrado PureComponent en lugar de escribir shouldComponentUpdate() a mano:
+                            - Pure component:
+                                - https://es.reactjs.org/docs/react-api.html#reactpurecomponent
+                                - Nota:
+                                  - shouldComponentUpdate() del React.PureComponent solo compara superficialmente los objetos. Si estos contienen estructuras de datos complejos pueden producir falsos negativos para diferencias más profundas. Solo se extiende PureComponent cuando se espera tener los props y el estado simples o usar forceUpdate() cuando se sabe que las estructuras de datos profundos han cambiado.
+                        - Si devuelve false, no se ejecutan render() ni componentDidUpdate().
+
+                - render()
+                    -   https://es.reactjs.org/docs/react-component.html#render
+
+                - getSnapshotBeforeUpdate(prevProps, prevState)
+                    -   https://es.reactjs.org/docs/react-component.html#getsnapshotbeforeupdate
+                        - Se invoca justo antes de que la salida renderizada más reciente se entregue, por ejemplo, al DOM.
+                        - Permite al componente capturar cierta información del DOM (por ejemplo, la posición del scroll) antes de que se cambie potencialmente.
+                        - Cualquier valor que se devuelva en este ciclo de vida se pasará como parámetro (snapshot) al método componentDidUpdate().
+                        - Junto con componentDidUpdate, este nuevo ciclo de vida debería cubrir todos los casos de uso para método deprecado componentWillUpdate().
+
+                - componentDidUpdate(prevProps, prevState, snapshot)
+                    -   https://es.reactjs.org/docs/react-component.html#componentdidupdate
+                        - Use esto como una oportunidad para operar en DOM cuando el componente se haya actualizado.
+                        - Este es también un buen lugar para hacer solicitudes de red siempre y cuando compare las props actuales con las anteriores (por ejemplo, una solicitud de red puede no ser necesaria si las props no han cambiado).
+                        - Puedes llamar setState() inmediatamente en componentDidUpdate() pero ten en cuenta que debe ser envuelto en una condición para evitar que dicho setState() se ejecute si el state no cambió, o causará un bucle infinito.
+                        - También causaría una renderización adicional que, aunque no sea visible para el usuario, puede afectar el rendimiento del componente.
+                        - Si estás intentando crear un “espejo” desde un estado a un prop que viene desde arriba, considera usar el prop directamente en su lugar.
+                            - Lee más sobre por qué copiar props en el estado causa errores:
+                                - https://es.reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
+
+            Desmontaje:
+             - componentWillUnmount()
+                -   https://es.reactjs.org/docs/react-component.html#componentwillunmount
+                    - Este método es llamado cuando un componente se elimina del DOM:
+                    - Realiza las tareas de limpieza necesarias en este método, como la invalidación de temporizadores, la cancelación de solicitudes de red o la eliminación de las suscripciones que se crearon en componentDidMount().
+                    - No debes llamar setState() en componentWillUnmount() porque el componente nunca será vuelto a renderizar.
+
+            Manejo de errores:
+             - https://es.reactjs.org/docs/react-component.html#error-handling
+             - Estos métodos se invocan cuando hay un error durante la renderización, en un método en el ciclo de vida o en el constructor de cualquier componente hijo.
+                - static getDerivedStateFromError(error)
+                    - https://es.reactjs.org/docs/react-component.html#static-getderivedstatefromerror
+                        - Este ciclo de vida se invoca después de que un error haya sido lanzado por un componente descendiente. Recibe el error que fue lanzado como parámetro y debe devolver un valor para actualizar el estado.
+                        - Nota:
+                            - getDerivedStateFromError() se llama durante la fase “render”, por lo que los efectos secundarios no están permitidos. Para estos casos de uso, use componentDidMount() en su lugar.
+                - componentDidCatch(error, info)
+                    - https://es.reactjs.org/docs/react-component.html#componentdidcatch
+                        - Este ciclo de vida se invoca después de que un error haya sido lanzado por un componente descendiente.
+                        - componentDidCatch() se llama durante la fase “commit”, por lo tanto, los efectos secundarios se permiten.
+                        - Nota:
+                            - En el evento de un error, puedes renderizar una interfaz de usuario con componentDidCatch() llamando a setState(), pero esto estará obsoleto en una futura versión. Usa static getDerivedStateFromError() para controlar el plan de renderizado.
+            - Introduciendo Límites de Errores
+                - https://es.reactjs.org/docs/error-boundaries.html
+                - Los límites de errores son componentes de React que capturan errores de JavaScript en cualquier parte de su árbol de componentes hijo, registran esos errores, y muestran una interfaz de repuesto en lugar del árbol de componentes que ha fallado.
+                - Los límites de errores capturan errores durante el renderizado, en métodos del ciclo de vida, y en constructores de todo el árbol bajo ellos.
+                - Nota:
+                    - Los límites de errores no capturan errores de:
+                        - Manejadores de eventos (aprende más)
+                        - Código asíncrono (p.ej. callbacks de setTimeout o requestAnimationFrame)
+                        - Renderizado en el servidor
+                        - Errores lanzados en el propio límite de errores (en lugar de en sus hijos)
+                - Un componente de clase (class component) se convierte en límite de errores si define uno (o ambos) de los métodos del ciclo de vida:
+                    - static getDerivedStateFromError()
+                        - Usa static getDerivedStateFromError() para renderizar una interfaz de repuesto cuando se lance un error.
+                    - o componentDidCatch().
+                        - Usa componentDidCatch() para registrar información de los errores.
+
+
+
+        Algunos refactors recomendados:
+        -
+
+        - Migrating from Legacy Lifecycles: https://es.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#migrating-from-legacy-lifecycles
+
+            - Initializing state
+                - The simplest refactor for this type of component is to move state initialization to the constructor or to a property initializer:
+                    - https://es.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#initializing-state
+            - Fetching external data
+                - Here is an example of a component that uses componentWillMount to fetch external data:
+                    - https://es.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#fetching-external-data
+            - Adding event listeners (or subscriptions)
+                - Here is an example of a component that subscribes to an external event dispatcher when mounting:
+                    - https://es.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#adding-event-listeners-or-subscriptions
+            - Updating state based on props
+                - This often leads to bugs. Consider simpler alternatives to derived state to make components predictable and maintainable.
+                - Here is an example of a component that uses the legacy componentWillReceiveProps lifecycle to update state based on new props values:
+                    - https://es.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#updating-state-based-on-props
+            - Invoking external callbacks
+                - Here is an example of a component that calls an external function when its internal state changes:
+                    - https://es.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#invoking-external-callbacks
+            - Side effects on props change
+                - Similar to the example above, sometimes components have side effects when props change:
+                    - https://es.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#side-effects-on-props-change
+            - Fetching external data when props change
+                - Here is an example of a component that fetches external data based on props values:
+                    - https://es.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#fetching-external-data-when-props-change
+            - Reading DOM properties before an update
+                - Here is an example of a component that reads a property from the DOM before an update in order to maintain scroll position within a list:
+                    - https://es.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
