@@ -1586,13 +1586,92 @@ Los problemas principales encontrados fueron los siguientes:
   - Funcionamiento del Virtual DOM
     - OneWay Dataflow
       - El flujo de datos dentro de la jerarquía de React se mueve en una sola dirección, en sentido descendente, la información pasa de componentes padres a componentes hijos por medio de las props, por esto se le llama OneWay Dataflow.
-    - El virtual DOM es una representación liviana en memoria de los componentes
+    - El virtual DOM es una representación liviana en memoria de los componentes, en forma de árbol
     - Proceso de Reconciliation de React:
-      - Los componentes están en un estado incialmente, en base a ese estado, que incluye las propiedades y ciertos datos más, React crea el virtual DOM asociado a ese componente
+      - Los componentes están en un estado incialmente formando una estructura de árbol y en base a ese estado, que incluye las propiedades y ciertos datos más, React crea el virtual DOM asociado a ese árbol
       - Luego React genera el DOM real durante el montado del componente, lo que permite verlo en la página
-      - Luego mediante algún evento, como puede ser un click o cualquier otro tipo de cambio, se genera un cambio de estado en el componente
-      - El cambio de estado en el componente genera un nuevo DOM virtual asociado pero con alguna modificación
-      - React realiza comparaciones y detecta que hay diferencias entre las dos versiones del DOM virtual y finalmente actualiza el DOM real sólo modificando la parte que cambió
+      - Luego mediante algún evento, como puede ser un click o cualquier otro tipo de cambio, se genera un cambio de estado uno o más componentes
+      - El cambio de estado genera un nuevo DOM virtual asociado pero con alguna modificación en la rama o hoja del árbol que fue modificada
+      - React realiza comparaciones y detecta que hay diferencias entre las dos versiones del DOM virtual y finalmente actualiza el DOM real modificando sólo la parte que cambió.
         - Con esto se obtiene una eficiencia muy alta ya que no se modifican partes del DOM real que no hayan sufrido cambios.
+
+
+107. Proceso de Reconciliation
+  - Para que el árbol del DOM virtual pueda ser generado y comparado correctamente, React tiene reglas al respecto del mismo:
+    - Dos elementos o nodos de diferentes tipos producirán árboles diferentes.
+    - Cuando existieran elementos hijos del mismo tipo, el desarrollador puede proveer una clave (key) para indicar cuáles elementos permanecen estables entre diferentes renderizaciones.
+  - Mecanismo de diffing (Cómo React detecta un cambio):
+    - Primer caso -> Se cambió el tipo de elemento dentro de una rama del árbol
+      - Si por ejemplo se cambió un div por un span, entonces se asume que se cambió toda la rama que estuviera por debajo de ese cambio. En ese caso se desmontará el componente anterior mediante "componentWillUnmount" y se montará el nuevo con "componentWillMount".
+        - El estado del componente anterior al cambio se perderá por completo.
+    - Segundo caso -> Actualización del componente
+      - Cuando React compara elementos del mismo tipo se fija en los atributos y sólo actualiza los atributos que hayan cambiado (por ejemplo a div se le cambió el className)
+      - Luego sigue la comparación sobre los elementos hijos.
+      - A diferencia del primer caso, en la actualización de un componente de un mismo tipo se mantiene el estado y sólo se invoca el evento "componentWillUpdate".
+    - Tercer caso -> Comparación de elementos hijos
+      - Se produce este proceso de comparación cuando el elemento padre es el mismo, pero se actualizó.
+      - Por ejemplo podría tratarse de un div o cualquier otro componenten que contenga otros componentes. Entonces React va iterando recursivamente sobre el árbol de componentes hijos y compara por posición el componente hijo anterior a la modificación y posterior, generando los cambios necesarios cada vez que encuentra diferencias entre los valores de sus propiedades.
+- Detalle de comparación realizada por React durante el mecanismo de reconciliation para los componentes hijos:
+  - Por ejemplo al modificar una lista como la siguiente:
+
+        <ul>
+            <li>Primero</li>
+            <li>Segundo</li>
+        </ul>
+
+    agregándole un elemento como sigue:
+
+        <ul>
+            <li>Primero</li>
+            <li>Segundo</li>
+            <li>Tercero</li>
+        </ul>
+
+    React va a comparar la nueva versión del primer elemento y no va a encontrar diferencias, por lo que pasará a comparar el segundo, para el cual tampoco encontrará diferencias y detectará que se ha agregado el tercero, por lo que lo insertará en el DOM.
+
+  - Un caso no tan sencillo:
+
+        <ul>
+            <li>Río de Janeiro</li>
+            <li>Cusco</li>
+        </ul>
+
+    agregándole un elemento al principio:
+
+        <ul>
+            <li>San José</li>
+            <li>Río de Janeiro</li>
+            <li>Cusco</li>
+        </ul>
+
+    En este caso React va a encontrar diferencias en todas las posiciones (ya que Río no está más en la primera posición, así como tampoco Cusco en la segunda) por lo que las actualizará e insertará un nuevo elemento llamado Cusco al final de la lista.
+      - En este caso el cambio no se realizó de la mejor manera y es muy inficiente.
+      - Podríamos notar la sobrecarga en el proceso durante la actualización de listas largas con gran cantidad de ítems.
+
+    Solución:
+      - Parte del segundo principio de la heurística de comparación del mecanismo de reconciliation requiere que se utilice una clave (key) en los componentes que forman parte de una lista.
+      - Teniendo en cuenta esto, ahora se agregan a los elementos una key:
+
+            <ul>
+                <li key="2010">Río de Janeiro</li>
+                <li key="2011">Cusco</li>
+            </ul>
+        y luego del agregado de un nuevo elemento la lista quedará así:
+
+            <ul>
+                <li key="2012">San José</li>
+                <li key="2010">Río de Janeiro</li>
+                <li key="2011">Cusco</li>
+            </ul>
+
+        Ahora React buscará difenrencias en los elementos teniendo en cuenta las claves, por lo que detectará que debe agregar solamente el elemento con clave 2012 -> San José.
+
+        - Es muy importante que las claves no sean aleatorias o random, ya que de esa manera la heurística funcionaría de una manera poco eficiente debido a que entre cada renderizado todas las claves cambiarían.
+        - Tampoco se debería utilizar como clave el índice del elemento en la lista de la que proviene, ya que si se agregan o quitan elementos de la lista todos los índices cambiarían y de nuevo el proceso de reconciliation tendría mucho trabajo que realizar comparando todo por completo nuevamente, lo que incluso podría provocar algunos fallos.
+        - Para que una clave sea buena y permita un buen rendimiento:
+          - Debe permanecer estable entre renderizaciones.
+          - Podría ser una propiedad de los datos que vamos a mostrar.
+
+
 
 
