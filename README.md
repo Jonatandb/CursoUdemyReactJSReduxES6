@@ -1490,3 +1490,34 @@ Los problemas principales encontrados fueron los siguientes:
             - Reading DOM properties before an update
                 - Here is an example of a component that reads a property from the DOM before an update in order to maintain scroll position within a list:
                     - https://es.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#reading-dom-properties-before-an-update
+
+
+102. Revisamos lo que vimos
+  - Enumerado de tecnologías utilizadas hasta ahora:
+    - VSCode
+    - VSCode Plugins
+    - NPM
+    - Yarn
+    - NODE
+    - HTML/HTML5
+    - CSS/CSS3
+    - ECMAScript5/6
+      - Map
+      - Filter
+      - Template strings
+      - Promises
+      - Fetch
+    - Herramientas de debugging de Chrome
+    - Herramientas de debugging de VSCode
+    - React
+      - Functional Components
+      - Class Components
+      - Ciclo de vida de los componentes
+      - PropTypes
+      - Keys
+    - Librerías varias
+      - ConvertUnits
+      - Material UI
+      - FlexboxGrid
+      - ReactWeatherIcons
+      - Moment
