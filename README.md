@@ -1579,3 +1579,20 @@ Los problemas principales encontrados fueron los siguientes:
 
     - React logra el objetivo de realizar modificaciones muy selectivas de una manera muy performante gracias a la utilización del Virtual DOM:
       - Es una representación en memoria liviana de cada elemento generado y ante una modificación en los mismos realiza una comparación para detectar los cambios que existieron y finalmente impacta solo estos cambios en el DOM real, con lo que evita actualizaciones innecesarias y hace este proceso tan eficiente como podría ser.
+
+
+106. One Way Data Flow
+
+  - Funcionamiento del Virtual DOM
+    - OneWay Dataflow
+      - El flujo de datos dentro de la jerarquía de React se mueve en una sola dirección, en sentido descendente, la información pasa de componentes padres a componentes hijos por medio de las props, por esto se le llama OneWay Dataflow.
+    - El virtual DOM es una representación liviana en memoria de los componentes
+    - Proceso de Reconciliation de React:
+      - Los componentes están en un estado incialmente, en base a ese estado, que incluye las propiedades y ciertos datos más, React crea el virtual DOM asociado a ese componente
+      - Luego React genera el DOM real durante el montado del componente, lo que permite verlo en la página
+      - Luego mediante algún evento, como puede ser un click o cualquier otro tipo de cambio, se genera un cambio de estado en el componente
+      - El cambio de estado en el componente genera un nuevo DOM virtual asociado pero con alguna modificación
+      - React realiza comparaciones y detecta que hay diferencias entre las dos versiones del DOM virtual y finalmente actualiza el DOM real sólo modificando la parte que cambió
+        - Con esto se obtiene una eficiencia muy alta ya que no se modifican partes del DOM real que no hayan sufrido cambios.
+
+
