@@ -1673,5 +1673,12 @@ Los problemas principales encontrados fueron los siguientes:
           - Podría ser una propiedad de los datos que vamos a mostrar.
 
 
+108. Reconciliation en acción
+
+  - Explicación gráfica del proceso de comparación de nodos del árbol del DOM virtual durante el proceso de reconciliation de React.
+
+  - React Fiber: nombre del nuevo motor de evaluación del DOM virtual que lleva a cabo el proceso de reconciliation.
+    - Es retrocompatible con las versiones anteriores, por lo que se puede actualizar la versión de React de nuestras aplicaciones sin necesidad de llevar a cabo ningún tipo de cambio para aprovechar las bondades del nuevo motor optimizado.
+    - Realiza un renderizado incremental mucho mas eficiente solamente en los momentos que se necesita de acuerdo a las modificaciones programadas para realizarce.
 
 
