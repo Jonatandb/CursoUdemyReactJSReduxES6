@@ -1682,3 +1682,44 @@ Los problemas principales encontrados fueron los siguientes:
     - Realiza un renderizado incremental mucho mas eficiente solamente en los momentos que se necesita de acuerdo a las modificaciones programadas para realizarce.
 
 
+
+109. SPA vs MPA
+
+  - Comparación entre SPA (Single Page Application, aplicaciones de una sola página) y MPA (Multiple Page Application, aplicación de múltiples páginas) que en general están construídas utilizando la arquitectura MVC.
+
+    - MPA:
+      - Ya sea por acceder a la página (request a una url en el navegador) o mediante una acción, como un click, se genera una solicitud que viaja al servidor, en el servidor se resuelve, se genera un HTML (la página a mostrar en consecuencia), se envía de vuelta al navegador y termina siendo representada por el DOM, por lo que tenemos la representación visual de la respuesta a disposición con la cual podemos interactuar, consultar, etc.
+      - Al volver a hacer click o solicitar otra página, se vuelve a llevar a cabo todo este proceso (también se podría hacer una solicitud concreta de información mediante AJAX)
+      - Si bien hay algunas alternativas para hacer este proceso más óptimo, en general es el mismo:
+        - El navegador solicita una página al servidor
+        - El servidor lleva a cabo los procesamientos de datos que fueran necesarios
+        - Genera el HTML, que viaja por la red
+        - Vemos el HTML en el navegador.
+      - Siempre se produce este traspaso de información y es bastante perceptible cuando se cambia de página porque se actualiza la misma completamente.
+      - Entre los frameworks más comunes que trabajan con MVC están:
+        - ASP NET MVC
+        - Laravel
+        - CodeIgniter
+
+    - SPA:
+      - Trabaja de manera diferente:
+        - En la primer solicitud, se obtiene del servidor:
+          - El HTML, que es muy liviano
+          - Un paquete "bundle" de Javascript, que contiene toda la definición de la aplicación
+            - Este bundle de Javascript tiene la capacidad de ir generando todas las páginas que vaya solicitando el usuario a medida que interactúa con la misma, incluso puede manipular la url que se ve en el navegador para que el comportamiento de la página se perciba exactamente igual que cuando se intereactúa con un sitio clásico (MPA) pero con la ventaja de que se cambia de página sin la necesidad de recargar la página por lo tanto no hay que ir a buscar HTML nuevo al servidor.
+              - El único momento en que se va a consultar al servidor es cuando se necesite una respuesta de datos, ya no va a estar viajando HTML desde el servidor al navegador.
+              - El servidor posee entonces una interfaz API con la que la aplicación interactúa mediante solicitudes generalmente en formato JSON.
+              - En base a la respuesta del servidor, la apliación puede volver a renderizarse, pero siempre sin recargar la página, lo que brinda:
+                - Una muy buena experiencia para el usuario
+                - Una velocidad mayor perceptible durante la navegación de las páginas del sitio que componen los distintos módulos del mismo
+        - El manejo del routing, o el renderizado del lado del servidor se resuelven de una manera fácil.
+        - Permiten mejorar el SEO de la página.
+        - Permiten mejorar la carga inicial.
+        - El único posible problema aún es el tamaño del bundle que puede ser potencialmente grande.
+      - Los frameworks más comunes para trabajar con SPA son:
+        - React
+        - Barebone
+        - Angular
+
+    - SPA: Recomendable para aplicaciones web, sitios que deben soportar múltiples consultas al día, dando respuesta en el menor tiempo posible.
+    - MPA: Está bien para sitios que aunque sean visitados por muchos usuarios, no sean utilizados durante una larga interacción, sino que más bien provea unas cuantas páginas que los usuarios dejen de utilizar luego de relativamente una escasa cantidad de consultas.
