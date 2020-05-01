@@ -4,65 +4,52 @@ import { CLOUD, SUN, RAIN, SNOW, THUNDER, DRIZZLE } from './../../constants/weat
 import PropTypes from 'prop-types';
 import './styles.css';
 
+const ICONS_MAPPING = {
+  // http://erikflowers.github.io/weather-icons/
+  [SUN]: 'day-sunny',
+  [CLOUD]: 'cloud',
+  [SNOW]: 'snow',
+  [RAIN]: 'rain',
+  [THUNDER]: 'day-thunderstorm',
+  [DRIZZLE]: 'day-showers',
+};
+
 class MyWeatherProgressIndicator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       currentIconPos: 0,
       intervalID: 0,
-      icons: {
-        // http://erikflowers.github.io/weather-icons/
-        [SUN]: 'day-sunny',
-        [CLOUD]: 'cloud',
-        [SNOW]: 'snow',
-        [RAIN]: 'rain',
-        [THUNDER]: 'day-thunderstorm',
-        [DRIZZLE]: 'day-showers',
-      },
     };
   }
 
   componentDidMount() {
     const intervalID = setInterval(this.GenerateNextIcon, 150);
-    // console.log('SET INTERVAL INICIADO, intervalID:', intervalID);
     this.setState({ intervalID });
   }
 
   componentWillUnmount() {
     clearInterval(this.state.intervalID);
-    // console.log('INTERVALO DETENIDO');
   }
 
   GenerateNextIcon = () => {
-    const { currentIconPos, icons } = this.state;
+    const { currentIconPos } = this.state;
     let newPos = currentIconPos;
     newPos++;
-    if (newPos > Object.keys(icons).length - 1) newPos = 0;
-    // console.log('GenerateNextIcon() -> currentIconPos:', currentIconPos, ' newPos:', newPos);
+    if (newPos > Object.keys(ICONS_MAPPING).length - 1) newPos = 0;
     this.setState({ currentIconPos: newPos });
   };
 
   GetCurrentIcon = () => {
-    const { currentIconPos, icons } = this.state;
-    const { size } = this.props;
-    const currentIconName = icons[Object.keys(icons)[currentIconPos]];
-    // console.log('GetCurrentIcon() -> currentIconPos:', currentIconPos);
-    // console.log('GetCurrentIcon() -> currentIconName:', currentIconName);
+    const { currentIconPos } = this.state;
+    const { size = '4x' } = this.props;
+    const currentIconName = ICONS_MAPPING[Object.keys(ICONS_MAPPING)[currentIconPos]];
     return <WeatherIcons className="wicon" name={currentIconName} size={size} />;
   };
 
-  //   getAllIcons = () => {
-  //     console.log('Object.keys(icons):', Object.keys(icons));
-  //     return (
-  //       <div>
-  //         {Object.keys(icons).map((i) => {
-  //           const iconName = icons[i];
-  //           console.log('iconName:', iconName);
-  //           return <WeatherIcons className="wicon" name={iconName} size={'4x'} />;
-  //         })}
-  //       </div>
-  //     );
-  //   };
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextState.currentIconPos !== this.state.currentIconPos;
+  }
 
   render() {
     return <div className="myWeatherProgressIndicator">{this.GetCurrentIcon()}</div>;

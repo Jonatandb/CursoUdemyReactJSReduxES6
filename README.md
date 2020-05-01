@@ -1306,11 +1306,11 @@ Los problemas principales encontrados fueron los siguientes:
                 - constructor(props)
                     - https://es.reactjs.org/docs/react-component.html#constructor
                       - Si no inicializas el estado y no enlazas los métodos, no necesitas implementar un constructor para tu componente React.
-                      - El constructor para un componente React es llamado antes de ser montado. Al implementar el constructor para una subclase React.Component, deberías llamar a super(props) antes que cualquier otra instrucción. De otra forma, this.props no estará definido en el constructor, lo que puede ocasionar a errores.
+                      - El constructor para un componente React es llamado antes de ser montado. Al implementar el constructor para una subclase React.Component, deberías llamar a super(props) antes que cualquier otra instrucción. De otra forma, this.props no estará definido en el constructor, lo que puede ocasionar errores.
                       - Normalmente, los constructores de React sólo se utilizan para dos propósitos:
                         - Para inicializar un estado local asignando un objeto al this.state.
                         - Para enlazar manejadores de eventos a una instancia.
-                      - No debes llamar setState() en el constructor(). En su lugar, si su componente necesita usar el estado local, asigna directamente el estado inicial al this.state directamente en el constructor:
+                      - No debes llamar setState() en el constructor(). En su lugar, si su componente necesita usar el estado local, asigna directamente el estado inicial al this.state en el constructor:
 
                                 constructor(props) {
                                     super(props);
@@ -1331,7 +1331,7 @@ Los problemas principales encontrados fueron los siguientes:
                     - https://es.reactjs.org/blog/2018/03/27/update-on-async-rendering.html#new-lifecycle-getderivedstatefromprops
                         - Se invoca justo antes de llamar al método de render, tanto en la montura inicial como en las actualizaciones posteriores. Debes devolver un objeto para actualizar el estado, o nulo para no actualizar nada
                         - Ten en cuenta que este método se activa en cada renderizado, independientemente de la causa.
-                        - Junto con componentDidUpdate(), este nuevo ciclo de vida debería cubrir todos los casos de uso del ciclo de vida heredado (deprecado) WillReceiveProps().
+                        - Junto con componentDidUpdate(), este nuevo ciclo de vida debería cubrir todos los casos de uso del ciclo de vida heredado (deprecado) componentWillReceiveProps().
                         - Este método existe para casos de uso raros donde el estado depende de los cambios en props con el tiempo.
                         - Derivar el estado conduce al código verboso y hace que tus componentes sean difíciles de pensar. Asegúrate de que estás familiarizado con alternativas más simples
                             - Si necesitas realizar un efecto secundario (por ejemplo, obtención de datos o animaciones) en una respuesta debido a un cambio en los props, utiliza componentDidUpdate().
@@ -1723,3 +1723,7 @@ Los problemas principales encontrados fueron los siguientes:
 
     - SPA: Recomendable para aplicaciones web, sitios que deben soportar múltiples consultas al día, dando respuesta en el menor tiempo posible.
     - MPA: Está bien para sitios que aunque sean visitados por muchos usuarios, no sean utilizados durante una larga interacción, sino que más bien provea unas cuantas páginas que los usuarios dejen de utilizar luego de relativamente una escasa cantidad de consultas.
+
+
+Nota sobre Strict Mode:
+ - El StrictMode fuerza a todos los componentes a renderizarse dos veces y sirve para poder poner a prueba nuestra aplicación. Con ese procedimiento y varios chequeos más, permite descubrir algunos problemas o puntos mejorables, por ejemplo, adaptación a las últimas versiones de React.

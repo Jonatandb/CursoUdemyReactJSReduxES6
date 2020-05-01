@@ -45,7 +45,7 @@ class WeatherLocation extends Component {
     return (
       <div className="weatherLocationContainer" onClick={this.props.onWeatherLocationClick}>
         <Location city={city} />
-        {data ? <WeatherData data={data} /> : <MyWeatherProgressIndicator size="2x" />}
+        {data ? <WeatherData data={data} /> : <MyWeatherProgressIndicator />}
       </div>
     );
   }
