@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { AppBar, Typography, Toolbar, Paper } from '@material-ui/core';
+
 import LocationList from './components/LocationList';
 import ForecastExtended from './components/ForecastExtended';
+import Hour from './myComponents/Hour';
 
 const cities = [
   'Buenos Aires,ar',
@@ -20,26 +22,26 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      city: null,
+      selectedCity: null,
     };
   }
 
   handleSelectedLocation = (city) => {
-    //console.log('App -> handleSelectedLocation -> city:', city);
-    this.setState({ city });
+    this.setState({ selectedCity: city });
   };
 
   render() {
-    const { city } = this.state;
+    const { selectedCity } = this.state;
     return (
       <>
         <Grid>
           <Row>
             <AppBar position="sticky">
               <Toolbar>
-                <Typography variant="h4" color="inherit">
+                <Typography variant="h4" color="inherit" style={{ flexGrow: 1 }}>
                   Weather App
                 </Typography>
+                <Hour />
               </Toolbar>
             </AppBar>
           </Row>
@@ -50,10 +52,10 @@ class App extends Component {
             <Col xs={12} md={6}>
               <Paper elevation={4}>
                 <div className="details">
-                  {city ? (
-                    <ForecastExtended key={city} city={city} />
+                  {selectedCity ? (
+                    <ForecastExtended key={selectedCity} city={selectedCity} />
                   ) : (
-                    <h2 className="forecastExtendedTitle">Seleccione una ciudad</h2>
+                    <h4 className="forecastExtendedTitle">Seleccione una ciudad para ver el pronóstico extendido</h4>
                   )}
                 </div>
               </Paper>

@@ -1,6 +1,6 @@
 import React from 'react';
 import WeatherIcons from 'react-weathericons';
-import { CLOUD, SUN, RAIN, SNOW, THUNDER, DRIZZLE } from './../../constants/weathers';
+import { CLOUD, SUN, RAIN, SNOW, THUNDER, DRIZZLE } from '../../constants/weathers';
 import PropTypes from 'prop-types';
 import './styles.css';
 
@@ -14,7 +14,7 @@ const ICONS_MAPPING = {
   [DRIZZLE]: 'day-showers',
 };
 
-class MyWeatherProgressIndicator extends React.Component {
+class WeatherProgressIndicator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -56,8 +56,8 @@ class MyWeatherProgressIndicator extends React.Component {
   }
 }
 
-MyWeatherProgressIndicator.propTypes = {
+WeatherProgressIndicator.propTypes = {
   size: PropTypes.oneOf(['lg', '2x', '3x', '4x', '5x']),
 };
 
-export default MyWeatherProgressIndicator;
+export default WeatherProgressIndicator;

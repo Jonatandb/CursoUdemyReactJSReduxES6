@@ -4,7 +4,7 @@ import './styles.css';
 import ForecastItem from './FerecastItem';
 import transformForecast from './../services/transformForecast';
 import getForecastURLByCity from './../services/getForecastURLByCity';
-import MyWeatherProgressIndicator from './MyWeatherProgressIndicator';
+import WeatherProgressIndicator from '../myComponents/WeatherProgressIndicator';
 
 class ForecastExtended extends PureComponent {
   state = {
@@ -21,7 +21,7 @@ class ForecastExtended extends PureComponent {
     return (
       <div>
         <h2 className="forecastExtendedTitle">Pronóstico extendido: {city.split(',')[0]}</h2>
-        {!forecastData ? <MyWeatherProgressIndicator size="2x" /> : this.renderForecastItemDays(forecastData)}
+        {!forecastData ? <WeatherProgressIndicator size="2x" /> : this.renderForecastItemDays(forecastData)}
       </div>
     );
   }

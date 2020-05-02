@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Location from './Location';
 import WeatherData from './WeatherData';
-import MyWeatherProgressIndicator from '../MyWeatherProgressIndicator';
 import './styles.css';
 import transformWeather from '../../services/transformWeather';
 import getURLByCity from '../../services/getURLByCity';
+import WeatherProgressIndicator from '../../myComponents/WeatherProgressIndicator';
 
 class WeatherLocation extends Component {
   constructor(props) {
@@ -45,7 +45,7 @@ class WeatherLocation extends Component {
     return (
       <div className="weatherLocationContainer" onClick={this.props.onWeatherLocationClick}>
         <Location city={city} />
-        {data ? <WeatherData data={data} /> : <MyWeatherProgressIndicator />}
+        {data ? <WeatherData data={data} /> : <WeatherProgressIndicator />}
       </div>
     );
   }
