@@ -1750,3 +1750,46 @@ Nota sobre Strict Mode:
    - Cada vez que una "action" influye sobre el estado, lo que hace es generar una nueva versión del mismo basada en el versión anterior.
      - Nunca se modifica el estado, siempre se genera una nueva versión basada en la anterior pero con alguna modificación.
 
+
+111. Instalación de Redux, React-Redux y React Dev Tools Plugin
+
+ - yarn add redux
+   - https://redux.js.org/
+     - Actions - https://redux.js.org/basics/actions
+       - Las acciones son cargas de información que envían datos desde su aplicación a su Store.
+       - Son la única fuente de información para el Store.
+       - Las envía al Store usando store.dispatch ().
+       - Action Creators - https://redux.js.org/basics/actions#action-creators
+         - Los creadores de acciones son exactamente eso: funciones que crean acciones. Es fácil combinar los términos "acción" y "creador de acción", así que haz lo posible por usar el término apropiado.
+     - Reducers - https://redux.js.org/basics/reducers
+       - Los reductores especifican cómo cambia el estado de la aplicación en respuesta a las acciones enviadas al Store. Recuerde que las acciones solo describen lo que sucedió, pero no describen cómo cambia el estado de la aplicación.
+     - Store - https://redux.js.org/basics/store
+       - En las secciones anteriores, definimos las acciones, que representan los hechos sobre "lo que sucedió" y los reductores que actualizan el estado de acuerdo con esas acciones.
+       - El Store es el objeto que los une y tiene las siguientes responsabilidades:
+         - Mantiene el estado de la aplicación
+         - Permite el acceso al estado a través de getState()
+         - Permite que el estado se actualice mediante dispatch(acción)
+         - Registra oyentes (listeners) a través de subscribe(listener)
+         - Maneja el des-registrado de los listeners a través de la función devuelta por subscribe(listener)
+     - Data Flow
+       - https://redux.js.org/basics/data-flow
+         - La arquitectura de Redux gira en torno a un flujo de datos unidireccional estricto.
+         - Esto significa que todos los datos en una aplicación siguen el mismo patrón de ciclo de vida, haciendo que la lógica de su aplicación sea más predecible y más fácil de entender.
+         - También fomenta la normalización de datos, para que no termines con copias múltiples e independientes de los mismos datos que no son conscientes entre sí.
+         - El ciclo de vida de los datos en cualquier aplicación Redux sigue estos 4 pasos:
+           - Llamada a store.dispatch(action)
+           - El Store de Redux llama a la función reductora que le corresponde a esa acción
+           - El reductor raíz puede combinar la salida de múltiples reductores en un solo árbol de estado
+           - El Store de Redux guarda el árbol de estado completo devuelto por el reductor raíz.
+
+
+ - yarn add react-redux
+   - https://react-redux.js.org/
+     - Provider - https://react-redux.js.org/introduction/quick-start#provider
+       - React Redux proporciona el componente <Provider />, lo que hace que el Store Redux esté disponible para el resto de la aplicación
+     - connect() - https://react-redux.js.org/introduction/quick-start#connect
+       - React Redux proporciona una función de conexión para que pueda conectar su componente al Store
+
+ - Instalación de Redux DevTools
+   - https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
+   - http://extension.remotedev.io/
