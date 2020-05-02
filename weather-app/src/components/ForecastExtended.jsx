@@ -20,7 +20,7 @@ class ForecastExtended extends PureComponent {
     const { forecastData } = this.state;
     return (
       <div>
-        <h2 className="forecastExtendedTitle">Pronóstico extendido: {city.split(',')[0]}</h2>
+        <h4 className="forecastExtendedTitle">Pronóstico extendido: {city.split(',')[0]}</h4>
         {!forecastData ? <WeatherProgressIndicator size="2x" /> : this.renderForecastItemDays(forecastData)}
       </div>
     );

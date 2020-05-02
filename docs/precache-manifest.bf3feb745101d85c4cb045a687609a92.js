@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b6682527e4f696ef394a92a4b1228cde",
+    "revision": "6329334e53114f3b51c239a36f251ee9",
     "url": "/CursoUdemyReactJSReduxES6/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/CursoUdemyReactJSReduxES6/static/css/2.22d6b5ec.chunk.css"
   },
   {
-    "revision": "40086c176646ddf90906",
+    "revision": "8c27b6556ddab65afcd3",
     "url": "/CursoUdemyReactJSReduxES6/static/css/main.ef2820b0.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/CursoUdemyReactJSReduxES6/static/js/2.3869bdd6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "40086c176646ddf90906",
-    "url": "/CursoUdemyReactJSReduxES6/static/js/main.f2b41b90.chunk.js"
+    "revision": "8c27b6556ddab65afcd3",
+    "url": "/CursoUdemyReactJSReduxES6/static/js/main.0b5f1f68.chunk.js"
   },
   {
     "revision": "4881f7cbdbb214e8544c",

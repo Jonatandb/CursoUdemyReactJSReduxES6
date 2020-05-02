@@ -8,14 +8,14 @@ import ForecastExtended from './components/ForecastExtended';
 import Hour from './myComponents/Hour';
 
 const cities = [
-  'Buenos Aires,ar',
-  'Bogota,col',
-  'Mexico,mex',
-  'Washington,us',
   'Barcelona,es',
-  'Santiago,cl',
-  'Madrid,es',
+  'Bogota,col',
+  'Buenos Aires,ar',
   'Lima,pe',
+  'Madrid,ess',
+  'Mexico,mex',
+  'Santiago,cl',
+  'Washington,us',
 ];
 
 class App extends Component {
