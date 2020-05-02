@@ -1,8 +1,8 @@
 # Mis notas del curso de Udemy: React JS + Redux + ES6
 
-## Github pages: https://jonatandb.github.io/CursoUdemyReactJSReduxES6/
+## Demo online: https://jonatandb.github.io/CursoUdemyReactJSReduxES6/
 
-Curso un Udemy: [React JS + Redux + ES6. Completo ¡De 0 a experto! (español)](https://www.udemy.com/course/react-js-redux-es6-completo-de-0-a-experto-espanol/)
+Curso en Udemy: [React JS + Redux + ES6. Completo ¡De 0 a experto! (español)](https://www.udemy.com/course/react-js-redux-es6-completo-de-0-a-experto-espanol/)
 
 Repositorio:
 [https://github.com/Jonatandb/CursoUdemyReactJSReduxES6](https://github.com/Jonatandb/CursoUdemyReactJSReduxES6)
@@ -1002,6 +1002,10 @@ Repositorio:
     Cuando la pantalla tenga un tamaño md (medium), esta columna ocupará solo 6 columnas, o sea, la mitad de la
     pantalla. Y si hay luego otra fila con una columna configurada igual, quedarán una al lado de la otra.
 
+
+
+---
+
 GitHub Pages:
 
 Me propuse hacer que la app pueda ser accedida online desde GitHub Pages, para lo cual hice lo siguiente:
@@ -1068,6 +1072,8 @@ Los problemas principales encontrados fueron los siguientes:
   ```json
     "no-console":"warn"
   ```
+
+---
 
 
 73. MaterialUI AppBar
@@ -1725,5 +1731,22 @@ Los problemas principales encontrados fueron los siguientes:
     - MPA: Está bien para sitios que aunque sean visitados por muchos usuarios, no sean utilizados durante una larga interacción, sino que más bien provea unas cuantas páginas que los usuarios dejen de utilizar luego de relativamente una escasa cantidad de consultas.
 
 
+---
+
 Nota sobre Strict Mode:
  - El StrictMode fuerza a todos los componentes a renderizarse dos veces y sirve para poder poner a prueba nuestra aplicación. Con ese procedimiento y varios chequeos más, permite descubrir algunos problemas o puntos mejorables, por ejemplo, adaptación a las últimas versiones de React.
+
+
+---
+
+
+
+110. Redux
+
+ - Framework para manejar el estado de la aplicación
+ - El estado es único y global para toda la aplicación
+   - Redux denomina al estado: "Store"
+ - La única forma de manipular el estado es mediante "actions"
+   - Cada vez que una "action" influye sobre el estado, lo que hace es generar una nueva versión del mismo basada en el versión anterior.
+     - Nunca se modifica el estado, siempre se genera una nueva versión basada en la anterior pero con alguna modificación.
+
