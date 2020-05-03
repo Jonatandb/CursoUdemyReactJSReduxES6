@@ -1826,3 +1826,20 @@ Nota sobre Strict Mode:
 
 115. Refactorización de Store y vinculación de Provider
 
+  - Se envuelve al componente App con el componente Provider para que pueda acceder al store luego de las configuraciones pertinentes.
+
+116. Connect
+
+  - Uso de connect() para permitirle al componente App acceder al store
+    - Mediante la función mapDispatchToProps lo que se hace es decirle a connect() que inyecte al componente App una propiedad llamada dispatchSetCity, la cual al ser ejecutada (mediante la llamda a this.props.dispatchSetCity()), realiza una llamada a dispatch() (función que connect() pasa como parámetro a mapDispatchToProps) pasándole como parámetro el resultado de llamar a setCityActionCreator() con la ciudad clickeada como parámetro (lo que devuelve una action con la ciudad como value) y ésta action generada entonces es pasada a dispatch().
+      - Entonces:
+        - Al envolver a App con connect():
+          - Se le pasa a connect() como segundo parámetro una función que connect() va a usar para inyectar una propiedad a App: mapDispatchToProps(), entonces se inyecta la propiedad --> dispatchSetCity, que es una función.
+          - Esta función inyectada (yo la llamé dispatchSetCity(), pero puede tener cualquier nombre) recibe de parte de connect() la función dispatch() del store, por lo que puede despachar acciones, ejecutando dispatch(acción).
+          - Una vez que App tiene esta propiedad disponible, al utilizarla se la llama con la ciudad seleccionada como parámetro --> this.props.dispatchSetCity(ciudad)
+            - Esta ciudad, dentro de dispatchSetCity(), se pasa primero a setCityActionCreator(), lo que devuevle un action con la ciudad como value y el type 'SET_CITY'.
+            - Finalmente la acción se pasa a dispatch(acción), entonces el store detecta la acción y se la pasa al reducer correspondiente para que haga el trabajo que se deba realizar cuando llega una acción de este tipo.
+  - Como connect() devuelve como resultado una nueva función que recibe como parámetro el componente que se desea "conectar" al store, se crea una nueva constante llamada AppConnected
+    - Que va a ser el componente App pero con acceso al store (inicialmente solamente mediante la nueva propiedad dispatchSetCity())
+      - Por lo tanto es éste el componente devuelto en el export de App.js:
+        - export default AppConnected;

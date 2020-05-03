@@ -6,8 +6,8 @@ import { Hour } from './components/_MyComponents';
 import './App.css';
 
 // Redux:
-import { store } from './store';
-import { setCity } from './actions';
+import { setCityActionCreator } from './actions';
+import { connect } from 'react-redux';
 
 const cities = [
   'Barcelona,es',
@@ -32,7 +32,7 @@ class App extends Component {
     this.setState({ selectedCity: city });
 
     // Redux:
-    store.dispatch(setCity(city));
+    this.props.dispatchSetCity(city);
   };
 
   render() {
@@ -72,4 +72,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dispatchSetCity: (value) => dispatch(setCityActionCreator(value)),
+  };
+};
+
+const AppConnected = connect(null, mapDispatchToProps)(App);
+
+export default AppConnected;
