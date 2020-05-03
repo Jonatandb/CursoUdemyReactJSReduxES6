@@ -1793,3 +1793,17 @@ Nota sobre Strict Mode:
  - Instalación de Redux DevTools
    - https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
    - http://extension.remotedev.io/
+
+
+112. Creación de store, dispatch de acciones y uso de React Dev Tools
+
+  - Se crea un store vacío, con un reducer que no hace nada, pero se hace dispatch de una acción básica para verificar el correcto funcionamiento de la extensión de Redux DevTools desde Chrome, para poder verificar el state a medida que se producen cambios en el mismo por medio del dispatch de actions mientras se utiliza la aplicación.
+
+  - Como indica la documentación de la extensión, para que la misma pueda vincularse al store de la aplicación y dar información sobre lo que sucede con el mismo, al momento de crear el store mediante el uso de la función createStore() de Redux, se debe agregar luego del o los reducers que se deseen utilizar, lo siguiente:
+
+            // Redux, creación del store:
+            const store = createStore(
+                () => {}, /*Reducer o reducers que se harán cargo de las actions pasadas a store.dispatch()*/
+                window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+            );
+    - https://github.com/zalmoxisus/redux-devtools-extension#usage
