@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { AppBar, Typography, Toolbar, Paper } from '@material-ui/core';
-
-import LocationList from './components/LocationList';
-import ForecastExtended from './components/ForecastExtended';
-import Hour from './myComponents/Hour';
+import { LocationList, ForecastExtended } from './components';
+import { Hour } from './myComponents';
+import './App.css';
 
 const cities = [
   'Barcelona,es',

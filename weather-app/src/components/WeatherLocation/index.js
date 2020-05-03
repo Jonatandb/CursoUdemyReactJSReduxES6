@@ -5,7 +5,7 @@ import WeatherData from './WeatherData';
 import './styles.css';
 import transformWeather from '../../services/transformWeather';
 import getURLByCity from '../../services/getURLByCity';
-import WeatherProgressIndicator from '../../myComponents/WeatherProgressIndicator';
+import { WeatherProgressIndicator } from '../../myComponents';
 
 class WeatherLocation extends Component {
   constructor(props) {

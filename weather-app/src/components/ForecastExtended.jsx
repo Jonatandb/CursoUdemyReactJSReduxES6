@@ -4,7 +4,7 @@ import './styles.css';
 import ForecastItem from './FerecastItem';
 import transformForecast from './../services/transformForecast';
 import getForecastURLByCity from './../services/getForecastURLByCity';
-import WeatherProgressIndicator from '../myComponents/WeatherProgressIndicator';
+import { WeatherProgressIndicator } from '../myComponents';
 
 class ForecastExtended extends PureComponent {
   state = {
