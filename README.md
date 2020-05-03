@@ -1815,3 +1815,10 @@ Nota sobre Strict Mode:
    - Es simplemente una función que recibe como parámetro una ciudad y devuelve un objeto JSON que respeta la forma de un action
      - Posee una propiedad type, con el valor 'setCity'
      - y una propiedad value, con la ciudad recibida por parámetro
+
+
+114. Mejora a action creator
+
+  - Refactors:
+    - Creación de carpeta 'actions', con action creator exportado para luego importarlo y utilizarlo desde 'App.jsx'.
+    - Creación y exportación de constante SET_CITY, para futura utilización desde los reducers.
