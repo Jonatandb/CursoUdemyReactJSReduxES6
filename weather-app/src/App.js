@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { AppBar, Typography, Toolbar, Paper } from '@material-ui/core';
 import { LocationList, ForecastExtended } from './components';
-import { Hour } from './myComponents';
+import { Hour } from './components/_MyComponents';
 import './App.css';
 
 // Redux:

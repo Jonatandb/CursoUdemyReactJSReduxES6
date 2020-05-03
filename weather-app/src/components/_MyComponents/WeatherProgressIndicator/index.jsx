@@ -1,6 +1,6 @@
 import React from 'react';
 import WeatherIcons from 'react-weathericons';
-import { CLOUD, SUN, RAIN, SNOW, THUNDER, DRIZZLE } from '../../constants/weathers';
+import { CLOUD, SUN, RAIN, SNOW, THUNDER, DRIZZLE } from '../../../constants/weathers';
 import PropTypes from 'prop-types';
 import './styles.css';
 
