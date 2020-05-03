@@ -1843,3 +1843,6 @@ Nota sobre Strict Mode:
     - Que va a ser el componente App pero con acceso al store (inicialmente solamente mediante la nueva propiedad dispatchSetCity())
       - Por lo tanto es éste el componente devuelto en el export de App.js:
         - export default AppConnected;
+
+
+117. ¿Función que retorna funciones?
