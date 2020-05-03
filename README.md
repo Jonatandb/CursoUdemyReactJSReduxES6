@@ -1807,3 +1807,11 @@ Nota sobre Strict Mode:
                 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
             );
     - https://github.com/zalmoxisus/redux-devtools-extension#usage
+
+
+113. Generación de action creator
+
+ - Creación de un action creator que permite que quede más explícito que tipo de acción se envía al store.
+   - Es simplemente una función que recibe como parámetro una ciudad y devuelve un objeto JSON que respeta la forma de un action
+     - Posee una propiedad type, con el valor 'setCity'
+     - y una propiedad value, con la ciudad recibida por parámetro

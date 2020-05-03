@@ -20,6 +20,8 @@ const cities = [
 // Redux:
 const store = createStore(() => {}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
+const setCity = (value) => ({ type: 'setCity', value });
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -32,8 +34,7 @@ class App extends Component {
     this.setState({ selectedCity: city });
 
     // Redux:
-    const action = { type: 'setCity', payload: city };
-    store.dispatch(action);
+    store.dispatch(setCity(city));
   };
 
   render() {
