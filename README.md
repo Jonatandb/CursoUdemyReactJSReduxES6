@@ -1822,3 +1822,7 @@ Nota sobre Strict Mode:
   - Refactors:
     - Creación de carpeta 'actions', con action creator exportado para luego importarlo y utilizarlo desde 'App.jsx'.
     - Creación y exportación de constante SET_CITY, para futura utilización desde los reducers.
+
+
+115. Refactorización de Store y vinculación de Provider
+

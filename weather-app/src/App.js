@@ -6,7 +6,7 @@ import { Hour } from './myComponents';
 import './App.css';
 
 // Redux:
-import { createStore } from 'redux';
+import { store } from './store';
 import { setCity } from './actions';
 
 const cities = [
@@ -19,9 +19,6 @@ const cities = [
   'Santiago,cl',
   'Washington,us',
 ];
-
-// Redux:
-const store = createStore(() => {}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 class App extends Component {
   constructor(props) {
