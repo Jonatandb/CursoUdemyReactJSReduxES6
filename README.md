@@ -1857,3 +1857,9 @@ Nota sobre Strict Mode:
 
   - Mi práctica en CodePen replicando la funcionalidad de connect() para comprenderlo completamente :-)
     - https://codepen.io/Jonatandb/pen/WNQXJgz
+
+
+119. Validación de funciones inyectadas por DispatchToProps
+
+  - Agregado de propTypes para que se valide que dispatchSetCity sea una función
+  - Exportación directa del resultado de llamar a connect() para no generar un constante innecesaria (AppConnected)

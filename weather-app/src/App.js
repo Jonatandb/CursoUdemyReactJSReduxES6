@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { AppBar, Typography, Toolbar, Paper } from '@material-ui/core';
 import { LocationList, ForecastExtended } from './components';
@@ -6,8 +7,8 @@ import { Hour } from './components/_MyComponents';
 import './App.css';
 
 // Redux:
-import { setCityActionCreator } from './actions';
 import { connect } from 'react-redux';
+import { setCityActionCreator } from './actions';
 
 const cities = [
   'Barcelona,es',
@@ -72,12 +73,12 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    dispatchSetCity: (value) => dispatch(setCityActionCreator(value)),
-  };
+App.propTypes = {
+  dispatchSetCity: PropTypes.func.isRequired,
 };
 
-const AppConnected = connect(null, mapDispatchToProps)(App);
+const mapDispatchToProps = (dispatch) => ({
+  dispatchSetCity: (value) => dispatch(setCityActionCreator(value)),
+});
 
-export default AppConnected;
+export default connect(null, mapDispatchToProps)(App);
