@@ -1882,3 +1882,9 @@ Nota sobre Strict Mode:
     - Solo se encargan de renderizar algo en pantalla, solo tienen lógica de presentación
 
   - Cuanto más clara se haga la separación entre componentes containers y presentacionales, más claro será el manejo del estado de la aplicación, ya que se podrá restrear como se está manipulando el estado mirando tan sólo los containers existentes en la misma.
+
+
+121. Creación de container LocationListContainer
+
+  - Creación de container LocationListContainer en base al componente LocationList
+  - Refactor al componente App para que utilice el nuevo container
