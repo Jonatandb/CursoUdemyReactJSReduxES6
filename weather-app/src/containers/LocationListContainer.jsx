@@ -20,7 +20,7 @@ class LocationListContainer extends Component {
 
 LocationListContainer.propTypes = {
   dispatchSetCity: PropTypes.func.isRequired,
-  citis: PropTypes.array.isRequired,
+  cities: PropTypes.array.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({

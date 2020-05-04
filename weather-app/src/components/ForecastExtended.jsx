@@ -12,21 +12,35 @@ class ForecastExtended extends PureComponent {
   };
 
   componentDidMount() {
-    this.getDataByCity(this.props.city);
+    this.props.city && this.getDataByCity(this.props.city);
   }
 
   render() {
-    const { city } = this.props;
+    let { city } = this.props;
+    city = (city && city.split(',')[0]) || city;
     const { forecastData } = this.state;
-    return (
-      <div>
-        <h4 className="forecastExtendedTitle">Pronóstico extendido: {city.split(',')[0]}</h4>
-        {!forecastData ? <WeatherProgressIndicator size="2x" /> : this.renderForecastItemDays(forecastData)}
-      </div>
-    );
+    let component;
+    if (city && forecastData) {
+      component = (
+        <>
+          <h4 className="forecastExtendedTitle">Pronóstico extendido para {city}</h4>
+          {this.renderForecastItemForEachDay(forecastData)})
+        </>
+      );
+    } else if (city && !forecastData) {
+      component = (
+        <>
+          <h4 className="forecastExtendedTitle">Cargando pronóstico extendido para {city}</h4>
+          <WeatherProgressIndicator size="2x" />
+        </>
+      );
+    } else {
+      component = <h4 className="forecastExtendedTitle">Seleccione una ciudad para ver el pronóstico extendido</h4>;
+    }
+    return <div>{component}</div>;
   }
 
-  renderForecastItemDays(forecastData) {
+  renderForecastItemForEachDay(forecastData) {
     return forecastData.map(({ weekDay, hour, data }) => (
       <ForecastItem key={weekDay + hour} weekDay={weekDay} hour={hour} data={data} />
     ));
