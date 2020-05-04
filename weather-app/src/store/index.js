@@ -1,4 +1,10 @@
 import { createStore } from 'redux';
+import { reducers } from '../reducers';
 
-export const store = createStore(() => {},
-window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const initialState = { city: 'Buenos Aires,ar' };
+
+export const store = createStore(
+  reducers.cityReducer,
+  initialState,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+);

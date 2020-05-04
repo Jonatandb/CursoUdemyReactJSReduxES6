@@ -1888,3 +1888,10 @@ Nota sobre Strict Mode:
 
   - Creación de container LocationListContainer en base al componente LocationList
   - Refactor al componente App para que utilice el nuevo container
+
+
+122. Creación de Reducer
+
+  - Creación de reducer: cityReducer
+    - Actualiza la propiedad city del state cada vez que detecta que se hizo dispatch de la acción 'SET_CITY'.
+  - Refactor del store para que reciba el reducer cityReducer y un state inicial por defecto.
