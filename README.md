@@ -1846,3 +1846,14 @@ Nota sobre Strict Mode:
 
 
 117. ¿Función que retorna funciones?
+
+
+118. Connect en detalle - https://www.udemy.com/course/react-js-redux-es6-completo-de-0-a-experto-espanol/learn/lecture/8951404
+
+  - Según entiendo, entonces connect() recibe dos funciones, a la primera le pasa como parámetro el state y a la segunda le pasa como parámentro la función dispatch()
+    - Espera que la primer función devuleva un objeto, el cual va a tener asociado como valor a cada propiedad una parte específica del state
+    - Espera que la segunda función también devuelva un objeto, el cual va a tener asociado como valor a cada propiedad una función, ésta nueva función por dentro llamará a dispatch() y le pasará el resultado de llamar a un action creator con el parámetro recibido.
+    - Finalmente, connect(mapStateToProps, mapDispatchToProps)(ComponenteAConectar) lo que hará será llamar al componente pasándole como parámetro el resultado de unificar los dos objetos devueltos por las funciones recibidas una vez ejecutadas (mapStateToProps y mapDispatchToProps). Así el componente 'conectado' podrá acceder por medio de 'this.props' a todas las propiedades que acceden a valores del state y a las que permiten enviar actions al store (las que por dentro llaman a dispatch()).
+
+  - Mi práctica en CodePen replicando la funcionalidad de connect() para comprenderlo completamente :-)
+    - https://codepen.io/Jonatandb/pen/WNQXJgz
