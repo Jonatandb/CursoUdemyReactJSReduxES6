@@ -1853,7 +1853,7 @@ Nota sobre Strict Mode:
   - Según entiendo, entonces connect() recibe dos funciones, a la primera le pasa como parámetro el state y a la segunda le pasa como parámentro la función dispatch()
     - Espera que la primer función devuleva un objeto, el cual va a tener asociado como valor a cada propiedad una parte específica del state
     - Espera que la segunda función también devuelva un objeto, el cual va a tener asociado como valor a cada propiedad una función, ésta nueva función por dentro llamará a dispatch() y le pasará el resultado de llamar a un action creator con el parámetro recibido.
-    - Finalmente, connect(mapStateToProps, mapDispatchToProps)(ComponenteAConectar) lo que hará será llamar al componente pasándole como parámetro el resultado de unificar los dos objetos devueltos por las funciones recibidas una vez ejecutadas (mapStateToProps y mapDispatchToProps). Así el componente 'conectado' podrá acceder por medio de 'this.props' a todas las propiedades que acceden a valores del state y a las que permiten enviar actions al store (las que por dentro llaman a dispatch()).
+  - Finalmente, connect(mapStateToProps, mapDispatchToProps)(ComponenteAConectar) lo que hará será llamar al componente pasándole como parámetro el resultado de unificar los dos objetos devueltos por las funciones recibidas una vez ejecutadas (mapStateToProps y mapDispatchToProps). Así el componente 'conectado' podrá acceder por medio de 'this.props' a todas las propiedades que acceden a valores del state y a las que permiten enviar actions al store (las que por dentro llaman a dispatch()).
 
   - Mi práctica en CodePen replicando la funcionalidad de connect() para comprenderlo completamente :-)
     - https://codepen.io/Jonatandb/pen/WNQXJgz
@@ -1863,3 +1863,22 @@ Nota sobre Strict Mode:
 
   - Agregado de propTypes para que se valide que dispatchSetCity sea una función
   - Exportación directa del resultado de llamar a connect() para no generar un constante innecesaria (AppConnected)
+
+
+120. Containers vs Presentational Components
+
+  - Smart components = Container components -> "Componentes inteligentes"
+    - Componentes que tienen acceso al estado de la aplicación
+      - Están vinculados a éste gracias connect().
+      - No tienen representación visual.
+    - Recomendaciones:
+      - Que los containers sean componentes de "alto nivel", que no estén muy profundamente anidados en la jerarquía de componentes
+        - En este caso, componentes candidatos para ser containers serían:
+          - LocationList
+          - ForecastExtended
+      - Intentar tener una cantidad reducida de containers en la aplicación.
+
+  - Dumb components = Presentational components -> "Componentes tontos"
+    - Solo se encargan de renderizar algo en pantalla, solo tienen lógica de presentación
+
+  - Cuanto más clara se haga la separación entre componentes containers y presentacionales, más claro será el manejo del estado de la aplicación, ya que se podrá restrear como se está manipulando el estado mirando tan sólo los containers existentes en la misma.
