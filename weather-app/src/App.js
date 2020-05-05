@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { AppBar, Typography, Toolbar, Paper } from '@material-ui/core';
-import { ForecastExtended } from './components';
-import { LocationListContainer } from './containers';
+import { LocationListContainer, ForecastExtendedContainer } from './containers';
 import { Hour } from './components/_MyComponents';
 import './App.css';
 
@@ -18,15 +17,7 @@ const cities = [
 ];
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedCity: null,
-    };
-  }
-
   render() {
-    const { selectedCity } = this.state;
     return (
       <>
         <Grid>
@@ -47,7 +38,7 @@ class App extends Component {
             <Col xs={12} md={6}>
               <Paper elevation={4}>
                 <div className="details">
-                  <ForecastExtended key={selectedCity} city={selectedCity} />
+                  <ForecastExtendedContainer />
                 </div>
               </Paper>
             </Col>
