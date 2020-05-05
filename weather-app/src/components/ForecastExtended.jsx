@@ -24,7 +24,7 @@ class ForecastExtended extends PureComponent {
       component = (
         <>
           <h4 className="forecastExtendedTitle">Pronóstico extendido para {city}</h4>
-          {this.renderForecastItemForEachDay(forecastData)})
+          {this.renderForecastItemForEachDay(forecastData)}
         </>
       );
     } else if (city && !forecastData) {
