@@ -1932,3 +1932,6 @@ Nota sobre Strict Mode:
 
   - Creación de componente container ForecastExtendedContainer, que a diferencia de LocationListContainer que se conectaba al store para luego enviarle acciones, se conecta al store para leer la propiedad city del state y finalmente inyectarsela al componente ForecastExtended para que éste obtenga los datos del servidor en base a la ciudad que fue seleccionada.
 
+
+126. Repasando MapStateToProps y MapDispatchToProps
+
