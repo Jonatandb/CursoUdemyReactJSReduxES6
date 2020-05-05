@@ -1935,3 +1935,9 @@ Nota sobre Strict Mode:
 
 126. Repasando MapStateToProps y MapDispatchToProps
 
+
+127. Middlwares de Redux
+
+  - Explicación sobre qué son y la utilidad de los middlewares:
+    - Son funcionalidades que se agregan al store cuando este se configura inicialmente y que son interpuestas entre el dispatch() y la llegada de la acción a los reducers, lo que permite agregar capacidades extra al Store.
+      - Estas funciones intermediarias pueden tener funcionalidades muy variadas, como por ejemplo loguear las acciones que se fueron ejecutando, atender eventos asincrónicos (como lo hace por ejemplo redux-thunk), capturar errores, cambiar rutas y muchas cosas más.
