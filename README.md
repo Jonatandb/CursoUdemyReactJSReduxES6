@@ -1899,3 +1899,30 @@ Nota sobre Strict Mode:
 
 123. Entendiendo el reducer
 
+
+124. Pure Functions
+
+  - Uno de los conceptos básicos de los reducers, es que deben ser "funciones puras"
+    - Función pura:
+      - Funcíón que depende solo de los parámetros que recibe, su retorno depende solo de los valores recibidos.
+        - No depende de ningún estado de la aplicación
+        - No depende de un acceso a una base de datos
+        - No depende de la respuesta de una solicitud http
+        - No depende de ningún otro tipo de valor externo, más allá de los que recibe
+      - Esto la torna una función predecible, sin sorpresas
+      - Algo más a tener en cuenta es que no debe alterar los valores que le llegan por parámetro
+        - De esta manera no genera efectos colaterales: "side effects"
+    - En el caso de los reducers, a la hora de devolver un nuevo estado, nunca deben modificar el estado recibido
+      - Deben crear y retornar un nuevo objeto en base al objeto state recibido
+        - Esto significa que nunca se debería hacer algo como esto:
+
+                state.prop = 'Nuevo valor';
+                return state;
+
+        - Lo anterior se debe evitar, por ejemplo utilizando el spread operator:
+
+                return { ...state, prop: 'Nuevo valor' };
+
+            - Nota: También se podría utilizar Object.assign().
+
+          De esta manera se crea y retorna un nuevo objeto, el cual es una copia del objeto state, pero que tiene agregada (o si ya existía, entonces actualizaría) la propiedad 'prop'.
