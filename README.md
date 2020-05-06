@@ -1951,3 +1951,11 @@ Nota sobre Strict Mode:
 
   - Para poder especificar middlewares durante la creación del store, se debe utilizar la función de Redux: applyMiddleware.
   - Para poder seguir utilizando el plugin de Chrome Redux DevTools, se debe utilizar también la función de Redux: compose.
+
+
+129. Redux-Thunk desde adentro
+
+  - Entonces, según entiendo, lo que el middleware thunk hace es interceptar la action que fue pasada a dispatch() y antes de pasarla a los reducers chequea si la misma es una función:
+    - Si detecta que la action es una función entonces la ejecuta pasándole como parámetro la función dispatch.
+      - Está action de tipo función entonces al ser ejecutada, hará el trabajo que tenga que realizar y podrá ejecutar dispatch() ya que lo recibió por parámetro y puede que le pase finalmente un objeto con un type como las demás actions o que incluso pase otra función que nuevamente el middleware thunk recibirá y ejecutará.
+    - Si detecta que la action es otra cosa diferente de una función, entonces ejecuta dispatch pasandoselá como parámetro para que siga su curso normal hacía los reducers.
