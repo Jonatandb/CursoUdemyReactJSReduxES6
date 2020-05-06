@@ -1,25 +1,22 @@
 import getForecastURLByCity from '../services/getForecastURLByCity';
 import transformForecast from '../services/transformForecast';
+import { SET_SELECTED_CITY, SET_FORECAST_DATA } from '../constants/actions_constans';
 
-export const SET_CITY = 'SET_CITY';
-export const SET_FORECAST_DATA = 'SET_FORECAST_DATA';
-
-export const setCityActionCreator = (value) => ({ type: SET_CITY, payload: value });
+export const setSelectedCityActionCreator = (value) => ({ type: SET_SELECTED_CITY, payload: value });
 
 export const setForecastDataActionCreator = (payload) => ({ type: SET_FORECAST_DATA, payload });
 
 export const fetchForecastData = (payload) => {
   return (dispatch) => {
-    dispatch(setCityActionCreator(payload));
+    dispatch(setSelectedCityActionCreator(payload));
 
     return fetch(getForecastURLByCity(payload))
       .then((response) => response.json())
       .then((forecastJSONResponse) => {
         if (forecastJSONResponse && forecastJSONResponse.cod && forecastJSONResponse.cod === '200') {
           const transformedForecastData = transformForecast(forecastJSONResponse);
-          const action = setForecastDataActionCreator({ city: payload, transformedForecastData });
+          const action = setForecastDataActionCreator({ city: payload, forecastData: transformedForecastData });
           dispatch(action);
-          console.log('action dispatcheada:', action);
         } else {
           console.log(
             'ForecastExtended -> getData(): Se produjo un error al obtener datos del servidor.',

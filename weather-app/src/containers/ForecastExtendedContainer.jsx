@@ -15,7 +15,7 @@ ForecastExtendedContainer.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  selectedCity: state.city,
+  selectedCity: state.selectedCity,
 });
 
 export default connect(mapStateToProps, null)(ForecastExtendedContainer);

@@ -1969,9 +1969,16 @@ Nota sobre Strict Mode:
 
 131. Refactor action setCity
 
-  - Modificación de la llamada a dispatch en el componente LocationListContainer para que cuando se seleccione una ciudad se le pase como parámetro la nueva función fetchForecastData()
-    - Esta función es detectada por el middleware thunk y ejecutada con la función dispatch como parámetro
-      - Al ejecutarse, primero hace dispatch de la acción que establece la ciudad seleccionada (SET_CITY)
+  - Modificación de la llamada a dispatch en el componente LocationListContainer para que cuando se seleccione una ciudad se le pase como parámetro la nueva función fetchForecastData() en lugar de la action setCity.
+    - Esta función es detectada por el middleware thunk y ejecutada (con la función dispatch como parámetro)
+      - Al ejecutarse, primero hace un dispatch de la acción que establece la ciudad seleccionada (SET_CITY)
         - Luego hace el fetch al servidor para obtener asíncronamente los datos del pronóstico extendido
-          - Finalmente hace un nuevo dispatch de una nueva action con el type: SET_FORECAST_DATA, a la que le pasa como payload los datos obtenidos del servidor.
+          - Finalmente, al recibir los datos, hace un nuevo dispatch de una nueva action con el type: SET_FORECAST_DATA, a la que le pasa como payload los datos obtenidos del servidor.
             - Aún no se ha creado un reducer que contemple esta action.
+
+
+132. Creación de reducer cities
+
+  - Creación de reducer para contemplar la action 'SET_FORECAST_DATA', que impacta en el store la información del pronóstico extendido para la ciudad seleccionada.
+  - Hago refactor cambiando varios nombres (de los reducers, de las acciones y la propiedad city del state), para una mejor legibilidad y más fácil seguimiento del código y manipulación del state.
+

@@ -1,3 +1,4 @@
-import cityReducer from './cityReducer';
+import setSelectedCityReducer from './setSelectedCityReducer';
+import setForecastDataReducer from './setForecastDataReducer';
 
-export const reducers = { cityReducer };
+export const reducers = { setSelectedCityReducer, setForecastDataReducer };
