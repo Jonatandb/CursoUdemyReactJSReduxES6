@@ -1959,3 +1959,9 @@ Nota sobre Strict Mode:
     - Si detecta que la action es una función entonces la ejecuta pasándole como parámetro la función dispatch.
       - Está action de tipo función entonces al ser ejecutada, hará el trabajo que tenga que realizar y podrá ejecutar dispatch() ya que lo recibió por parámetro y puede que le pase finalmente un objeto con un type como las demás actions o que incluso pase otra función que nuevamente el middleware thunk recibirá y ejecutará.
     - Si detecta que la action es otra cosa diferente de una función, entonces ejecuta dispatch pasandoselá como parámetro para que siga su curso normal hacía los reducers.
+
+
+130. Planeamos: Nuevo estado de aplicación
+
+  - Se plantea nueva estructura del estado de la aplicación que por un lado seguirá teniendo información de la ciudad seleccionada y por otro contendrá una lista de ciudades junto con sus datos de pronóstico cargados a medida que cada ciudad sea seleccionada.
+    - De esta manera, si se vuelve a seleccionar una ciudad para la que ya se habían obtenido los datos del pronóstico extendido, no se realizará una nueva solicitud al servidor, sino que se utilizarán y mostrarán los datos para esa ciudad previamente almacenados en el state.
