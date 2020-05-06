@@ -1941,3 +1941,13 @@ Nota sobre Strict Mode:
   - Explicación sobre qué son y la utilidad de los middlewares:
     - Son funcionalidades que se agregan al store cuando este se configura inicialmente y que son interpuestas entre el dispatch() y la llegada de la acción a los reducers, lo que permite agregar capacidades extra al Store.
       - Estas funciones intermediarias pueden tener funcionalidades muy variadas, como por ejemplo loguear las acciones que se fueron ejecutando, atender eventos asincrónicos (como lo hace por ejemplo redux-thunk), capturar errores, cambiar rutas y muchas cosas más.
+
+
+128. Incorporación de middleware Thunk
+
+  - Instalación:
+
+        yarn add redux-thunk
+
+  - Para poder especificar middlewares durante la creación del store, se debe utilizar la función de Redux: applyMiddleware.
+  - Para poder seguir utilizando el plugin de Chrome Redux DevTools, se debe utilizar también la función de Redux: compose.
