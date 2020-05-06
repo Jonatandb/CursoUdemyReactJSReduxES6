@@ -1965,3 +1965,13 @@ Nota sobre Strict Mode:
 
   - Se plantea nueva estructura del estado de la aplicación que por un lado seguirá teniendo información de la ciudad seleccionada y por otro contendrá una lista de ciudades junto con sus datos de pronóstico cargados a medida que cada ciudad sea seleccionada.
     - De esta manera, si se vuelve a seleccionar una ciudad para la que ya se habían obtenido los datos del pronóstico extendido, no se realizará una nueva solicitud al servidor, sino que se utilizarán y mostrarán los datos para esa ciudad previamente almacenados en el state.
+
+
+131. Refactor action setCity
+
+  - Modificación de la llamada a dispatch en el componente LocationListContainer para que cuando se seleccione una ciudad se le pase como parámetro la nueva función fetchForecastData()
+    - Esta función es detectada por el middleware thunk y ejecutada con la función dispatch como parámetro
+      - Al ejecutarse, primero hace dispatch de la acción que establece la ciudad seleccionada (SET_CITY)
+        - Luego hace el fetch al servidor para obtener asíncronamente los datos del pronóstico extendido
+          - Finalmente hace un nuevo dispatch de una nueva action con el type: SET_FORECAST_DATA, a la que le pasa como payload los datos obtenidos del servidor.
+            - Aún no se ha creado un reducer que contemple esta action.
