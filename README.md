@@ -1982,3 +1982,8 @@ Nota sobre Strict Mode:
   - Creación de reducer para contemplar la action 'SET_FORECAST_DATA', que impacta en el store la información del pronóstico extendido para la ciudad seleccionada.
   - Hago refactor cambiando varios nombres (de los reducers, de las acciones y la propiedad city del state), para una mejor legibilidad y más fácil seguimiento del código y manipulación del state.
 
+
+133. Utilización de combineReducers
+
+  - https://redux.js.org/api/combinereducers
+  -

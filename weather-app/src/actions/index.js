@@ -10,13 +10,12 @@ export const fetchForecastData = (payload) => {
   return (dispatch) => {
     dispatch(setSelectedCityActionCreator(payload));
 
-    return fetch(getForecastURLByCity(payload))
+    fetch(getForecastURLByCity(payload))
       .then((response) => response.json())
       .then((forecastJSONResponse) => {
         if (forecastJSONResponse && forecastJSONResponse.cod && forecastJSONResponse.cod === '200') {
           const transformedForecastData = transformForecast(forecastJSONResponse);
-          const action = setForecastDataActionCreator({ city: payload, forecastData: transformedForecastData });
-          dispatch(action);
+          dispatch(setForecastDataActionCreator({ city: payload, forecastData: transformedForecastData }));
         } else {
           console.log(
             'ForecastExtended -> getData(): Se produjo un error al obtener datos del servidor.',
