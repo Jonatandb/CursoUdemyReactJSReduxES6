@@ -1986,8 +1986,15 @@ Nota sobre Strict Mode:
 133. Utilización de combineReducers
 
   - https://redux.js.org/api/combinereducers
-
+  - combineReducers es una función provista por Redux, la cual lo que hace es recibir varios reducer y devolver un único objeto donde cada propiedad del mismo posee el nombre de cada reducer recibido (esto puede ser modificado en caso de que se desee) y como valor de cada propiedad se encuentra cada reducer.
 
 134. Simplificación de class component a functional
 component
 
+
+135. Selectores primer nivel
+
+  - Los selectores "recortan" una parte del estado global de la aplicación, permitiendo que se pueda trabajar con esa parte del estado exclusivamente desde los componentes.
+  - Permite evitar que un componente tenga conocimiento de la estructura del estado de la aplicación y por lo tanto lo desacopla de la misma, por lo que al modificar/refactorizar el estado no hace falta modificar el componente.
+  - Los selectores es conveniente crearlos en los reducers, ya que es donde se conoce la estructura del estado de la aplicación.
+  - Una de las librerías mas conocidas que implementan y proveen el patrón selector es 'Reselect'.
