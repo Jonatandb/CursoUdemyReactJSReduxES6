@@ -1,3 +1,4 @@
+import { createSelector } from 'reselect';
 import { SET_FORECAST_DATA } from '../constants/actions_constans';
 
 export default (state = {}, action) => {
@@ -13,4 +14,7 @@ export default (state = {}, action) => {
   }
 };
 
-export const forecastDataSelector = (state, city) => state[city] && state[city].forecastData;
+export const forecastDataSelector = createSelector(
+  (state, city) => state[city] && state[city].forecastData,
+  (forecastData) => forecastData,
+);

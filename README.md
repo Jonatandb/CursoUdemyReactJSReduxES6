@@ -2005,3 +2005,19 @@ component
   - Refactor para abstraer por completo el conocimiento que el componente tiene sobre el estado de la aplicación
     - Para lograrlo se va a crear una nueva función en index de reducers que va a recibir el state como parámetro (cuando sea llamada desde el container) y va a devolver el resultado de llamar al selector previamente creado y al que se importó con un alias y se le pasó como parámetros las partes del state que específicamente necesita para funcionar -> la ciudad seleccionada y el array de ciudades.
   - Creación de nuevo selector para obtener la ciudad seleccionada desde el componente ForecastExtendedContainer
+
+
+137. Reselect
+  - https://github.com/reduxjs/reselect
+  - Instalación y uso de Reselect
+
+        yarn add reselect
+
+  - Reselect utiliza la técnica memoization, que implementando una cache liviana permite el trabajo mucho mas eficiente cuando se manejan grandes volúmenes de datos
+  - Una vez importada la función createSelector de Reselect, se utiliza pasándole una o más funciones, las cuales ejecutará pasándole a cada una el state y el dato obtenido de cada una será pasado a la última función recibida.
+
+        import { createSelector} from 'reselect'
+        export const getCity = createSelector(state => state.city, city => city)
+    * createSelector recibe el state y se lo pasa la primera función especificada, la cual devuelve city y este resultado es pasado a la última función especificada, que recibe city y devuelve city.
+
+  - https://medium.com/@pearlmcphee/selectors-react-redux-reselect-9ab984688dd4
