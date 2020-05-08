@@ -13,4 +13,4 @@ export default (state = {}, action) => {
   }
 };
 
-export const getForecastDataSelector = (state, city) => state[city] && state[city].forecastData;
+export const forecastDataSelector = (state, city) => state[city] && state[city].forecastData;

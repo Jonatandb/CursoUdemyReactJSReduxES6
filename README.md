@@ -1998,3 +1998,10 @@ component
   - Permite evitar que un componente tenga conocimiento de la estructura del estado de la aplicación y por lo tanto lo desacopla de la misma, por lo que al modificar/refactorizar el estado no hace falta modificar el componente.
   - Los selectores es conveniente crearlos en los reducers, ya que es donde se conoce la estructura del estado de la aplicación.
   - Una de las librerías mas conocidas que implementan y proveen el patrón selector es 'Reselect'.
+
+
+136. Selectores, completo
+
+  - Refactor para abstraer por completo el conocimiento que el componente tiene sobre el estado de la aplicación
+    - Para lograrlo se va a crear una nueva función en index de reducers que va a recibir el state como parámetro (cuando sea llamada desde el container) y va a devolver el resultado de llamar al selector previamente creado y al que se importó con un alias y se le pasó como parámetros las partes del state que específicamente necesita para funcionar -> la ciudad seleccionada y el array de ciudades.
+  - Creación de nuevo selector para obtener la ciudad seleccionada desde el componente ForecastExtendedContainer
