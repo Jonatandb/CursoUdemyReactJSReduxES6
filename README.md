@@ -2021,3 +2021,21 @@ component
     * createSelector recibe el state y se lo pasa la primera función especificada, la cual devuelve city y este resultado es pasado a la última función especificada, que recibe city y devuelve city.
 
   - https://medium.com/@pearlmcphee/selectors-react-redux-reselect-9ab984688dd4
+
+
+138. Memoization y fortalezas de los selectores
+
+  - Son eficientes, ya no se ejecutan si ninguno de sus parámetros se modifica (comparándolos con la llamada anterior).
+  - Permiten composición: nuevos selectores pueden tomar como entrada otros selectores.
+  - Pueden minimizar el tamaño del store, ya que permiten generar datos procesados 'al vuelo', en vez de tener que guardarlos.
+  - Su implementación, internamente lo que hace es:
+    - Compara si son iguales los argunmentos recibidos contra los argumentos de la ejecución anterior
+      - En caso de que sean iguales:
+        - Recordará los argumentos actuales como los últimos recibidos durante la próxima ejecución
+        - Devolverá el resultado que tenía almacenado en la ejecución anterior
+      - En caso de que no sean iguales:
+        - Guardará como útlimo resultado lo que devuelva la ejecución de la función recibida por parámetro aplicada a los argumentos pasados al selector
+        - Recordará los argumentos actuales como los últimos recibidos durante la próxima ejecución
+        - Devolverá el resultado que tenía almacenó como último resultado (el de la ejecución de la función)
+  - Implementación de memoization de Reselect:
+    - https://github.com/reduxjs/reselect/blob/master/src/index.js#L21
