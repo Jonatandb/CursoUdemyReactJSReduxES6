@@ -1986,4 +1986,8 @@ Nota sobre Strict Mode:
 133. Utilización de combineReducers
 
   - https://redux.js.org/api/combinereducers
-  -
+
+
+134. Simplificación de class component a functional
+component
+
