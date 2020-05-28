@@ -2039,3 +2039,12 @@ component
         - Devolverá el resultado que tenía almacenó como último resultado (el de la ejecución de la función)
   - Implementación de memoization de Reselect:
     - https://github.com/reduxjs/reselect/blob/master/src/index.js#L21
+
+
+---
+
+<p align="center">
+    <a href="https://ko-fi.com/L3L31N4GV" target="_blank">
+            <img src="https://www.ko-fi.com/img/githubbutton_sm.svg" alt="Support me on Ko-fi"/>
+    </a>
+</p>
