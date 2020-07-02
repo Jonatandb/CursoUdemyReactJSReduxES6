@@ -1,18 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import WeatherLocation from './WeatherLocation';
 import './styles.css';
+import WeatherLocation from './WeatherLocation';
 
 const LocationList = ({ cities, onSelectedLocation }) => {
   const onWeatherLocationSelected = (city) => {
-    //console.log('LocationList -> onWeatherLocationSelected -> city:', city);
     onSelectedLocation(city);
   };
 
   return (
     <div className="locationList">
-      {cities.map((c) => (
-        <WeatherLocation key={c} city={c} onWeatherLocationClick={() => onWeatherLocationSelected(c)} />
+      {cities.map((city) => (
+        <WeatherLocation
+          key={city.key}
+          city={city.name}
+          data={city.data}
+          onWeatherLocationClick={() => onWeatherLocationSelected(city.name)}
+        />
       ))}
     </div>
   );

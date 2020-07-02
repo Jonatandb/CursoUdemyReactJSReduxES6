@@ -2041,6 +2041,31 @@ component
     - https://github.com/reduxjs/reselect/blob/master/src/index.js#L21
 
 
+139. Refactor de componente con state a functional component
+
+  - Primera parte de refactor de componentes WeatherLocation, LocationList y LocationListContainer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 
 <p align="center">
