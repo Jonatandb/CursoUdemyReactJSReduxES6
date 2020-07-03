@@ -50,7 +50,7 @@ export const setWeather = (cities) => {
       fetch(getWeatherURLByCity(city))
         .then((response) => response.json())
         .then((weatherJSONResponse) => {
-          const transformedWeatherData = null;
+          let transformedWeatherData = null;
           if (weatherJSONResponse && weatherJSONResponse.cod && weatherJSONResponse.cod === 200) {
             transformedWeatherData = transformWeather(weatherJSONResponse);
           } else {
