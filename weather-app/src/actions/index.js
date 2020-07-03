@@ -1,54 +1,72 @@
+import getWeatherURLByCity from '../services/getWeatherURLByCity';
 import getForecastURLByCity from '../services/getForecastURLByCity';
 import transformForecast from '../services/transformForecast';
-import { SET_SELECTED_CITY, SET_FORECAST_DATA, SET_WEATHER } from '../constants/actions_constans';
+import transformWeather from '../services/transformWeather';
 
-export const setSelectedCityActionCreator = (value) => ({ type: SET_SELECTED_CITY, payload: value });
+import {
+  SET_SELECTED_CITY,
+  SET_FORECAST_DATA,
+  SET_WEATHER_CITY,
+  GET_WEATHER_CITY,
+} from '../constants/actions_constans';
 
-export const setForecastDataActionCreator = (payload) => ({ type: SET_FORECAST_DATA, payload });
+const setSelectedCityActionCreator = (payload) => ({ type: SET_SELECTED_CITY, payload });
 
-export const fetchForecastData = (payload) => {
+const setForecastDataActionCreator = (payload) => ({ type: SET_FORECAST_DATA, payload });
+
+const getWeatherCityActionCreator = (payload) => ({ type: GET_WEATHER_CITY, payload });
+
+const setWeatherCityActionCreator = (payload) => ({ type: SET_WEATHER_CITY, payload });
+
+export const fetchForecastData = (city) => {
   return (dispatch) => {
-    dispatch(setSelectedCityActionCreator(payload));
-
-    fetch(getForecastURLByCity(payload))
+    dispatch(setSelectedCityActionCreator(city));
+    fetch(getForecastURLByCity(city))
       .then((response) => response.json())
       .then((forecastJSONResponse) => {
         if (forecastJSONResponse && forecastJSONResponse.cod && forecastJSONResponse.cod === '200') {
           const transformedForecastData = transformForecast(forecastJSONResponse);
-          dispatch(setForecastDataActionCreator({ city: payload, forecastData: transformedForecastData }));
+          dispatch(setForecastDataActionCreator({ city, forecastData: transformedForecastData }));
         } else {
           console.log(
-            'ForecastExtended -> getData(): Se produjo un error al obtener datos del servidor.',
+            `fetchForecastData -> Se produjo un error al obtener datos del servidor para la ciudad: ${city}`,
             forecastJSONResponse && forecastJSONResponse.message && forecastJSONResponse.message,
           );
         }
       })
       .catch((reason) =>
-        console.log('ForecastExtended -> getData(): Se produjo un error al obtener datos del servidor:', reason),
+        console.log(
+          `fetchForecastData -> Se produjo un error al obtener datos del servidor para la ciudad: ${city}`,
+          reason,
+        ),
       );
   };
 };
 
 export const setWeather = (cities) => {
-  // return (dispatch) => {
-  //   dispatch();
-  //   getData = () => {
-  //     const { city } = this.state;
-  //     fetch(getURLByCity(city))
-  //       .then((response) => response.json())
-  //       .then((weatherJSONResponse) => {
-  //         if (weatherJSONResponse && weatherJSONResponse.cod && weatherJSONResponse.cod === 200) {
-  //           this.setState({
-  //             data: transformWeather(weatherJSONResponse),
-  //           });
-  //         } else {
-  //           console.log(
-  //             'WeatherLocation: Se produjo un error al obtener datos del servidor.',
-  //             weatherJSONResponse && weatherJSONResponse.message && weatherJSONResponse.message,
-  //           );
-  //         }
-  //       })
-  //       .catch((reason) => console.log('WeatherLocation: Se produjo un error al obtener datos del servidor:', reason));
-  //   };
-  // };
+  return (dispatch) => {
+    cities.forEach((city) => {
+      dispatch(getWeatherCityActionCreator(city));
+      fetch(getWeatherURLByCity(city))
+        .then((response) => response.json())
+        .then((weatherJSONResponse) => {
+          const data = null;
+          if (weatherJSONResponse && weatherJSONResponse.cod && weatherJSONResponse.cod === 200) {
+            data = transformWeather(weatherJSONResponse);
+          } else {
+            console.log(
+              `setWeather -> Se produjo un error al obtener datos del servidor para la ciudad: ${city}`,
+              weatherJSONResponse && weatherJSONResponse.message && weatherJSONResponse.message,
+            );
+          }
+          dispatch(setWeatherCityActionCreator({ city, data }));
+        })
+        .catch((reason) =>
+          console.log(
+            `setWeather -> Se produjo un error al obtener datos del servidor para la ciudad: ${city}`,
+            reason,
+          ),
+        );
+    });
+  };
 };

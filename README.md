@@ -2046,7 +2046,9 @@ component
   - Primera parte de refactor de componentes WeatherLocation, LocationList y LocationListContainer
 
 
+140. Creación de Action Creators
 
+  - Segunda parte del refactor de componentes, creación de action "setWeather" para obtener los datos del clima para cada una de las ciudades.
 
 
 

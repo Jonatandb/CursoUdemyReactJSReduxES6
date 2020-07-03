@@ -21,8 +21,6 @@ const getWeatherState = (weather) => {
 };
 
 const transformWeather = (weather_data) => {
-  // console.log('transformWeather: Respuesta JSON recibida desde la API:\n', weather_data); // Logueo en la consola la respuesta desde la API
-
   const { temp, humidity } = weather_data.main;
   const temperature = getCelsius(temp);
   const weatherState = getWeatherState(weather_data.weather[0]);
