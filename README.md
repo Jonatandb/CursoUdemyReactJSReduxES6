@@ -2073,6 +2073,9 @@ component
   - Instalación y uso de lodash.topairs para pasarle al componente LocationListContainer refactorizado los datos en el formato que los necesita.
 
 
+145. toPairs en detalle
+
+  - Explicación de funcionalidad y uso de toPairs
 
 
 ---
