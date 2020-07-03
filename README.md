@@ -2055,13 +2055,17 @@ component
 
   - Armado de reducer para actualizar el estado al iniciarse la petición de datos del clima para una ciudad y al obtenerse el resultado de la petición.
 
+
 142. Selector
 
   - Preparación incial del componente LocationListContainer para que obtenga del state el resultado del clima para las ciudades.
 
 
+143. Lodash
 
+  - https://lodash.com/
 
+  - https://lodash.com/docs/4.17.15#toPairs
 
 
 
