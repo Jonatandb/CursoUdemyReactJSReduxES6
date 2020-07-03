@@ -1,14 +1,23 @@
 import { createSelector } from 'reselect';
-import { SET_FORECAST_DATA } from '../constants/actions_constans';
+import { SET_FORECAST_DATA, SET_WEATHER_CITY, GET_WEATHER_CITY } from '../constants/actions_constans';
 
 export default (state = {}, action) => {
   switch (action.type) {
-    case SET_FORECAST_DATA:
+    case SET_FORECAST_DATA: {
       const { city, forecastData } = action.payload;
       return {
         ...state,
-        [city]: { forecastData, weather: null },
+        [city]: { forecastData },
       };
+    }
+    case GET_WEATHER_CITY: {
+      const city = action.payload;
+      return { ...state, [city]: { weather: null } };
+    }
+    case SET_WEATHER_CITY: {
+      const { city, weatherData } = action.payload;
+      return { ...state, [city]: { weather: weatherData } };
+    }
     default:
       return state;
   }

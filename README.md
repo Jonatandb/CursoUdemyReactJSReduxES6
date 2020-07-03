@@ -2051,6 +2051,9 @@ component
   - Segunda parte del refactor de componentes, creación de action "setWeather" para obtener los datos del clima para cada una de las ciudades.
 
 
+141. Creación de Reducer
+
+  - Armado de reducer para actualizar el estado al iniciarse la petición de datos del clima para una ciudad y al obtenerse el resultado de la petición.
 
 
 

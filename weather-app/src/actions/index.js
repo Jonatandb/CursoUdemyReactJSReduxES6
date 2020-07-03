@@ -50,16 +50,16 @@ export const setWeather = (cities) => {
       fetch(getWeatherURLByCity(city))
         .then((response) => response.json())
         .then((weatherJSONResponse) => {
-          const data = null;
+          const transformedWeatherData = null;
           if (weatherJSONResponse && weatherJSONResponse.cod && weatherJSONResponse.cod === 200) {
-            data = transformWeather(weatherJSONResponse);
+            transformedWeatherData = transformWeather(weatherJSONResponse);
           } else {
             console.log(
               `setWeather -> Se produjo un error al obtener datos del servidor para la ciudad: ${city}`,
               weatherJSONResponse && weatherJSONResponse.message && weatherJSONResponse.message,
             );
           }
-          dispatch(setWeatherCityActionCreator({ city, data }));
+          dispatch(setWeatherCityActionCreator({ city, weatherData: transformedWeatherData }));
         })
         .catch((reason) =>
           console.log(
