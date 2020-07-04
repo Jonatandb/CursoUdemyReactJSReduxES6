@@ -7,16 +7,16 @@ export default (state = {}, action) => {
       const { city, forecastData } = action.payload;
       return {
         ...state,
-        [city]: { forecastData },
+        [city]: { ...state[city], forecastData },
       };
     }
     case GET_WEATHER_CITY: {
       const city = action.payload;
-      return { ...state, [city]: { weather: null } };
+      return { ...state, [city]: { ...state[city], weather: null } };
     }
     case SET_WEATHER_CITY: {
       const { city, weatherData } = action.payload;
-      return { ...state, [city]: { weather: weatherData } };
+      return { ...state, [city]: { ...state[city], weather: weatherData } };
     }
     default:
       return state;

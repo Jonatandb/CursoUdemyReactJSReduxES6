@@ -2078,6 +2078,16 @@ component
   - Explicación de funcionalidad y uso de toPairs
 
 
+146. Uso de spread operator para realizar copia en segundo nivel
+
+
+
+
+
+
+
+
+
 ---
 
 <p align="center">
