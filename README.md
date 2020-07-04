@@ -2081,6 +2081,8 @@ component
 146. Uso de spread operator para realizar copia en segundo nivel
 
 
+147. Establecer Forecast desde en carga inicial
+
 
 
 
