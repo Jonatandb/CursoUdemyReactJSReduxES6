@@ -2090,6 +2090,8 @@ component
 149. Uso de segundo parámetro getState en redux-thunk
 
 
+150. Redux, Flux y SSOT
+
 
 
 
