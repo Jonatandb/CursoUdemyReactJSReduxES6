@@ -18,7 +18,7 @@ const getWeatherCityActionCreator = (payload) => ({ type: GET_WEATHER_CITY, payl
 
 const setWeatherCityActionCreator = (payload) => ({ type: SET_WEATHER_CITY, payload });
 
-export const fetchForecastData = (city) => {
+export const getForecastData = (city) => {
   return (dispatch) => {
     dispatch(setSelectedCityActionCreator(city));
     fetch(getForecastURLByCity(city))
@@ -29,21 +29,21 @@ export const fetchForecastData = (city) => {
           dispatch(setForecastDataActionCreator({ city, forecastData: transformedForecastData }));
         } else {
           console.log(
-            `fetchForecastData -> Se produjo un error al obtener datos del servidor para la ciudad: ${city}`,
+            `getForecastData -> Se produjo un error al obtener datos del servidor para la ciudad: ${city}`,
             forecastJSONResponse && forecastJSONResponse.message && forecastJSONResponse.message,
           );
         }
       })
       .catch((reason) =>
         console.log(
-          `fetchForecastData -> Se produjo un error al obtener datos del servidor para la ciudad: ${city}`,
+          `getForecastData -> Se produjo un error al obtener datos del servidor para la ciudad: ${city}`,
           reason,
         ),
       );
   };
 };
 
-export const setWeather = (cities) => {
+export const getWeather = (cities) => {
   return (dispatch) => {
     cities.forEach((city) => {
       dispatch(getWeatherCityActionCreator(city));
@@ -55,7 +55,7 @@ export const setWeather = (cities) => {
             transformedWeatherData = transformWeather(weatherJSONResponse);
           } else {
             console.log(
-              `setWeather -> Se produjo un error al obtener datos del servidor para la ciudad: ${city}`,
+              `getWeather -> Se produjo un error al obtener datos del servidor para la ciudad: ${city}`,
               weatherJSONResponse && weatherJSONResponse.message && weatherJSONResponse.message,
             );
           }
@@ -63,7 +63,7 @@ export const setWeather = (cities) => {
         })
         .catch((reason) =>
           console.log(
-            `setWeather -> Se produjo un error al obtener datos del servidor para la ciudad: ${city}`,
+            `getWeather -> Se produjo un error al obtener datos del servidor para la ciudad: ${city}`,
             reason,
           ),
         );

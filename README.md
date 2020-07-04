@@ -2084,6 +2084,8 @@ component
 147. Establecer Forecast desde en carga inicial
 
 
+148. BindActionCreators
+
 
 
 
