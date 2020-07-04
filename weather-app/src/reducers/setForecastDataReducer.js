@@ -7,7 +7,7 @@ export default (state = {}, action) => {
       const { city, forecastData } = action.payload;
       return {
         ...state,
-        [city]: { ...state[city], forecastData },
+        [city]: { ...state[city], forecastData, forecastDataDate: new Date() },
       };
     }
     case GET_WEATHER_CITY: {

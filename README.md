@@ -2087,6 +2087,7 @@ component
 148. BindActionCreators
 
 
+149. Uso de segundo parámetro getState en redux-thunk
 
 
 

@@ -19,8 +19,17 @@ const getWeatherCityActionCreator = (payload) => ({ type: GET_WEATHER_CITY, payl
 const setWeatherCityActionCreator = (payload) => ({ type: SET_WEATHER_CITY, payload });
 
 export const getForecastData = (city) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     dispatch(setSelectedCityActionCreator(city));
+
+    const state = getState();
+    const date = state.cities[city] && state.cities[city].forecastDataDate;
+    const now = new Date();
+
+    if (date && now - date < 1 * 60 * 1000) {
+      return;
+    }
+
     fetch(getForecastURLByCity(city))
       .then((response) => response.json())
       .then((forecastJSONResponse) => {
