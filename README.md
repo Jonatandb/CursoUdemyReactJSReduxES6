@@ -2161,6 +2161,54 @@ component
   - Agregado de withRouter al componente CustomersContainer
 
 
+168. React Router v4, dynamic router y más
+
+
+  - React-router-dom y React-router-native comparten el core de react-router
+    - Para la web se utilizar React-router-dom
+
+  - Dentro de los componentes que administran el ruteo, está el componente Router como componente de alto nivel y base, indistinto de la forma en que se realiza el ruteo.
+
+  - Luego hay tres implementaciones diferentes de Router:
+    - BrowserRouter:
+      - La mas utilizada
+      - Se apoya en funcionalidades de HTML5 que permiten modificar la URL (usando la API History).
+      - Es el utilizado para sincronizar las URL solicitadas con la URL del navegador.
+    - HashRouter:
+      - Utiliza el numeral en la URL
+      - No recomendado por poseer ciertas incompatibilidades en casos conocidos clave
+    - MemoryRouter:
+      - No modificar la URL
+      - Se utiliza especialmente para testing en react-router-dom o en React Native (ya que es una plataforma que no soporta el manejo de URL)
+
+  - Parámetros que aceptar BrowserRouter:
+    - basename: Permite que se especifique cual es la ruta base, en base a la cual luego se construye el arbol del resto de rutas.
+    - forceRefresh: Especialmente diseñado para navegadores viejos que no soportan en forma completa HTML5. Al establecerlo en true provoca un refresco completo de la página al cambiar de URL.
+    - getUserConfirmation: Recibe una función opcional, que sirve para llevar a cabo una validación y mostrarsela al usuario para que confirme la navegación. Por defecto no se ejecuta validación que solicite confirmación al usuario.
+
+  - Route:
+    - Es el componente más importante.
+    - Cuando el valor de "location" (window.location) se corresponde con el valor de la propiedad "path", Route renderiza el o los componentes visuales que se le hayan especificado:
+
+        ``` <Route path="/customers" .../>```
+
+    - Hay tres formas de asociar componentes a Route:
+
+        ``` <Route path="/customers" component={Customers} />```
+
+
+        ``` <Route path="/customers" render={ () => ( <Customers/> ) />```
+
+
+        ``` <Route path="/customers" children={ ({match, ...rest}) => (match ? <p>Si</p> : <p>No</> )} />```
+
+
+
+
+
+
+
+
 
 
 
