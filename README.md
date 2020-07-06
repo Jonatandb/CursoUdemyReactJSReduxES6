@@ -2146,6 +2146,9 @@ component
 164. HomeContainer e implementación con Link
 
 
+165. Utilización de history.push y withRouter
+
+
 
 
 
