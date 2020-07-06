@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import AppHeader from "./AppHeader";
 
-const AppFrame = ({ header, body }) => {
+const AppFrame = ({ title, body }) => {
   return (
     <div>
       <div className="app-frame">
-        <AppHeader title={header} />
+        <AppHeader title={title} />
         <div>{body}</div>
         <div>Aplicación de ejemplo</div>
       </div>
@@ -15,7 +15,7 @@ const AppFrame = ({ header, body }) => {
 };
 
 AppFrame.propTypes = {
-  header: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   body: PropTypes.element.isRequired,
 };
 
