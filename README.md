@@ -2148,8 +2148,22 @@ component
 
 165. Utilización de history.push y withRouter
 
+  - Envolviendo un componente con withRouter, se consigue que se le inyecten al mismo las propiedades location, match y history de react-router-dom. Con estas propiedades disponibles se puede utilizar por ejemplo history.push() como resultado de un click en un botón para cambiar la url y llevar al usuario a otra "pagina", de la misma forma que lo hace el componente Link:
+
+    ```this.props.history.push("/customers");```
+
 
 166. Customer Container
+
+
+167. WithRouter y navegación a eliminar
+
+  - Agregado de withRouter al componente CustomersContainer
+
+
+
+
+
 
 
 

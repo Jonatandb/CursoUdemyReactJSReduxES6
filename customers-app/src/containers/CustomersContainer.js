@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import AppFrame from "../components/AppFrame";
 import CustomerList from "../components/CustomerList";
 import CustomersActions from "../components/CustomersActions";
@@ -38,4 +39,4 @@ class CustomersContainer extends Component {
 
 CustomersContainer.propTypes = {};
 
-export default CustomersContainer;
+export default withRouter(CustomersContainer);
