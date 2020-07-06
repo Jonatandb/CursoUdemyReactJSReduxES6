@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import AppFrame from "../components/AppFrame";
 import CustomerActions from "../components/CustomersActions";
@@ -27,7 +26,5 @@ class HomeContainer extends Component {
     );
   }
 }
-
-HomeContainer.propTypes = {};
 
 export default withRouter(HomeContainer);
