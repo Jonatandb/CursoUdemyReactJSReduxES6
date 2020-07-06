@@ -2115,9 +2115,14 @@ component
 156. Componente CustomerActions
 
 
+157. Componente Link
 
+  - Permite el manejo dinámico de la url, sin recargar la página
+  - Tiene la misma apariencia que un link habitual
 
+  - Instalación de react-router-dom (paquete de npm que provee el componente Link y el componente BrowserRouter, entre otros):
 
+      ```yarn add react-router-dom```
 
 
 
