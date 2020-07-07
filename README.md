@@ -2203,11 +2203,58 @@ component
         ``` <Route path="/customers" children={ ({match, ...rest}) => (match ? <p>Si</p> : <p>No</> )} />```
 
 
+169. Route, match, switch, history y más
 
+  - Atributos de Route:
+    - exact:
+      - Si la ruta no coincide exactamente con la que está especificada en el atributo "path" no se va a renderizar el componente asociado. Por lo tanto si en path se especifica '/customers' y la URL es "/customers/new", sin exact el componente asociado se renderizará. Con exact, solo se renderizará cuando la URL se exactamente "/customers".
+    - strict:
+      - Es similar a exact pero con respecto a si la URL posee o no una barra al final -> "/customers" no lo toma igual que "/customers/"
 
+  - match:
+    - Contiene información sobre wildcards (también llamados "url params") que se encuentren en la URL.
+    - También posee información sobre:
+      - Los wildcars -> match.params
+      - Si la url es "exact" -> match.isExact
+      - Cual fue el "path" utilizado para evaluar la ruta -> match.path
+      - Porción de la ruta que coincidió con la evaluación -> match.url
 
+  - <Switch>:
+    - Se utiliza con rutas que pueden presentar coincidencias ambiguas.
+    - Totas las rutas dentro de Switch serán evaluadas en el orden que se encuentren, y se renderizará el componente de la primera que presente una coincidencia con el valor establecido en "path", ignorándose el resto (dejando de buscarse coincidencias).
+    - Ejemplo:
 
+        ```<Switch>```
 
+        ```<Route path="/customers/new" component={CustomerNewContainer} />```
+
+        ```<Route path="/customers/:dni" component={CustomerContainer} />```
+
+        ```</Switch>```
+      - En este caso, cuando se navegue a "/customers/new" se renderizará el componente CustomerNewContainer, pero si en lugar de "new" se especifíca cualquier otra cosa, Switch descartará la ruta que apunta a "/new" (porque no coincide) y seguirá revisando las rutas disponibles. Al encontrarse con la ruta con el wildcard "/:dni" en el path, lo que sea que se haya escrito luego de "/customers/" se guardará en una propiedad disponible a través de "props.match.params.dni" dentro del componente "CustomerContainer", que será el que se renderizará.
+
+  - Link, NavLink:
+    - Componentes similares que permiten la navegación a través de la propiedad "to" para indicar hacía que URL debe ir el navegador.
+    - NavLink posee más opciones de personalización
+
+  - Redirect:
+    - Sirve para hacer redirecciones
+    - Ideal para utilizar cuando el usuario se encuentra en algún flujo de navegación al cual no tiene permitido acceder.
+
+  - withRouter:
+    - Es un High Order Component
+    - Agrega al componente envuelto, las siguientes propiedades: (También re-renderiza el componente cuando estas propiedades cambian)
+      - match
+      - location
+      - history:
+        - Es mutable (Alterable)
+        - Las funciones que lo modificación son:
+          - push: Se utiliza para agregar una nueva entrada a history
+          - replace: Se utiliza para modificar el útlimo elemento de la pila "history", reemplazandolo por otro
+          - go(n): Permite desplazarse por el history "n" posiciones
+          - goBack(): Vuelve al elemento anterior en la pila de navegación de history
+          - goForward(): Desplaza la navegación al siguiente elemento en la navegación
+          - block(): Cancela o evita la navegación. Evita que el usuario se pueda desplazar por las distintas URLs
 
 
 
