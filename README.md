@@ -2257,6 +2257,13 @@ component
           - block(): Cancela o evita la navegación. Evita que el usuario se pueda desplazar por las distintas URLs
 
 
+170. Pasos para crear fetchCustomers
+
+  - Análisis de pasos a seguir y requerimientos para continuar con el desarrollo de la aplicación
+
+
+
+
 
 
 
