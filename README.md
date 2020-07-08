@@ -2262,6 +2262,12 @@ component
   - Análisis de pasos a seguir y requerimientos para continuar con el desarrollo de la aplicación
 
 
+171. Creación de store y vinculación con provider
+
+  - Instalación de redux (que provee "createStore") y de react-redux que provee el componente "Provider" con el cual se puede proveer del store a toda la aplicación y que también provee el componente "connect" con el cual se le inyectan propiedades a los componentes para que puedan hacer dispatch de acciones y estar al tanto de cambios en el state (mediante mapStateToProps y mapDispatchToProps).
+
+
+
 
 
 
