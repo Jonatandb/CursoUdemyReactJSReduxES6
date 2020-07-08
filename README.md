@@ -2267,6 +2267,16 @@ component
   - Instalación de redux (que provee "createStore") y de react-redux que provee el componente "Provider" con el cual se puede proveer del store a toda la aplicación y que también provee el componente "connect" con el cual se le inyectan propiedades a los componentes para que puedan hacer dispatch de acciones y estar al tanto de cambios en el state (mediante mapStateToProps y mapDispatchToProps).
 
 
+172. Redux-Actions
+
+  - Paquete que tiene como objetivo generar un código más compacto y más claro, fácil de leer.
+  - Pasos para utilizarlo:
+    - Conectar plugin de redux para Chrome (para poder depurar el state desde Chrome)
+    - Crear constants (para respetar las buenas prácticas y porque ayudan a evitar errores en los tipos de las acciones)
+    - Instalación de Redux-Actions
+    - Utilización:
+      - Modificando el ActionCreator usado hasta ahora
+      - Simplificando el MapDispatchToProps del componente HomeContainer
 
 
 
