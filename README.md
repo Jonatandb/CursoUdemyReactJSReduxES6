@@ -2299,10 +2299,15 @@ component
   - Creación de función selectora, que recibe el state y devuelve la parte del mismo que corresponde, en el caso del CustomerContainer -> devuelve los customers.
 
 
+176. Json-Server
 
+  - https://github.com/typicode/json-server
 
+  - https://classic.yarnpkg.com/en/docs/cli/global/
 
+  - Agrego script personalizado para ejecutar json-server en el puerto 5000, ejecutar -> yarn start:db
 
+  - Se agregan customers de prueba al archivo db.json para consumir gracias a json-server como si fuera una API externa.
 
 
 
