@@ -15,7 +15,12 @@ function App() {
         <Route exact path="/customers" component={CustomersContainer} />
         <Switch>
           <Route path="/customers/new" component={CustomerNewContainer} />
-          <Route path="/customers/:dni" component={CustomerContainer} />
+          <Route
+            path="/customers/:dni"
+            render={(props) => (
+              <CustomerContainer dni={props.match.params.dni} />
+            )}
+          />
         </Switch>
       </>
     </Router>

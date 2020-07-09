@@ -2328,6 +2328,8 @@ component
 180. Creación de CustomerContainer
 
 
+181. Utilización de Route.render y paso de parámetros
+
 
 
 

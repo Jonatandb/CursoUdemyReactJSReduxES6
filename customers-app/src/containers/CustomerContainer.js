@@ -7,12 +7,17 @@ class CustomerContainer extends Component {
   render() {
     return (
       <div>
-        <AppFrame title="Cliente ###" body={<h1>Datos del cliente</h1>} />
+        <AppFrame
+          title={`Cliente ${this.props.dni}`}
+          body={<h1>Datos del cliente</h1>}
+        />
       </div>
     );
   }
 }
 
-CustomerContainer.propTypes = {};
+CustomerContainer.propTypes = {
+  dni: PropTypes.string.isRequired,
+};
 
 export default connect(null, null)(CustomerContainer);
