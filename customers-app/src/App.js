@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import HomeContainer from "./containers/HomeContainer";
 import CustomersContainer from "./containers/CustomersContainer";
+import CustomerContainer from "./containers/CustomerContainer";
 
-const CustomerContainer = () => <h1>Customer Container</h1>;
 const CustomerNewContainer = () => <h1>Customer New Container</h1>;
 
 function App() {

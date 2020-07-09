@@ -2325,6 +2325,8 @@ component
 179. Redux-Promise a fondo
 
 
+180. Creación de CustomerContainer
+
 
 
 
