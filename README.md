@@ -2293,8 +2293,10 @@ component
 
   - https://github.com/redux-utilities/redux-actions
 
-  -
 
+175. Utilización de Selector
+
+  - Creación de función selectora, que recibe el state y devuelve la parte del mismo que corresponde, en el caso del CustomerContainer -> devuelve los customers.
 
 
 
