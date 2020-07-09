@@ -2279,6 +2279,25 @@ component
       - Simplificando el MapDispatchToProps del componente HomeContainer
 
 
+173. Utilización de DefautlProps, HandleAction y HandleActions
+
+  Redux-actions -> handleAction:
+  - Funcionalidad para manejar los reducers
+  - Recibe el type de la acción y la función de transformación del reducer
+
+  Redux-actions -> handleActions:
+  - Similar a handleAction pero recibe un objeto, en el cual cada propiedad es del type de una acción y el valor es un reducer que recibe el state y debe devolver el nuevo state para esa acción.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
