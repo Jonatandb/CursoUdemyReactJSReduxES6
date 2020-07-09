@@ -2303,11 +2303,26 @@ component
 
   - https://github.com/typicode/json-server
 
+  - Sample data by Json-Server -> http://jsonplaceholder.typicode.com/
+
   - https://classic.yarnpkg.com/en/docs/cli/global/
 
   - Agrego script personalizado para ejecutar json-server en el puerto 5000, ejecutar -> yarn start:db
 
   - Se agregan customers de prueba al archivo db.json para consumir gracias a json-server como si fuera una API externa.
+
+
+177. Middlware Redux-Promise
+
+  - Cuando se utiliza promiseMiddleware de redux-promise, al hacerse dispatch de una acción que tiene como payload un promise, redux-promise detiene la propagación de la acción y solo le hace dispatch cuando se resuelve la promesa detectada, pasando como payload la respuesta en un nuevo dispatch de una acción con el type de la acción interceptada inicialmente.
+
+
+
+
+
+
+
+
 
 
 
