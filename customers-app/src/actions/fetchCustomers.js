@@ -7,4 +7,4 @@ const customers = [
   { dni: "33333333", name: "Cliente 3", age: 3 },
 ];
 
-export const fetchCustomers = createAction(FETCH_CUSTOMERS);
+export const fetchCustomers = createAction(FETCH_CUSTOMERS, () => customers);

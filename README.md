@@ -2289,6 +2289,11 @@ component
   - Similar a handleAction pero recibe un objeto, en el cual cada propiedad es del type de una acción y el valor es un reducer que recibe el state y debe devolver el nuevo state para esa acción.
 
 
+174. createAction: payloadCreator
+
+  - https://github.com/redux-utilities/redux-actions
+
+  -
 
 
 
