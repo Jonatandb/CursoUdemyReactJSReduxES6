@@ -2314,10 +2314,12 @@ component
 
 177. Middlware Redux-Promise
 
-  - Cuando se utiliza promiseMiddleware de redux-promise, al hacerse dispatch de una acción que tiene como payload un promise, redux-promise detiene la propagación de la acción y solo le hace dispatch cuando se resuelve la promesa detectada, pasando como payload la respuesta en un nuevo dispatch de una acción con el type de la acción interceptada inicialmente.
+  - Cuando se utiliza promiseMiddleware de redux-promise, al hacerse dispatch de una acción que tiene como payload una promise, redux-promise detiene la propagación de la acción y solo le hace dispatch cuando se resuelve la promesa detectada, pasando como payload la respuesta en un nuevo dispatch de una acción con el type de la acción interceptada inicialmente.
 
 
+178. Api Get
 
+  - Refactor para creación de carpeta llamada api que posee las urls y funciones necesarias para interactuar con la API
 
 
 
