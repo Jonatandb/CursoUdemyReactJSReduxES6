@@ -2322,7 +2322,7 @@ component
   - Refactor para creación de carpeta llamada api que posee las urls y funciones necesarias para interactuar con la API
 
 
-
+179. Redux-Promise a fondo
 
 
 
