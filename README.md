@@ -2331,6 +2331,7 @@ component
 181. Utilización de Route.render y paso de parámetros
 
 
+182. Utilización de segundo parámetro "Props" en MapStateToProps
 
 
 
