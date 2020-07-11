@@ -2343,6 +2343,27 @@ component
 185. Spread Properties y Component Type en ejecución
 
 
+186. Forms en React vs Redux Forms
+
+  - https://redux-form.com/8.3.0/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
