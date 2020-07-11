@@ -2351,6 +2351,9 @@ component
 187. Instalación de Redux Form, incorporación del reducer
 
 
+188. Utilización de Fields de Redux Form
+
+
 
 
 
