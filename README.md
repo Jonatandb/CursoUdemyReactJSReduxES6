@@ -2337,6 +2337,8 @@ component
 183. Refactor y utilización de reselect
 
 
+184. Ruteo dinámico y propiedad "children" de Route
+
 
 
 
