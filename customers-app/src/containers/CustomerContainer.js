@@ -12,7 +12,6 @@ class CustomerContainer extends Component {
     <Route
       path="/customers/:dni/edit"
       children={({ match }) => {
-        console.error("renderBody de CustomerContainer");
         const CustomerControl = match ? CustomerEdit : CustomerData;
         return <CustomerControl {...this.props.customer} />;
       }}

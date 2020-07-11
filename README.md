@@ -2348,6 +2348,8 @@ component
   - https://redux-form.com/8.3.0/
 
 
+187. Instalación de Redux Form, incorporación del reducer
+
 
 
 
