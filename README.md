@@ -2334,6 +2334,8 @@ component
 182. Utilización de segundo parámetro "Props" en MapStateToProps
 
 
+183. Refactor y utilización de reselect
+
 
 
 
